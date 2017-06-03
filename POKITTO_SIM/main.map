@@ -1,0 +1,1463 @@
+Archive member included to satisfy reference by file (symbol)
+
+../lib/linux/libPokitto_sim.a(PokittoCore.o)
+                              obj/Debug/POKITTO_SIM/PokittoSimCore.o (Pokitto::Core::run_state)
+../lib/linux/libPokitto_sim.a(PokittoDisplay.o)
+                              ../lib/linux/libPokitto_sim.a(PokittoCore.o) (Pokitto::Display::cursorX)
+../lib/linux/libPokitto_sim.a(PokittoLogos.o)
+                              ../lib/linux/libPokitto_sim.a(PokittoCore.o) (Pokitto_logo)
+../lib/linux/libPokitto_sim.a(PokittoSound.o)
+                              ../lib/linux/libPokitto_sim.a(PokittoCore.o) (Pokitto::Sound::prescaler)
+../lib/linux/libPokitto_sim.a(Synth.o)
+                              ../lib/linux/libPokitto_sim.a(PokittoSound.o) (osc1)
+../lib/linux/libPokitto_sim.a(Synth_oscfuncs.o)
+                              ../lib/linux/libPokitto_sim.a(PokittoSound.o) (setOSC(OSC*, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned short, unsigned short, unsigned short, unsigned short, short, short, unsigned char, unsigned char, unsigned char))
+../lib/linux/libPokitto_sim.a(Synth_wavefuncs.o)
+                              ../lib/linux/libPokitto_sim.a(Synth_oscfuncs.o) (noiseval)
+../lib/linux/libPokitto_sim.a(SimLCD.o)
+                              ../lib/linux/libPokitto_sim.a(PokittoDisplay.o) (Pokitto::lcdInit())
+../lib/linux/libPokitto_sim.a(SimSound.o)
+                              obj/Debug/POKITTO_SIM/PokittoSimulator.o (soundbyte)
+../lib/linux/libPokitto_sim.a(font5x7.o)
+                              ../lib/linux/libPokitto_sim.a(PokittoCore.o) (font5x7)
+../lib/linux/libPokitto_sim.a(palCGA.o)
+                              ../lib/linux/libPokitto_sim.a(PokittoDisplay.o) (paletteCGA)
+../lib/linux/libPokitto_sim.a(PokittoBacklight.o)
+                              ../lib/linux/libPokitto_sim.a(PokittoCore.o) (Pokitto::Backlight::begin())
+../lib/linux/libPokitto_sim.a(PokittoBattery.o)
+                              ../lib/linux/libPokitto_sim.a(PokittoCore.o) (Pokitto::Battery::show)
+../lib/linux/libPokitto_sim.a(PokittoButtons.o)
+                              ../lib/linux/libPokitto_sim.a(PokittoCore.o) (Pokitto::Buttons::begin())
+../lib/linux/libPokitto_sim.a(Synth_envfuncs.o)
+                              ../lib/linux/libPokitto_sim.a(Synth_wavefuncs.o) (noADSR(OSC*))
+../lib/linux/libPokitto_sim.a(Synth_helpers.o)
+                              ../lib/linux/libPokitto_sim.a(Synth_oscfuncs.o) (xorshift16())
+../lib/linux/libPokitto_sim.a(Synth_mixfuncs.o)
+                              ../lib/linux/libPokitto_sim.a(Synth_wavefuncs.o) (mix1())
+/usr/lib/x86_64-linux-gnu/libc_nonshared.a(elf-init.oS)
+                              /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o (__libc_csu_init)
+
+As-needed library included to satisfy reference by file (symbol)
+
+libSDL2-2.0.so.0              obj/Debug/POKITTO_SIM/PokittoSimulator.o (SDL_AddTimer)
+libwayland-server.so.0        /usr/lib/x86_64-linux-gnu/libSDL2.so (wl_shell_interface)
+libstdc++.so.6                obj/Debug/POKITTO_SIM/PokittoSimulator.o (std::basic_ios<char, std::char_traits<char> >::operator void*() const@@GLIBCXX_3.4)
+libgcc_s.so.1                 obj/Debug/POKITTO_SIM/PokittoSimulator.o (_Unwind_Resume@@GCC_3.0)
+libc.so.6                     ../lib/linux/libPokitto_sim.a(Synth_helpers.o) (strcpy@@GLIBC_2.2.5)
+
+Discarded input sections
+
+ .note.GNU-stack
+                0x0000000000000000        0x0 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
+ .gnu_debuglink
+                0x0000000000000000        0xc /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o
+ .gnu_debuglink
+                0x0000000000000000        0xc /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 obj/Debug/Hello.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 obj/Debug/POKITTO_SIM/Makewav.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 obj/Debug/POKITTO_SIM/Pokitto_simport.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 obj/Debug/POKITTO_SIM/PokittoClock.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 obj/Debug/POKITTO_SIM/PokittoSimButtons.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 obj/Debug/POKITTO_SIM/PokittoSimCore.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 obj/Debug/POKITTO_SIM/PokittoSimulator.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 ../lib/linux/libPokitto_sim.a(PokittoCore.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 ../lib/linux/libPokitto_sim.a(PokittoDisplay.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 ../lib/linux/libPokitto_sim.a(PokittoLogos.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 ../lib/linux/libPokitto_sim.a(PokittoSound.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 ../lib/linux/libPokitto_sim.a(Synth.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 ../lib/linux/libPokitto_sim.a(Synth_oscfuncs.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 ../lib/linux/libPokitto_sim.a(Synth_wavefuncs.o)
+ .group         0x0000000000000000        0x8 ../lib/linux/libPokitto_sim.a(SimLCD.o)
+ .group         0x0000000000000000        0x8 ../lib/linux/libPokitto_sim.a(SimLCD.o)
+ .group         0x0000000000000000        0x8 ../lib/linux/libPokitto_sim.a(SimLCD.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 ../lib/linux/libPokitto_sim.a(SimLCD.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 ../lib/linux/libPokitto_sim.a(SimSound.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 ../lib/linux/libPokitto_sim.a(font5x7.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 ../lib/linux/libPokitto_sim.a(palCGA.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 ../lib/linux/libPokitto_sim.a(PokittoBacklight.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 ../lib/linux/libPokitto_sim.a(PokittoBattery.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 ../lib/linux/libPokitto_sim.a(PokittoButtons.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 ../lib/linux/libPokitto_sim.a(Synth_envfuncs.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 ../lib/linux/libPokitto_sim.a(Synth_helpers.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 ../lib/linux/libPokitto_sim.a(Synth_mixfuncs.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 /usr/lib/x86_64-linux-gnu/libc_nonshared.a(elf-init.oS)
+ .note.GNU-stack
+                0x0000000000000000        0x0 /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
+ .gnu_debuglink
+                0x0000000000000000        0xc /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
+LOAD /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o
+LOAD /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o
+LOAD obj/Debug/Hello.o
+LOAD obj/Debug/POKITTO_SIM/Makewav.o
+LOAD obj/Debug/POKITTO_SIM/Pokitto_simport.o
+LOAD obj/Debug/POKITTO_SIM/PokittoClock.o
+LOAD obj/Debug/POKITTO_SIM/PokittoSimButtons.o
+LOAD obj/Debug/POKITTO_SIM/PokittoSimCore.o
+LOAD obj/Debug/POKITTO_SIM/PokittoSimulator.o
+LOAD ../lib/linux/libPokitto_sim.a
+LOAD /usr/lib/x86_64-linux-gnu/libpulse-mainloop-glib.so
+LOAD /usr/lib/x86_64-linux-gnu/libpulse-simple.so
+LOAD /usr/lib/x86_64-linux-gnu/libpulse.so
+LOAD /usr/lib/x86_64-linux-gnu/libdl.so
+LOAD /usr/lib/x86_64-linux-gnu/libSDL2.so
+LOAD /usr/lib/x86_64-linux-gnu/libwayland-server.so
+LOAD /usr/lib/x86_64-linux-gnu/libwayland-client.so
+LOAD /usr/lib/x86_64-linux-gnu/libasound.so
+LOAD /usr/lib/x86_64-linux-gnu/libwayland-cursor.so
+LOAD /usr/lib/gcc/x86_64-linux-gnu/4.8/libstdc++.so
+LOAD /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/libm.so
+LOAD /usr/lib/gcc/x86_64-linux-gnu/4.8/libgcc_s.so
+LOAD /usr/lib/gcc/x86_64-linux-gnu/4.8/libgcc.a
+LOAD /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/libc.so
+START GROUP
+LOAD /lib/x86_64-linux-gnu/libc.so.6
+LOAD /usr/lib/x86_64-linux-gnu/libc_nonshared.a
+LOAD /lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+END GROUP
+LOAD /usr/lib/gcc/x86_64-linux-gnu/4.8/libgcc_s.so
+LOAD /usr/lib/gcc/x86_64-linux-gnu/4.8/libgcc.a
+LOAD /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o
+LOAD /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
+                0x0000000000400000                PROVIDE (__executable_start, 0x400000)
+                0x0000000000400238                . = (0x400000 + SIZEOF_HEADERS)
+
+.interp         0x0000000000400238       0x1c
+ *(.interp)
+ .interp        0x0000000000400238       0x1c /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
+
+.note.ABI-tag   0x0000000000400254       0x20
+ .note.ABI-tag  0x0000000000400254       0x20 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
+
+.note.gnu.build-id
+                0x0000000000400274       0x24
+ *(.note.gnu.build-id)
+ .note.gnu.build-id
+                0x0000000000400274       0x24 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
+
+.hash
+ *(.hash)
+
+.gnu.hash       0x0000000000400298       0x50
+ *(.gnu.hash)
+ .gnu.hash      0x0000000000400298       0x50 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
+
+.dynsym         0x00000000004002e8      0x630
+ *(.dynsym)
+ .dynsym        0x00000000004002e8      0x630 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
+
+.dynstr         0x0000000000400918      0x505
+ *(.dynstr)
+ .dynstr        0x0000000000400918      0x505 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
+
+.gnu.version    0x0000000000400e1e       0x84
+ *(.gnu.version)
+ .gnu.version   0x0000000000400e1e       0x84 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
+
+.gnu.version_d  0x0000000000400ea8        0x0
+ *(.gnu.version_d)
+ .gnu.version_d
+                0x0000000000000000        0x0 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
+
+.gnu.version_r  0x0000000000400ea8       0xa0
+ *(.gnu.version_r)
+ .gnu.version_r
+                0x0000000000400ea8       0xa0 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
+
+.rela.dyn       0x0000000000400f48       0x48
+ *(.rela.init)
+ *(.rela.text .rela.text.* .rela.gnu.linkonce.t.*)
+ .rela.text     0x0000000000000000        0x0 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
+ *(.rela.fini)
+ *(.rela.rodata .rela.rodata.* .rela.gnu.linkonce.r.*)
+ .rela.rodata   0x0000000000000000        0x0 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
+ *(.rela.data .rela.data.* .rela.gnu.linkonce.d.*)
+ .rela.data     0x0000000000000000        0x0 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
+ *(.rela.tdata .rela.tdata.* .rela.gnu.linkonce.td.*)
+ *(.rela.tbss .rela.tbss.* .rela.gnu.linkonce.tb.*)
+ *(.rela.ctors)
+ *(.rela.dtors)
+ *(.rela.got)
+ .rela.got      0x0000000000400f48       0x18 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
+ *(.rela.bss .rela.bss.* .rela.gnu.linkonce.b.*)
+ .rela.bss      0x0000000000400f60       0x30 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
+ *(.rela.ldata .rela.ldata.* .rela.gnu.linkonce.l.*)
+ *(.rela.lbss .rela.lbss.* .rela.gnu.linkonce.lb.*)
+ *(.rela.lrodata .rela.lrodata.* .rela.gnu.linkonce.lr.*)
+ *(.rela.ifunc)
+ .rela.eh_frame
+                0x0000000000000000        0x0 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
+
+.rela.plt       0x0000000000400f90      0x528
+ *(.rela.plt)
+ .rela.plt      0x0000000000400f90      0x528 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
+                0x00000000004014b8                PROVIDE (__rela_iplt_start, .)
+ *(.rela.iplt)
+ .rela.iplt     0x0000000000000000        0x0 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
+                0x00000000004014b8                PROVIDE (__rela_iplt_end, .)
+
+.init           0x00000000004014b8       0x1a
+ *(SORT(.init))
+ .init          0x00000000004014b8       0x15 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o
+                0x00000000004014b8                _init
+ .init          0x00000000004014cd        0x5 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
+
+.plt            0x00000000004014e0      0x380
+ *(.plt)
+ .plt           0x00000000004014e0      0x380 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
+                0x00000000004014f0                ftell@@GLIBC_2.2.5
+                0x0000000000401500                SDL_DestroyWindow
+                0x0000000000401510                SDL_CreateRenderer
+                0x0000000000401520                printf@@GLIBC_2.2.5
+                0x0000000000401530                SDL_CreateWindow
+                0x0000000000401540                SDL_Quit
+                0x0000000000401550                SDL_RenderPresent
+                0x0000000000401560                SDL_AddTimer
+                0x0000000000401570                rand@@GLIBC_2.2.5
+                0x0000000000401580                std::basic_istream<char, std::char_traits<char> >& std::getline<char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >&)@@GLIBCXX_3.4
+                0x0000000000401590                std::string::operator[](unsigned long)@@GLIBCXX_3.4
+                0x00000000004015a0                SDL_memset
+                0x00000000004015b0                std::basic_ostream<char, std::char_traits<char> >& std::endl<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&)@@GLIBCXX_3.4
+                0x00000000004015c0                memset@@GLIBC_2.2.5
+                0x00000000004015d0                SDL_PollEvent
+                0x00000000004015e0                __assert_fail@@GLIBC_2.2.5
+                0x00000000004015f0                SDL_Delay
+                0x0000000000401600                SDL_GetError
+                0x0000000000401610                SDL_UpdateTexture
+                0x0000000000401620                SDL_PauseAudio
+                0x0000000000401630                __cxa_atexit@@GLIBC_2.2.5
+                0x0000000000401640                SDL_Init
+                0x0000000000401650                std::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string()@@GLIBCXX_3.4
+                0x0000000000401660                SDL_InitSubSystem
+                0x0000000000401670                strcpy@@GLIBC_2.2.5
+                0x0000000000401680                SDL_RenderClear
+                0x0000000000401690                srand@@GLIBC_2.2.5
+                0x00000000004016a0                std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*)@@GLIBCXX_3.4
+                0x00000000004016b0                fclose@@GLIBC_2.2.5
+                0x00000000004016c0                SDL_GetTicks
+                0x00000000004016d0                std::ostream::operator<<(std::ostream& (*)(std::ostream&))@@GLIBCXX_3.4
+                0x00000000004016e0                SDL_GameControllerClose
+                0x00000000004016f0                fseek@@GLIBC_2.2.5
+                0x0000000000401700                __stack_chk_fail@@GLIBC_2.4
+                0x0000000000401710                SDL_RenderCopy
+                0x0000000000401720                fopen@@GLIBC_2.2.5
+                0x0000000000401730                exit@@GLIBC_2.2.5
+                0x0000000000401740                SDL_OpenAudioDevice
+                0x0000000000401750                SDL_PauseAudioDevice
+                0x0000000000401760                std::ios_base::Init::Init()@@GLIBCXX_3.4
+                0x0000000000401770                puts@@GLIBC_2.2.5
+                0x0000000000401780                std::basic_ios<char, std::char_traits<char> >::operator void*() const@@GLIBCXX_3.4
+                0x0000000000401790                fgetc@@GLIBC_2.2.5
+                0x00000000004017a0                std::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string()@@GLIBCXX_3.4
+                0x00000000004017b0                std::basic_ostringstream<char, std::char_traits<char>, std::allocator<char> >::basic_ostringstream(std::_Ios_Openmode)@@GLIBCXX_3.4
+                0x00000000004017c0                __gxx_personality_v0@@CXXABI_1.3
+                0x00000000004017d0                __pthread_key_create@@GLIBC_2.2.5
+                0x00000000004017e0                _Unwind_Resume@@GCC_3.0
+                0x00000000004017f0                SDL_CreateTexture
+                0x0000000000401800                __libc_start_main@@GLIBC_2.2.5
+                0x0000000000401820                std::string::length() const@@GLIBCXX_3.4
+                0x0000000000401830                fwrite@@GLIBC_2.2.5
+                0x0000000000401840                std::basic_ostringstream<char, std::char_traits<char>, std::allocator<char> >::~basic_ostringstream()@@GLIBCXX_3.4
+                0x0000000000401850                std::ios_base::Init::~Init()@@GLIBCXX_3.4
+ *(.iplt)
+ .iplt          0x0000000000000000        0x0 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
+
+.text           0x0000000000401860     0xc852
+ *(.text.unlikely .text.*_unlikely .text.unlikely.*)
+ *(.text.exit .text.exit.*)
+ *(.text.startup .text.startup.*)
+ *(.text.hot .text.hot.*)
+ *(.text .stub .text.* .gnu.linkonce.t.*)
+ .text          0x0000000000401860       0x2a /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
+                0x0000000000401860                _start
+ .text          0x000000000040188a        0x0 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o
+ *fill*         0x000000000040188a        0x6 
+ .text          0x0000000000401890       0xbd /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o
+ .text          0x000000000040194d       0x6c obj/Debug/Hello.o
+                0x000000000040194d                main
+ .text          0x00000000004019b9      0x2e9 obj/Debug/POKITTO_SIM/Makewav.o
+                0x00000000004019b9                write_little_endian(unsigned int, int, _IO_FILE*)
+                0x0000000000401a03                write_wav(char*, char*, int)
+ .text          0x0000000000401ca2        0x9 obj/Debug/POKITTO_SIM/Pokitto_simport.o
+                0x0000000000401ca2                ext_write(unsigned int)
+ *fill*         0x0000000000401cab        0x1 
+ .text          0x0000000000401cac       0x68 obj/Debug/POKITTO_SIM/PokittoClock.o
+                0x0000000000401cac                Pokitto::Core::initClock()
+                0x0000000000401cbe                Pokitto::Core::getTime()
+                0x0000000000401cda                Pokitto::Core::wait(unsigned short)
+ .text          0x0000000000401d14      0x524 obj/Debug/POKITTO_SIM/PokittoSimButtons.o
+                0x0000000000401d14                Pokitto::Simulator::pollButtons()
+                0x0000000000401f7e                Pokitto::Simulator::upHeld()
+                0x0000000000401fa2                Pokitto::Simulator::downHeld()
+                0x0000000000401fc6                Pokitto::Simulator::leftHeld()
+                0x0000000000401fea                Pokitto::Simulator::rightHeld()
+                0x000000000040200e                Pokitto::Simulator::aHeld()
+                0x0000000000402032                Pokitto::Simulator::bHeld()
+                0x0000000000402056                Pokitto::Simulator::cHeld()
+                0x000000000040207a                Pokitto::Simulator::upReleased()
+                0x000000000040209e                Pokitto::Simulator::downReleased()
+                0x00000000004020c2                Pokitto::Simulator::leftReleased()
+                0x00000000004020e6                Pokitto::Simulator::rightReleased()
+                0x000000000040210a                Pokitto::Simulator::aReleased()
+                0x000000000040212e                Pokitto::Simulator::bReleased()
+                0x0000000000402152                Pokitto::Simulator::cReleased()
+                0x0000000000402176                Pokitto::Simulator::leftBtn()
+                0x0000000000402186                Pokitto::Simulator::rightBtn()
+                0x0000000000402196                Pokitto::Simulator::upBtn()
+                0x00000000004021a6                Pokitto::Simulator::downBtn()
+                0x00000000004021b6                Pokitto::Simulator::aBtn()
+                0x00000000004021c6                Pokitto::Simulator::bBtn()
+                0x00000000004021d6                Pokitto::Simulator::cBtn()
+ .text          0x0000000000402238       0xb9 obj/Debug/POKITTO_SIM/PokittoSimCore.o
+                0x0000000000402238                Pokitto::Core::quit()
+                0x0000000000402246                Pokitto::Core::initRandom()
+                0x000000000040224c                Pokitto::Core::initGPIO()
+                0x0000000000402252                Pokitto::Core::initAudio()
+                0x0000000000402258                Pokitto::Core::pollButtons()
+                0x0000000000402264                Pokitto::Core::aBtn()
+                0x0000000000402270                Pokitto::Core::bBtn()
+                0x000000000040227c                Pokitto::Core::cBtn()
+                0x0000000000402288                Pokitto::Core::upBtn()
+                0x0000000000402294                Pokitto::Core::downBtn()
+                0x00000000004022a0                Pokitto::Core::leftBtn()
+                0x00000000004022ac                Pokitto::Core::rightBtn()
+                0x00000000004022b8                Pokitto::Core::ampIsOn()
+                0x00000000004022ce                Pokitto::Core::ampEnable(unsigned char)
+ *fill*         0x00000000004022f1        0x1 
+ .text          0x00000000004022f2      0xacc obj/Debug/POKITTO_SIM/PokittoSimulator.o
+                0x00000000004022f2                PromptForChar(char const*, char&)
+                0x00000000004023f3                rfrsh_callback(unsigned int, void*)
+                0x000000000040241a                Pokitto::Simulator::Simulator()
+                0x000000000040241a                Pokitto::Simulator::Simulator()
+                0x0000000000402444                Pokitto::Simulator::wait_ms(unsigned short)
+                0x0000000000402460                Pokitto::Simulator::initSDLGfx()
+                0x00000000004026c2                Pokitto::Simulator::waitSDL(unsigned short)
+                0x00000000004026de                Pokitto::Simulator::quit()
+                0x00000000004026fc                Pokitto::Simulator::isRunning()
+                0x000000000040270e                Pokitto::Simulator::refreshDisplay()
+                0x00000000004028c2                Pokitto::Simulator::directSDLPixel(short, short, unsigned short)
+                0x000000000040292a                Pokitto::Simulator::directSDLRectangle(short, short, short, short, unsigned short)
+                0x00000000004029f4                Pokitto::Simulator::fillSDLSurface(unsigned short)
+                0x0000000000402a2c                Pokitto::Simulator::killSound()
+                0x0000000000402a4c                Pokitto::Simulator::CleanUp()
+                0x0000000000402b61                simAudioCallback(void*, unsigned char*, int)
+                0x0000000000402bd4                Pokitto::Simulator::initSDLAudio()
+                0x0000000000402d0c                Pokitto::Simulator::pauseSDLAudio(unsigned char)
+                0x0000000000402d2a                Pokitto::Simulator::simSoundEnabled(int)
+                0x0000000000402d4e                Pokitto::Simulator::simSoundIsOn()
+ .text          0x0000000000402dbe     0x14b8 ../lib/linux/libPokitto_sim.a(PokittoCore.o)
+                0x0000000000402dbe                random(int)
+                0x0000000000402dda                random(int, int)
+                0x0000000000402e04                Pokitto::Core::Core()
+                0x0000000000402e04                Pokitto::Core::Core()
+                0x0000000000402e0e                Pokitto::Core::begin()
+                0x0000000000402e5e                Pokitto::Core::init()
+                0x0000000000402e8e                Pokitto::Core::init(unsigned char)
+                0x0000000000402ec8                Pokitto::Core::initButtons()
+                0x0000000000402ece                Pokitto::Core::isRunning()
+                0x0000000000402eec                Pokitto::Core::initDisplay()
+                0x0000000000402ef8                Pokitto::Core::showLogo()
+                0x0000000000403082                Pokitto::Core::readSettings()
+                0x000000000040309e                Pokitto::Core::titleScreen(char const*)
+                0x00000000004030be                Pokitto::Core::titleScreen(unsigned char const*)
+                0x00000000004030de                Pokitto::Core::titleScreen()
+                0x00000000004030ee                Pokitto::Core::titleScreen(char const*, unsigned char const*)
+                0x000000000040330e                Pokitto::Core::update()
+                0x00000000004033d4                Pokitto::Core::displayBattery()
+                0x0000000000403508                Pokitto::Core::menu(char const* const*, unsigned char)
+                0x0000000000403796                Pokitto::Core::keyboard(char*, unsigned char)
+                0x0000000000403d80                Pokitto::Core::popup(char const*, unsigned char)
+                0x0000000000403da8                Pokitto::Core::updatePopup()
+                0x0000000000403eba                Pokitto::Core::setFrameRate(unsigned char)
+                0x0000000000403f20                Pokitto::Core::pickRandomSeed()
+                0x0000000000403f32                Pokitto::Core::collidePointRect(short, short, short, short, short, short)
+                0x0000000000403f9a                Pokitto::Core::collideRectRect(short, short, short, short, short, short, short, short)
+                0x0000000000404024                Pokitto::Core::collideBitmapBitmap(short, short, unsigned char const*, short, short, unsigned char const*)
+ .text          0x0000000000404276     0x4fd5 ../lib/linux/libPokitto_sim.a(PokittoDisplay.o)
+                0x0000000000404276                Pokitto::Display::Display()
+                0x0000000000404276                Pokitto::Display::Display()
+                0x00000000004042d0                Pokitto::Display::getWidth()
+                0x00000000004042e0                Pokitto::Display::getNumberOfColors()
+                0x00000000004042ec                Pokitto::Display::getHeight()
+                0x00000000004042fc                Pokitto::Display::getColorDepth()
+                0x000000000040430a                Pokitto::Display::setColorDepth(unsigned char)
+                0x000000000040432a                Pokitto::Display::clearLCD()
+                0x000000000040434a                Pokitto::Display::fillLCD(unsigned short)
+                0x0000000000404366                Pokitto::Display::directPixel(short, short, unsigned short)
+                0x0000000000404396                Pokitto::Display::directRectangle(short, short, short, short, unsigned short)
+                0x00000000004043d8                Pokitto::Display::begin()
+                0x00000000004043e4                Pokitto::Display::setCursor(short, short)
+                0x000000000040440a                Pokitto::Display::update()
+                0x000000000040443a                Pokitto::Display::directBitmap(short, short, unsigned char const*, unsigned char, unsigned char)
+                0x00000000004047e2                Pokitto::Display::directChar(short, short, unsigned short)
+                0x0000000000404986                Pokitto::Display::bufferChar(short, short, unsigned short)
+                0x0000000000404b14                Pokitto::Display::clear()
+                0x0000000000404bce                Pokitto::Display::fillScreen(unsigned short)
+                0x0000000000404c6e                Pokitto::Display::setDefaultPalette()
+                0x0000000000404c7e                Pokitto::Display::loadRGBPalette(unsigned char const*)
+                0x0000000000404d14                Pokitto::Display::load565Palette(unsigned short const*)
+                0x0000000000404d5c                Pokitto::Display::rotatePalette(signed char)
+                0x0000000000404e8a                Pokitto::Display::RGBto565(unsigned char, unsigned char, unsigned char)
+                0x0000000000404eda                Pokitto::Display::interpolateColor(unsigned short, unsigned short, unsigned char)
+                0x000000000040500e                Pokitto::Display::tweenPalette(unsigned short*, unsigned short const*, unsigned short const*, unsigned char)
+                0x0000000000405090                Pokitto::Display::setColor(unsigned char)
+                0x00000000004050aa                Pokitto::Display::setColor(unsigned char, unsigned char)
+                0x00000000004050d6                Pokitto::Display::setInvisibleColor(unsigned short)
+                0x00000000004050ee                Pokitto::Display::getColor()
+                0x00000000004050fc                Pokitto::Display::getBgColor()
+                0x000000000040510a                Pokitto::Display::getInvisibleColor()
+                0x0000000000405118                Pokitto::Display::drawPixel(short, short, unsigned char)
+                0x00000000004051ee                Pokitto::Display::drawPixel(short, short)
+                0x00000000004052b2                Pokitto::Display::getPixel(short, short)
+                0x0000000000405342                Pokitto::Display::drawLine(short, short, short, short)
+                0x000000000040558a                Pokitto::Display::clipLine(short*, short*, short*, short*)
+                0x0000000000405902                Pokitto::Display::map1BitColumn(short, short, short, unsigned char const*, unsigned short)
+                0x0000000000405ac4                Pokitto::Display::drawColumn(short, short, short)
+                0x0000000000405b64                Pokitto::Display::drawRow(short, short, short)
+                0x0000000000405c02                Pokitto::Display::drawFastVLine(short, short, short)
+                0x0000000000405c5a                Pokitto::Display::drawFastHLine(short, short, short)
+                0x0000000000405cb4                Pokitto::Display::drawRectangle(short, short, short, short)
+                0x0000000000405d58                Pokitto::Display::fillRectangle(short, short, short, short)
+                0x0000000000405e8c                Pokitto::Display::fillRect(short, short, short, short)
+                0x0000000000405ec0                Pokitto::Display::drawRect(short, short, short, short)
+                0x0000000000405ef4                Pokitto::Display::drawCircle(short, short, short)
+                0x0000000000406126                Pokitto::Display::drawCircleHelper(short, short, short, unsigned short)
+                0x000000000040631e                Pokitto::Display::fillCircle(short, short, short)
+                0x000000000040637c                Pokitto::Display::fillCircleHelper(short, short, short, unsigned short, short)
+                0x000000000040651e                Pokitto::Display::drawRoundRect(short, short, short, short, short)
+                0x000000000040670a                Pokitto::Display::fillRoundRect(short, short, short, short, short)
+                0x0000000000406820                Pokitto::Display::drawTriangle(short, short, short, short, short, short)
+                0x000000000040688e                Pokitto::Display::fillTriangle(short, short, short, short, short, short)
+                0x0000000000406c1c                Pokitto::Display::setFont(unsigned char const*)
+                0x0000000000406c5c                Pokitto::Display::drawMonoBitmap(short, short, unsigned char const*, unsigned char)
+                0x0000000000406fb2                Pokitto::Display::drawBitmap(short, short, unsigned char const*, unsigned char)
+                0x0000000000407660                Pokitto::Display::drawBitmap(short, short, unsigned char const*)
+                0x0000000000407ce4                Pokitto::Display::drawBitmapXFlipped(short, short, unsigned char const*)
+                0x000000000040838a                Pokitto::Display::drawBitmap(short, short, unsigned char const*, unsigned char, unsigned char)
+                0x00000000004083de                Pokitto::Display::getBuffer()
+                0x00000000004083ec                Pokitto::Display::getBitmapPixel(unsigned char const*, unsigned short, unsigned short)
+                0x0000000000408458                Pokitto::Display::print_char(unsigned char, unsigned char, unsigned char)
+                0x00000000004084b8                Pokitto::Display::drawChar(signed char, signed char, unsigned char, unsigned char)
+                0x00000000004084ee                Pokitto::Display::enableDirectPrinting(unsigned char)
+                0x000000000040853e                Pokitto::Display::write(unsigned char)
+                0x000000000040869c                Pokitto::Display::inc_txtline()
+                0x00000000004086f8                Pokitto::Display::write(char const*)
+                0x000000000040872c                Pokitto::Display::write(unsigned char const*, unsigned char)
+                0x000000000040876e                Pokitto::Display::print(char const*)
+                0x0000000000408788                Pokitto::Display::print(char, int)
+                0x00000000004087ac                Pokitto::Display::print(unsigned char, int)
+                0x00000000004087d0                Pokitto::Display::print(int, int)
+                0x00000000004087f2                Pokitto::Display::print(unsigned int, int)
+                0x0000000000408812                Pokitto::Display::print(long, int)
+                0x0000000000408880                Pokitto::Display::print(unsigned long, int)
+                0x00000000004088bc                Pokitto::Display::print(double, int)
+                0x00000000004088e8                Pokitto::Display::println()
+                0x000000000040890c                Pokitto::Display::println(char const*)
+                0x000000000040892c                Pokitto::Display::println(char, int)
+                0x0000000000408954                Pokitto::Display::println(unsigned char, int)
+                0x000000000040897c                Pokitto::Display::println(int, int)
+                0x00000000004089a0                Pokitto::Display::println(unsigned int, int)
+                0x00000000004089c4                Pokitto::Display::println(long, int)
+                0x00000000004089ec                Pokitto::Display::println(unsigned long, int)
+                0x0000000000408a14                Pokitto::Display::println(double, int)
+                0x0000000000408a42                Pokitto::Display::set_cursor(unsigned char, unsigned char)
+                0x0000000000408a66                Pokitto::Display::print(unsigned char, unsigned char, char const*)
+                0x0000000000408a9e                Pokitto::Display::print(unsigned char, unsigned char, char, int)
+                0x0000000000408ade                Pokitto::Display::print(unsigned char, unsigned char, unsigned char, int)
+                0x0000000000408b1e                Pokitto::Display::print(unsigned char, unsigned char, int, int)
+                0x0000000000408b5e                Pokitto::Display::print(unsigned char, unsigned char, unsigned int, int)
+                0x0000000000408b9c                Pokitto::Display::print(unsigned char, unsigned char, long, int)
+                0x0000000000408bdc                Pokitto::Display::print(unsigned char, unsigned char, unsigned long, int)
+                0x0000000000408c1c                Pokitto::Display::print(unsigned char, unsigned char, double, int)
+                0x0000000000408c64                Pokitto::Display::println(unsigned char, unsigned char, char const*)
+                0x0000000000408ca2                Pokitto::Display::println(unsigned char, unsigned char, char, int)
+                0x0000000000408ce6                Pokitto::Display::println(unsigned char, unsigned char, unsigned char, int)
+                0x0000000000408d2a                Pokitto::Display::println(unsigned char, unsigned char, int, int)
+                0x0000000000408d6c                Pokitto::Display::println(unsigned char, unsigned char, unsigned int, int)
+                0x0000000000408dae                Pokitto::Display::println(unsigned char, unsigned char, long, int)
+                0x0000000000408df2                Pokitto::Display::println(unsigned char, unsigned char, unsigned long, int)
+                0x0000000000408e36                Pokitto::Display::println(unsigned char, unsigned char, double, int)
+                0x0000000000408e82                Pokitto::Display::printNumber(unsigned long, unsigned char)
+                0x0000000000408f74                Pokitto::Display::printFloat(double, unsigned char)
+                0x0000000000409102                Pokitto::Display::draw4BitColumn(short, short, unsigned char, unsigned char*)
+                0x0000000000409212                Pokitto::Display::lcdRefresh(unsigned char*)
+                0x0000000000409236                Pokitto::Display::setFrameBufferTo(unsigned char*)
+ .text          0x000000000040924b        0x0 ../lib/linux/libPokitto_sim.a(PokittoLogos.o)
+ *fill*         0x000000000040924b        0x1 
+ .text          0x000000000040924c      0x44a ../lib/linux/libPokitto_sim.a(PokittoSound.o)
+                0x000000000040924c                Pokitto::audio_IRQ()
+                0x0000000000409252                Pokitto::Sound::updateStream()
+                0x0000000000409258                Pokitto::Sound::begin()
+                0x0000000000409264                Pokitto::Sound::playTrack(unsigned short const*, unsigned char)
+                0x0000000000409274                Pokitto::Sound::stopTrack(unsigned char)
+                0x0000000000409280                Pokitto::Sound::stopTrack()
+                0x0000000000409286                Pokitto::Sound::updateTrack(unsigned char)
+                0x0000000000409292                Pokitto::Sound::updateTrack()
+                0x0000000000409298                Pokitto::Sound::changePatternSet(unsigned short const* const*, unsigned char)
+                0x00000000004092a8                Pokitto::Sound::playPattern(unsigned short const*, unsigned char)
+                0x00000000004092b8                Pokitto::Sound::updatePattern()
+                0x00000000004092be                Pokitto::Sound::changeInstrumentSet(unsigned short const* const*, unsigned char)
+                0x00000000004092ce                Pokitto::Sound::updatePattern(unsigned char)
+                0x00000000004092da                Pokitto::Sound::stopPattern(unsigned char)
+                0x00000000004092e6                Pokitto::Sound::stopPattern()
+                0x00000000004092ec                Pokitto::Sound::command(unsigned char, unsigned char, signed char, unsigned char)
+                0x0000000000409302                Pokitto::Sound::playNote(unsigned char, unsigned char, unsigned char)
+                0x0000000000409316                Pokitto::Sound::stopNote(unsigned char)
+                0x0000000000409322                Pokitto::Sound::stopNote()
+                0x0000000000409328                Pokitto::Sound::updateNote()
+                0x000000000040932e                Pokitto::Sound::updateNote(unsigned char)
+                0x000000000040933a                Pokitto::Sound::setChannelHalfPeriod(unsigned char, unsigned char)
+                0x000000000040934a                Pokitto::Sound::generateOutput()
+                0x0000000000409350                Pokitto::Sound::updateOutput()
+                0x0000000000409356                Pokitto::Sound::setPatternLooping(bool, unsigned char)
+                0x0000000000409366                Pokitto::Sound::playOK()
+                0x000000000040936c                Pokitto::Sound::playCancel()
+                0x0000000000409372                Pokitto::Sound::playTick()
+                0x0000000000409378                Pokitto::Sound::setVolume(signed char)
+                0x0000000000409384                Pokitto::Sound::getVolume()
+                0x0000000000409390                Pokitto::Sound::setVolume(signed char, unsigned char)
+                0x00000000004093a0                Pokitto::Sound::getVolume(unsigned char)
+                0x00000000004093b0                Pokitto::Sound::playTone(unsigned char, int, unsigned char, unsigned char, unsigned char)
+                0x0000000000409584                Pokitto::Sound::playTone(unsigned char, unsigned short, unsigned char, unsigned int)
+                0x000000000040962a                Pokitto::Sound::ampIsOn()
+                0x0000000000409636                Pokitto::Sound::ampEnable(unsigned char)
+                0x0000000000409650                Pokitto::Sound::playMusicStream(char*)
+                0x0000000000409670                Pokitto::Sound::playMusicStream()
+                0x0000000000409676                Pokitto::Sound::pauseMusicStream()
+                0x0000000000409682                Pokitto::Sound::playMusicStream(char*, unsigned char)
+ .text          0x0000000000409696       0x67 ../lib/linux/libPokitto_sim.a(Synth.o)
+ .text          0x00000000004096fd      0xc94 ../lib/linux/libPokitto_sim.a(Synth_oscfuncs.o)
+                0x00000000004096fd                setOSC(OSC*, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned short, unsigned short, unsigned short, unsigned short, short, short, unsigned char, unsigned char, unsigned char)
+                0x00000000004099f9                setOSC(OSC*, unsigned char, unsigned char, unsigned short, unsigned char, unsigned int)
+                0x0000000000409b5a                emptyOscillators()
+                0x0000000000409cd1                testOsc()
+                0x0000000000409e4f                playNote(unsigned char, unsigned char, unsigned char)
+                0x000000000040a138                makeSampleInstruments()
+ .text          0x000000000040a391      0x147 ../lib/linux/libPokitto_sim.a(Synth_wavefuncs.o)
+                0x000000000040a391                waveoff(OSC*)
+                0x000000000040a3a5                sqwave(OSC*)
+                0x000000000040a3d2                sawwave(OSC*)
+                0x000000000040a3ef                triwave(OSC*)
+                0x000000000040a430                noise(OSC*)
+                0x000000000040a484                tonenoise(OSC*)
+                0x000000000040a4ce                sample(OSC*)
+ .text          0x000000000040a4d8     0x2e22 ../lib/linux/libPokitto_sim.a(SimLCD.o)
+                0x000000000040a4d8                Pokitto::lcdInit()
+                0x000000000040a4f2                Pokitto::lcdFillSurface(unsigned short)
+                0x000000000040a517                Pokitto::lcdClear()
+                0x000000000040a52c                Pokitto::lcdPixel(short, short, unsigned short)
+                0x000000000040a55e                Pokitto::lcdRectangle(short, short, short, short, unsigned short)
+                0x000000000040a5a7                Pokitto::blitWord(unsigned short)
+                0x000000000040a5c7                Pokitto::lcdRefreshGB(unsigned char*, unsigned short*)
+                0x000000000040ae2d                Pokitto::lcdRefreshMode1(unsigned char*, unsigned short*)
+                0x000000000040b6b7                Pokitto::lcdRefreshMode2(unsigned char*, unsigned short*)
+                0x000000000040bed2                Pokitto::lcdRefreshAB(unsigned char*, unsigned short*)
+                0x000000000040c6de                Pokitto::lcdRefreshModeLamenes(unsigned char*, unsigned short*)
+                0x000000000040cb78                Pokitto::lcdRefreshModeGBC(unsigned char*, unsigned short*)
+ .text._ZN7Pokitto10setDRAMptrEtt
+                0x000000000040d2fa       0x44 ../lib/linux/libPokitto_sim.a(SimLCD.o)
+                0x000000000040d2fa                Pokitto::setDRAMptr(unsigned short, unsigned short)
+ .text._ZN7Pokitto13setup_data_16Et
+                0x000000000040d33e       0x17 ../lib/linux/libPokitto_sim.a(SimLCD.o)
+                0x000000000040d33e                Pokitto::setup_data_16(unsigned short)
+ .text._ZN7Pokitto11toggle_dataEv
+                0x000000000040d355       0x29 ../lib/linux/libPokitto_sim.a(SimLCD.o)
+                0x000000000040d355                Pokitto::toggle_data()
+ .text          0x000000000040d37e       0xae ../lib/linux/libPokitto_sim.a(SimSound.o)
+                0x000000000040d37e                Pokitto::soundInit()
+                0x000000000040d39d                Pokitto::pauseAudio(unsigned char)
+                0x000000000040d3bc                pokStreamPaused()
+                0x000000000040d3ce                pokPauseStream()
+                0x000000000040d3db                pokPlayStream()
+                0x000000000040d3e8                pokSoundIRQ()
+                0x000000000040d421                fakeISR()
+ .text          0x000000000040d42c        0x0 ../lib/linux/libPokitto_sim.a(font5x7.o)
+ .text          0x000000000040d42c        0x0 ../lib/linux/libPokitto_sim.a(palCGA.o)
+ .text          0x000000000040d42c       0x18 ../lib/linux/libPokitto_sim.a(PokittoBacklight.o)
+                0x000000000040d42c                Pokitto::Backlight::begin()
+                0x000000000040d432                Pokitto::Backlight::set(unsigned char)
+                0x000000000040d43e                Pokitto::Backlight::update()
+ .text          0x000000000040d444       0x13 ../lib/linux/libPokitto_sim.a(PokittoBattery.o)
+                0x000000000040d444                Pokitto::Battery::begin()
+                0x000000000040d44a                Pokitto::Battery::update()
+ *fill*         0x000000000040d457        0x1 
+ .text          0x000000000040d458      0x281 ../lib/linux/libPokitto_sim.a(PokittoButtons.o)
+                0x000000000040d458                Pokitto::Buttons::begin()
+                0x000000000040d45e                Pokitto::Buttons::update()
+                0x000000000040d54c                Pokitto::Buttons::pressed(unsigned char)
+                0x000000000040d574                Pokitto::Buttons::released(unsigned char)
+                0x000000000040d59c                Pokitto::Buttons::held(unsigned char, unsigned char)
+                0x000000000040d5d4                Pokitto::Buttons::repeat(unsigned char, unsigned char)
+                0x000000000040d64a                Pokitto::Buttons::timeHeld(unsigned char)
+                0x000000000040d67a                Pokitto::Buttons::pollButtons()
+                0x000000000040d686                Pokitto::Buttons::aBtn()
+                0x000000000040d692                Pokitto::Buttons::bBtn()
+                0x000000000040d69e                Pokitto::Buttons::cBtn()
+                0x000000000040d6aa                Pokitto::Buttons::leftBtn()
+                0x000000000040d6b6                Pokitto::Buttons::rightBtn()
+                0x000000000040d6c2                Pokitto::Buttons::upBtn()
+                0x000000000040d6ce                Pokitto::Buttons::downBtn()
+ .text          0x000000000040d6d9      0x1ab ../lib/linux/libPokitto_sim.a(Synth_envfuncs.o)
+                0x000000000040d6d9                noADSR(OSC*)
+                0x000000000040d6e3                attackFunc(OSC*)
+                0x000000000040d75d                decayFunc(OSC*)
+                0x000000000040d7c2                releaseFunc(OSC*)
+ .text          0x000000000040d884      0x107 ../lib/linux/libPokitto_sim.a(Synth_helpers.o)
+                0x000000000040d884                xorshift8()
+                0x000000000040d8e5                xorshift16()
+                0x000000000040d949                getNoteString(char*, unsigned char)
+ .text          0x000000000040d98b      0x6a7 ../lib/linux/libPokitto_sim.a(Synth_mixfuncs.o)
+                0x000000000040d98b                mix1()
+                0x000000000040da3f                mix2()
+                0x000000000040daf3                mix3()
+                0x000000000040dba7                updateEnvelopes()
+ *fill*         0x000000000040e032        0xe 
+ .text          0x000000000040e040       0x72 /usr/lib/x86_64-linux-gnu/libc_nonshared.a(elf-init.oS)
+                0x000000000040e040                __libc_csu_init
+                0x000000000040e0b0                __libc_csu_fini
+ .text          0x000000000040e0b2        0x0 /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o
+ .text          0x000000000040e0b2        0x0 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
+ *(.gnu.warning)
+
+.fini           0x000000000040e0b4        0x9
+ *(SORT(.fini))
+ .fini          0x000000000040e0b4        0x4 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o
+                0x000000000040e0b4                _fini
+ .fini          0x000000000040e0b8        0x5 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
+                0x000000000040e0bd                PROVIDE (__etext, .)
+                0x000000000040e0bd                PROVIDE (_etext, .)
+                0x000000000040e0bd                PROVIDE (etext, .)
+
+.rodata         0x000000000040e0c0     0x2d50
+ *(.rodata .rodata.* .gnu.linkonce.r.*)
+ .rodata.cst4   0x000000000040e0c0        0x4 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
+                0x000000000040e0c0                _IO_stdin_used
+ *fill*         0x000000000040e0c4       0x1c 
+ .rodata        0x000000000040e0e0       0xd0 obj/Debug/Hello.o
+ *fill*         0x000000000040e1b0       0x10 
+ .rodata        0x000000000040e1c0       0xa2 obj/Debug/POKITTO_SIM/Makewav.o
+ *fill*         0x000000000040e262       0x1e 
+ .rodata        0x000000000040e280       0xb0 obj/Debug/POKITTO_SIM/Pokitto_simport.o
+ *fill*         0x000000000040e330       0x10 
+ .rodata        0x000000000040e340       0xb0 obj/Debug/POKITTO_SIM/PokittoClock.o
+ *fill*         0x000000000040e3f0       0x10 
+ .rodata        0x000000000040e400       0x90 obj/Debug/POKITTO_SIM/PokittoSimButtons.o
+ *fill*         0x000000000040e490       0x10 
+ .rodata        0x000000000040e4a0       0xb0 obj/Debug/POKITTO_SIM/PokittoSimCore.o
+ *fill*         0x000000000040e550       0x10 
+ .rodata        0x000000000040e560      0x144 obj/Debug/POKITTO_SIM/PokittoSimulator.o
+ *fill*         0x000000000040e6a4       0x1c 
+ .rodata        0x000000000040e6c0      0x130 ../lib/linux/libPokitto_sim.a(PokittoCore.o)
+ *fill*         0x000000000040e7f0       0x10 
+ .rodata        0x000000000040e800      0x160 ../lib/linux/libPokitto_sim.a(PokittoDisplay.o)
+ .rodata        0x000000000040e960     0x1853 ../lib/linux/libPokitto_sim.a(PokittoLogos.o)
+                0x000000000040e960                Pokitto_logo
+                0x000000000040ee80                dogface
+                0x000000000040f9c0                nxp_n
+                0x000000000040fbe0                nxp_nx
+                0x000000000040fca0                nxp_x
+                0x000000000040fda0                nxp_xp
+                0x000000000040fe60                nxp_p
+                0x0000000000410080                tooth
+                0x0000000000410120                toothup
+ *fill*         0x00000000004101b3        0xd 
+ .rodata        0x00000000004101c0       0xc0 ../lib/linux/libPokitto_sim.a(PokittoSound.o)
+ .rodata        0x0000000000410280       0xb0 ../lib/linux/libPokitto_sim.a(Synth.o)
+ *fill*         0x0000000000410330       0x10 
+ .rodata        0x0000000000410340       0xb0 ../lib/linux/libPokitto_sim.a(Synth_oscfuncs.o)
+ *fill*         0x00000000004103f0       0x10 
+ .rodata        0x0000000000410400       0xb0 ../lib/linux/libPokitto_sim.a(Synth_wavefuncs.o)
+ *fill*         0x00000000004104b0       0x10 
+ .rodata        0x00000000004104c0       0xb0 ../lib/linux/libPokitto_sim.a(SimSound.o)
+ *fill*         0x0000000000410570       0x10 
+ .rodata        0x0000000000410580      0x304 ../lib/linux/libPokitto_sim.a(font5x7.o)
+                0x0000000000410580                font5x7
+ *fill*         0x0000000000410884       0x1c 
+ .rodata        0x00000000004108a0       0x30 ../lib/linux/libPokitto_sim.a(palCGA.o)
+                0x00000000004108a0                paletteCGA
+ *fill*         0x00000000004108d0       0x10 
+ .rodata        0x00000000004108e0       0x90 ../lib/linux/libPokitto_sim.a(PokittoBattery.o)
+ *fill*         0x0000000000410970       0x10 
+ .rodata        0x0000000000410980       0xf0 ../lib/linux/libPokitto_sim.a(PokittoButtons.o)
+ *fill*         0x0000000000410a70       0x10 
+ .rodata        0x0000000000410a80       0xb0 ../lib/linux/libPokitto_sim.a(Synth_envfuncs.o)
+ *fill*         0x0000000000410b30       0x10 
+ .rodata        0x0000000000410b40      0x214 ../lib/linux/libPokitto_sim.a(Synth_helpers.o)
+ *fill*         0x0000000000410d54        0xc 
+ .rodata        0x0000000000410d60       0xb0 ../lib/linux/libPokitto_sim.a(Synth_mixfuncs.o)
+
+.rodata1
+ *(.rodata1)
+
+.eh_frame_hdr   0x0000000000410e10      0x9e4
+ *(.eh_frame_hdr)
+ .eh_frame_hdr  0x0000000000410e10      0x9e4 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
+
+.eh_frame       0x00000000004117f8     0x2834
+ *(.eh_frame)
+ .eh_frame      0x00000000004117f8       0x30 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
+ .eh_frame      0x0000000000411828       0x40 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
+ .eh_frame      0x0000000000411868       0x60 obj/Debug/Hello.o
+                                         0x78 (size before relaxing)
+ .eh_frame      0x00000000004118c8       0x40 obj/Debug/POKITTO_SIM/Makewav.o
+                                         0x58 (size before relaxing)
+ .eh_frame      0x0000000000411908       0x20 obj/Debug/POKITTO_SIM/Pokitto_simport.o
+                                         0x38 (size before relaxing)
+ .eh_frame      0x0000000000411928       0x60 obj/Debug/POKITTO_SIM/PokittoClock.o
+                                         0x78 (size before relaxing)
+ .eh_frame      0x0000000000411988      0x300 obj/Debug/POKITTO_SIM/PokittoSimButtons.o
+                                        0x318 (size before relaxing)
+ .eh_frame      0x0000000000411c88      0x1c0 obj/Debug/POKITTO_SIM/PokittoSimCore.o
+                                        0x1d8 (size before relaxing)
+ .eh_frame      0x0000000000411e48      0x2d8 obj/Debug/POKITTO_SIM/PokittoSimulator.o
+                                        0x2e8 (size before relaxing)
+ .eh_frame      0x0000000000412120      0x388 ../lib/linux/libPokitto_sim.a(PokittoCore.o)
+                                        0x3a0 (size before relaxing)
+ .eh_frame      0x00000000004124a8      0xd80 ../lib/linux/libPokitto_sim.a(PokittoDisplay.o)
+                                        0xd88 (size before relaxing)
+ .eh_frame      0x0000000000413228      0x500 ../lib/linux/libPokitto_sim.a(PokittoSound.o)
+                                        0x518 (size before relaxing)
+ .eh_frame      0x0000000000413728       0x40 ../lib/linux/libPokitto_sim.a(Synth.o)
+                                         0x58 (size before relaxing)
+ .eh_frame      0x0000000000413768       0xe0 ../lib/linux/libPokitto_sim.a(Synth_oscfuncs.o)
+                                         0xf0 (size before relaxing)
+ .eh_frame      0x0000000000413848       0xe0 ../lib/linux/libPokitto_sim.a(Synth_wavefuncs.o)
+                                         0xf8 (size before relaxing)
+ .eh_frame      0x0000000000413928      0x1e0 ../lib/linux/libPokitto_sim.a(SimLCD.o)
+                                        0x1f8 (size before relaxing)
+ .eh_frame      0x0000000000413b08       0xe0 ../lib/linux/libPokitto_sim.a(SimSound.o)
+                                         0xf8 (size before relaxing)
+ .eh_frame      0x0000000000413be8       0x60 ../lib/linux/libPokitto_sim.a(PokittoBacklight.o)
+                                         0x78 (size before relaxing)
+ .eh_frame      0x0000000000413c48       0x40 ../lib/linux/libPokitto_sim.a(PokittoBattery.o)
+                                         0x58 (size before relaxing)
+ .eh_frame      0x0000000000413c88      0x1e0 ../lib/linux/libPokitto_sim.a(PokittoButtons.o)
+                                        0x1f8 (size before relaxing)
+ .eh_frame      0x0000000000413e68       0x80 ../lib/linux/libPokitto_sim.a(Synth_envfuncs.o)
+                                         0x98 (size before relaxing)
+ .eh_frame      0x0000000000413ee8       0x60 ../lib/linux/libPokitto_sim.a(Synth_helpers.o)
+                                         0x78 (size before relaxing)
+ .eh_frame      0x0000000000413f48       0x80 ../lib/linux/libPokitto_sim.a(Synth_mixfuncs.o)
+                                         0x98 (size before relaxing)
+ .eh_frame      0x0000000000413fc8       0x60 /usr/lib/x86_64-linux-gnu/libc_nonshared.a(elf-init.oS)
+                                         0x78 (size before relaxing)
+ .eh_frame      0x0000000000414028        0x4 /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o
+
+.gcc_except_table
+                0x000000000041402c       0x2e
+ *(.gcc_except_table .gcc_except_table.*)
+ .gcc_except_table
+                0x000000000041402c       0x2e obj/Debug/POKITTO_SIM/PokittoSimulator.o
+
+.exception_ranges
+ *(.exception_ranges .exception_ranges*)
+                0x000000000041405a                . = (ALIGN (0x200000) - ((0x200000 - .) & 0x1fffff))
+                0x0000000000614da2                . = DATA_SEGMENT_ALIGN (0x200000, 0x1000)
+
+.eh_frame
+ *(.eh_frame)
+
+.gcc_except_table
+ *(.gcc_except_table .gcc_except_table.*)
+
+.exception_ranges
+ *(.exception_ranges .exception_ranges*)
+
+.tdata
+ *(.tdata .tdata.* .gnu.linkonce.td.*)
+
+.tbss
+ *(.tbss .tbss.* .gnu.linkonce.tb.*)
+ *(.tcommon)
+
+.preinit_array  0x0000000000614da2        0x0
+                0x0000000000614da2                PROVIDE (__preinit_array_start, .)
+ *(.preinit_array)
+                0x0000000000614da2                PROVIDE (__preinit_array_end, .)
+
+.init_array     0x0000000000614da8       0x30
+                0x0000000000614da8                PROVIDE (__init_array_start, .)
+ *(SORT(.init_array.*) SORT(.ctors.*))
+ *(.init_array EXCLUDE_FILE(*crtend?.o *crtend.o *crtbegin?.o *crtbegin.o) .ctors)
+ .init_array    0x0000000000614da8        0x8 /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o
+ .init_array    0x0000000000614db0        0x8 obj/Debug/Hello.o
+ .init_array    0x0000000000614db8        0x8 obj/Debug/POKITTO_SIM/PokittoSimButtons.o
+ .init_array    0x0000000000614dc0        0x8 obj/Debug/POKITTO_SIM/PokittoSimulator.o
+ .init_array    0x0000000000614dc8        0x8 ../lib/linux/libPokitto_sim.a(PokittoCore.o)
+ .init_array    0x0000000000614dd0        0x8 ../lib/linux/libPokitto_sim.a(Synth.o)
+                0x0000000000614dd8                PROVIDE (__init_array_end, .)
+
+.fini_array     0x0000000000614dd8        0x8
+                0x0000000000614dd8                PROVIDE (__fini_array_start, .)
+ *(SORT(.fini_array.*) SORT(.dtors.*))
+ *(.fini_array EXCLUDE_FILE(*crtend?.o *crtend.o *crtbegin?.o *crtbegin.o) .dtors)
+ .fini_array    0x0000000000614dd8        0x8 /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o
+                0x0000000000614de0                PROVIDE (__fini_array_end, .)
+
+.ctors
+ *crtbegin.o(.ctors)
+ *crtbegin?.o(.ctors)
+ *(EXCLUDE_FILE(*crtend?.o *crtend.o) .ctors)
+ *(SORT(.ctors.*))
+ *(.ctors)
+
+.dtors
+ *crtbegin.o(.dtors)
+ *crtbegin?.o(.dtors)
+ *(EXCLUDE_FILE(*crtend?.o *crtend.o) .dtors)
+ *(SORT(.dtors.*))
+ *(.dtors)
+
+.jcr            0x0000000000614de0        0x8
+ *(.jcr)
+ .jcr           0x0000000000614de0        0x0 /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o
+ .jcr           0x0000000000614de0        0x8 /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o
+
+.data.rel.ro
+ *(.data.rel.ro.local* .gnu.linkonce.d.rel.ro.local.*)
+ *(.data.rel.ro .data.rel.ro.* .gnu.linkonce.d.rel.ro.*)
+
+.dynamic        0x0000000000614de8      0x210
+ *(.dynamic)
+ .dynamic       0x0000000000614de8      0x210 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
+                0x0000000000614de8                _DYNAMIC
+
+.got            0x0000000000614ff8        0x8
+ *(.got)
+ .got           0x0000000000614ff8        0x8 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
+ *(.igot)
+                0x0000000000615fe8                . = DATA_SEGMENT_RELRO_END (., (SIZEOF (.got.plt) >= 0x18)?0x18:0x0)
+
+.got.plt        0x0000000000615000      0x1d0
+ *(.got.plt)
+ .got.plt       0x0000000000615000      0x1d0 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
+                0x0000000000615000                _GLOBAL_OFFSET_TABLE_
+ *(.igot.plt)
+ .igot.plt      0x0000000000000000        0x0 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
+
+.data           0x00000000006151e0      0x4a8
+ *(.data .data.* .gnu.linkonce.d.*)
+ .data          0x00000000006151e0        0x4 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
+                0x00000000006151e0                data_start
+                0x00000000006151e0                __data_start
+ .data          0x00000000006151e4        0x0 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o
+ *fill*         0x00000000006151e4        0x4 
+ .data          0x00000000006151e8        0x8 /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o
+                0x00000000006151e8                __dso_handle
+ .data          0x00000000006151f0        0x0 obj/Debug/Hello.o
+ .data          0x00000000006151f0        0x0 obj/Debug/POKITTO_SIM/Makewav.o
+ .data          0x00000000006151f0        0x0 obj/Debug/POKITTO_SIM/Pokitto_simport.o
+ .data          0x00000000006151f0        0x0 obj/Debug/POKITTO_SIM/PokittoClock.o
+ .data          0x00000000006151f0        0x0 obj/Debug/POKITTO_SIM/PokittoSimButtons.o
+ .data          0x00000000006151f0        0x0 obj/Debug/POKITTO_SIM/PokittoSimCore.o
+ .data          0x00000000006151f0        0x0 obj/Debug/POKITTO_SIM/PokittoSimulator.o
+ .data          0x00000000006151f0        0x0 ../lib/linux/libPokitto_sim.a(PokittoCore.o)
+ .data          0x00000000006151f0        0x9 ../lib/linux/libPokitto_sim.a(PokittoDisplay.o)
+                0x00000000006151f0                Pokitto::Display::color
+                0x00000000006151f2                Pokitto::Display::invisiblecolor
+                0x00000000006151f4                Pokitto::Display::directcolor
+                0x00000000006151f6                Pokitto::Display::bpp
+                0x00000000006151f7                Pokitto::Display::width
+                0x00000000006151f8                Pokitto::Display::height
+ .data          0x00000000006151f9        0x0 ../lib/linux/libPokitto_sim.a(PokittoLogos.o)
+ .data          0x00000000006151f9        0x0 ../lib/linux/libPokitto_sim.a(PokittoSound.o)
+ .data          0x00000000006151f9        0x5 ../lib/linux/libPokitto_sim.a(Synth.o)
+                0x00000000006151f9                track1on
+                0x00000000006151fa                track2on
+                0x00000000006151fb                track3on
+                0x00000000006151fc                tempo
+                0x00000000006151fd                tick
+ .data          0x00000000006151fe        0x0 ../lib/linux/libPokitto_sim.a(Synth_oscfuncs.o)
+ *fill*         0x00000000006151fe        0x2 
+ .data          0x0000000000615200       0xa0 ../lib/linux/libPokitto_sim.a(Synth_wavefuncs.o)
+                0x0000000000615200                Farr
+                0x0000000000615240                Earr
+                0x0000000000615260                Marr
+                0x0000000000615280                HWMarr
+ .data          0x00000000006152a0        0x0 ../lib/linux/libPokitto_sim.a(SimLCD.o)
+ .data          0x00000000006152a0        0x1 ../lib/linux/libPokitto_sim.a(SimSound.o)
+                0x00000000006152a0                savecpu
+ .data          0x00000000006152a1        0x0 ../lib/linux/libPokitto_sim.a(font5x7.o)
+ .data          0x00000000006152a1        0x0 ../lib/linux/libPokitto_sim.a(palCGA.o)
+ .data          0x00000000006152a1        0x0 ../lib/linux/libPokitto_sim.a(PokittoBacklight.o)
+ .data          0x00000000006152a1        0x0 ../lib/linux/libPokitto_sim.a(PokittoBattery.o)
+ .data          0x00000000006152a1        0x0 ../lib/linux/libPokitto_sim.a(PokittoButtons.o)
+ .data          0x00000000006152a1        0x0 ../lib/linux/libPokitto_sim.a(Synth_envfuncs.o)
+ *fill*         0x00000000006152a1       0x1f 
+ .data          0x00000000006152c0      0x3c8 ../lib/linux/libPokitto_sim.a(Synth_helpers.o)
+                0x00000000006152d0                arptable
+                0x0000000000615300                cincs
+                0x00000000006153c0                note_table
+ .data          0x0000000000615688        0x0 ../lib/linux/libPokitto_sim.a(Synth_mixfuncs.o)
+ .data          0x0000000000615688        0x0 /usr/lib/x86_64-linux-gnu/libc_nonshared.a(elf-init.oS)
+ .data          0x0000000000615688        0x0 /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o
+ .data          0x0000000000615688        0x0 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
+
+.tm_clone_table
+                0x0000000000615688        0x0
+ .tm_clone_table
+                0x0000000000615688        0x0 /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o
+ .tm_clone_table
+                0x0000000000615688        0x0 /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o
+
+.data1
+ *(.data1)
+                0x0000000000615688                _edata = .
+                0x0000000000615688                PROVIDE (edata, .)
+                0x0000000000615688                . = .
+                0x0000000000615688                __bss_start = .
+
+.bss            0x00000000006156a0    0x3b190
+ *(.dynbss)
+ .dynbss        0x00000000006156a0      0x238 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
+                0x00000000006156a0                std::cout@@GLIBCXX_3.4
+                0x00000000006157c0                std::cin@@GLIBCXX_3.4
+ *(.bss .bss.* .gnu.linkonce.b.*)
+ .bss           0x00000000006158d8        0x0 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
+ .bss           0x00000000006158d8        0x0 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o
+ .bss           0x00000000006158d8        0x1 /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o
+ .bss           0x00000000006158d9        0x1 obj/Debug/Hello.o
+                0x00000000006158d9                game
+ .bss           0x00000000006158da        0x0 obj/Debug/POKITTO_SIM/Makewav.o
+ .bss           0x00000000006158da        0x0 obj/Debug/POKITTO_SIM/Pokitto_simport.o
+ *fill*         0x00000000006158da        0x6 
+ .bss           0x00000000006158e0       0x18 obj/Debug/POKITTO_SIM/PokittoClock.o
+                0x00000000006158e0                Pokitto::Core::refreshtime
+                0x00000000006158e8                pt_count
+                0x00000000006158f0                ptimer
+ .bss           0x00000000006158f8        0x4 obj/Debug/POKITTO_SIM/PokittoSimButtons.o
+                0x00000000006158f8                Pokitto::Simulator::buttons_state
+                0x00000000006158f9                Pokitto::Simulator::buttons_held
+                0x00000000006158fa                Pokitto::Simulator::buttons_released
+ .bss           0x00000000006158fc        0x0 obj/Debug/POKITTO_SIM/PokittoSimCore.o
+ *fill*         0x00000000006158fc        0x4 
+ .bss           0x0000000000615900    0x38d19 obj/Debug/POKITTO_SIM/PokittoSimulator.o
+                0x0000000000615900                wanted
+                0x0000000000615920                got
+                0x0000000000615940                audioDevice
+                0x0000000000615944                sound_on
+                0x0000000000615948                aud_position
+                0x000000000061594c                aud_len
+                0x0000000000615950                aud_frequency
+                0x0000000000615954                aud_volume
+                0x0000000000615958                simulator
+                0x000000000061595c                Pokitto::Simulator::simRunning
+                0x0000000000615960                Pokitto::Simulator::sdlSimWin
+                0x0000000000615968                Pokitto::Simulator::sdlBgRen
+                0x0000000000615970                Pokitto::Simulator::sdlRen
+                0x0000000000615978                Pokitto::Simulator::sdlTex
+                0x0000000000615980                Pokitto::Simulator::SrcR
+                0x0000000000615990                Pokitto::Simulator::DestR
+                0x00000000006159a0                Pokitto::Simulator::sdlEvent
+                0x00000000006159d8                Pokitto::Simulator::Loading_Surf
+                0x00000000006159e0                Pokitto::Simulator::Background_Tx
+                0x0000000000615a00                Pokitto::Simulator::lcdpixels
+                0x000000000063b700                Pokitto::Simulator::ww
+                0x000000000063b704                Pokitto::Simulator::wh
+                0x000000000063b720                Pokitto::Simulator::gfxbuf
+                0x000000000064e5a0                Pokitto::Simulator::dramptr
+                0x000000000064e5a8                Pokitto::Simulator::datalines
+                0x000000000064e5aa                Pokitto::Simulator::prevdata
+                0x000000000064e5ac                Pokitto::Simulator::lcd_shaking
+                0x000000000064e5b0                Pokitto::Simulator::gGameController
+                0x000000000064e5b8                Pokitto::Simulator::joystickPresent
+                0x000000000064e5b9                Pokitto::Simulator::amp
+                0x000000000064e5ba                Pokitto::Simulator::mutex
+                0x000000000064e5bb                Pokitto::Simulator::cleaned
+                0x000000000064e5bc                Pokitto::Simulator::sc_count
+                0x000000000064e5be                Pokitto::Simulator::framenumber
+                0x000000000064e5c0                Pokitto::Simulator::audframenumber
+                0x000000000064e5c4                Pokitto::Simulator::videotime
+                0x000000000064e5c8                Pokitto::Simulator::audiotime
+                0x000000000064e5cc                Pokitto::Simulator::videoframesize
+                0x000000000064e5d0                Pokitto::Simulator::audioframesize
+                0x000000000064e5d8                recordingstarttime
+                0x000000000064e5e0                sdlEvent2
+ *fill*         0x000000000064e619        0x7 
+ .bss           0x000000000064e620       0x24 ../lib/linux/libPokitto_sim.a(PokittoCore.o)
+                0x000000000064e620                Pokitto::Core::run_state
+                0x000000000064e621                Pokitto::Core::backlight
+                0x000000000064e622                Pokitto::Core::buttons
+                0x000000000064e623                Pokitto::Core::battery
+                0x000000000064e624                Pokitto::Core::display
+                0x000000000064e625                Pokitto::Core::startMenuTimer
+                0x000000000064e626                Pokitto::Core::timePerFrame
+                0x000000000064e628                Pokitto::Core::nextFrameMillis
+                0x000000000064e62c                Pokitto::Core::frameCount
+                0x000000000064e630                Pokitto::Core::popupText
+                0x000000000064e638                Pokitto::Core::popupTimeLeft
+                0x000000000064e63a                Pokitto::Core::frameDurationMicros
+                0x000000000064e63c                Pokitto::Core::frameStartMicros
+                0x000000000064e640                Pokitto::Core::frameEndMicros
+ *fill*         0x000000000064e644       0x1c 
+ .bss           0x000000000064e660     0x139f ../lib/linux/libPokitto_sim.a(PokittoDisplay.o)
+                0x000000000064e660                Pokitto::Display::m_scrbuf
+                0x000000000064e668                Pokitto::Display::m_mode
+                0x000000000064e669                Pokitto::Display::m_colordepth
+                0x000000000064e66a                Pokitto::Display::cursorX
+                0x000000000064e66b                Pokitto::Display::cursorY
+                0x000000000064e66c                Pokitto::Display::fontSize
+                0x000000000064e66e                Pokitto::Display::m_w
+                0x000000000064e670                Pokitto::Display::m_h
+                0x000000000064e672                Pokitto::Display::fontWidth
+                0x000000000064e673                Pokitto::Display::fontHeight
+                0x000000000064e674                Pokitto::Display::textWrap
+                0x000000000064e675                Pokitto::Display::persistence
+                0x000000000064e676                Pokitto::Display::bgcolor
+                0x000000000064e678                Pokitto::Display::directbgcolor
+                0x000000000064e680                Pokitto::Display::paletteptr
+                0x000000000064e6a0                Pokitto::Display::palette
+                0x000000000064e6c0                Pokitto::Display::font
+                0x000000000064e6e0                Pokitto::Display::screenbuffer
+ .bss           0x000000000064f9ff        0x0 ../lib/linux/libPokitto_sim.a(PokittoLogos.o)
+ *fill*         0x000000000064f9ff        0x1 
+ .bss           0x000000000064fa00       0x58 ../lib/linux/libPokitto_sim.a(PokittoSound.o)
+                0x000000000064fa00                Pokitto::Sound::prescaler
+                0x000000000064fa01                Pokitto::Sound::globalVolume
+                0x000000000064fa02                Pokitto::Sound::volumeMax
+                0x000000000064fa03                Pokitto::Sound::trackIsPlaying
+                0x000000000064fa04                Pokitto::Sound::patternIsPlaying
+                0x000000000064fa05                Pokitto::Sound::outputPitch
+                0x000000000064fa06                Pokitto::Sound::outputVolume
+                0x000000000064fa08                Pokitto::Sound::trackData
+                0x000000000064fa10                Pokitto::Sound::trackCursor
+                0x000000000064fa18                Pokitto::Sound::patternSet
+                0x000000000064fa20                Pokitto::Sound::patternPitch
+                0x000000000064fa28                Pokitto::Sound::patternData
+                0x000000000064fa30                Pokitto::Sound::instrumentSet
+                0x000000000064fa38                Pokitto::Sound::patternLooping
+                0x000000000064fa3a                Pokitto::Sound::patternCursor
+                0x000000000064fa3c                Pokitto::Sound::notePitch
+                0x000000000064fa3d                Pokitto::Sound::noteDuration
+                0x000000000064fa3e                Pokitto::Sound::noteVolume
+                0x000000000064fa3f                Pokitto::Sound::notePlaying
+                0x000000000064fa40                Pokitto::Sound::commandsCounter
+                0x000000000064fa41                Pokitto::Sound::volumeSlideStepDuration
+                0x000000000064fa42                Pokitto::Sound::volumeSlideStepSize
+                0x000000000064fa43                Pokitto::Sound::arpeggioStepDuration
+                0x000000000064fa44                Pokitto::Sound::arpeggioStepSize
+                0x000000000064fa45                Pokitto::Sound::tremoloStepDuration
+                0x000000000064fa46                Pokitto::Sound::tremoloStepSize
+                0x000000000064fa48                Pokitto::Sound::instrumentData
+                0x000000000064fa50                Pokitto::Sound::instrumentLength
+                0x000000000064fa51                Pokitto::Sound::instrumentLooping
+                0x000000000064fa52                Pokitto::Sound::instrumentCursor
+                0x000000000064fa54                Pokitto::Sound::instrumentNextChange
+                0x000000000064fa55                Pokitto::Sound::stepVolume
+                0x000000000064fa56                Pokitto::Sound::stepPitch
+                0x000000000064fa57                Pokitto::Sound::chanVolumes
+ *fill*         0x000000000064fa58        0x8 
+ .bss           0x000000000064fa60      0x480 ../lib/linux/libPokitto_sim.a(Synth.o)
+                0x000000000064fa60                playing
+                0x000000000064fa61                tableRefresh
+                0x000000000064fa62                sequencepos
+                0x000000000064fa68                writeindex
+                0x000000000064fa70                readindex
+                0x000000000064fa78                playerpos
+                0x000000000064fa80                per
+                0x000000000064fa88                samplespertick
+                0x000000000064fa8a                notetick
+                0x000000000064fa90                samplesperpattern
+                0x000000000064faa0                song
+                0x000000000064fb00                osc1
+                0x000000000064fb40                osc2
+                0x000000000064fb80                osc3
+                0x000000000064fbc0                patch
+                0x000000000064fe60                block
+ .bss           0x000000000064fee0        0x0 ../lib/linux/libPokitto_sim.a(Synth_oscfuncs.o)
+ .bss           0x000000000064fee0        0x4 ../lib/linux/libPokitto_sim.a(Synth_wavefuncs.o)
+                0x000000000064fee0                noiseval
+                0x000000000064fee2                noiseval2
+ .bss           0x000000000064fee4        0x0 ../lib/linux/libPokitto_sim.a(SimLCD.o)
+ *fill*         0x000000000064fee4       0x1c 
+ .bss           0x000000000064ff00      0x901 ../lib/linux/libPokitto_sim.a(SimSound.o)
+                0x000000000064ff00                soundbyte
+                0x000000000064ff08                soundfile
+                0x000000000064ff20                soundfilebuffer
+                0x00000000006506f0                activesfbuf
+                0x00000000006506f1                writesfbuf
+                0x00000000006506f2                sfbufindex
+                0x00000000006506f4                streambyte
+                0x00000000006506f5                output
+                0x00000000006506f6                streamon
+                0x00000000006506f7                test
+                0x00000000006506f8                test2
+                0x0000000000650700                soundbuf
+                0x0000000000650800                soundbufindex
+ .bss           0x0000000000650801        0x0 ../lib/linux/libPokitto_sim.a(font5x7.o)
+ .bss           0x0000000000650801        0x0 ../lib/linux/libPokitto_sim.a(palCGA.o)
+ *fill*         0x0000000000650801        0x1 
+ .bss           0x0000000000650802        0xc ../lib/linux/libPokitto_sim.a(PokittoBacklight.o)
+                0x0000000000650802                Pokitto::Backlight::automatic
+                0x0000000000650804                Pokitto::Backlight::ambientLight
+                0x0000000000650806                Pokitto::Backlight::backlightValue
+                0x0000000000650807                Pokitto::Backlight::backlightMin
+                0x0000000000650808                Pokitto::Backlight::backlightMax
+                0x000000000065080a                Pokitto::Backlight::ambientLightMin
+                0x000000000065080c                Pokitto::Backlight::ambientLightMax
+ .bss           0x000000000065080e        0xd ../lib/linux/libPokitto_sim.a(PokittoBattery.o)
+                0x000000000065080e                Pokitto::Battery::show
+                0x000000000065080f                Pokitto::Battery::level
+                0x0000000000650810                Pokitto::Battery::voltage
+                0x0000000000650812                Pokitto::Battery::thresholds
+                0x000000000065081a                Pokitto::Battery::nextUpdate
+ .bss           0x000000000065081b        0xe ../lib/linux/libPokitto_sim.a(PokittoButtons.o)
+                0x000000000065081b                Pokitto::Buttons::pins
+                0x0000000000650822                Pokitto::Buttons::states
+ .bss           0x0000000000650829        0x0 ../lib/linux/libPokitto_sim.a(Synth_envfuncs.o)
+ .bss           0x0000000000650829        0x0 ../lib/linux/libPokitto_sim.a(Synth_helpers.o)
+ *fill*         0x0000000000650829        0x1 
+ .bss           0x000000000065082a        0x5 ../lib/linux/libPokitto_sim.a(Synth_mixfuncs.o)
+                0x000000000065082a                voltick
+                0x000000000065082c                arptick
+                0x000000000065082e                bendtick
+ .bss           0x000000000065082f        0x0 /usr/lib/x86_64-linux-gnu/libc_nonshared.a(elf-init.oS)
+ .bss           0x000000000065082f        0x0 /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o
+ .bss           0x000000000065082f        0x0 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
+ *(COMMON)
+                0x0000000000650830                . = ALIGN ((. != 0x0)?0x8:0x1)
+ *fill*         0x000000000065082f        0x1 
+
+.lbss
+ *(.dynlbss)
+ *(.lbss .lbss.* .gnu.linkonce.lb.*)
+ *(LARGE_COMMON)
+                0x0000000000650830                . = ALIGN (0x8)
+                0x0000000000650830                . = SEGMENT_START ("ldata-segment", .)
+
+.lrodata
+ *(.lrodata .lrodata.* .gnu.linkonce.lr.*)
+
+.ldata          0x0000000000a50830        0x0
+ *(.ldata .ldata.* .gnu.linkonce.l.*)
+                0x0000000000a50830                . = ALIGN ((. != 0x0)?0x8:0x1)
+                0x0000000000a50830                . = ALIGN (0x8)
+                0x0000000000a50830                _end = .
+                0x0000000000a50830                PROVIDE (end, .)
+                0x0000000000a50830                . = DATA_SEGMENT_END (.)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x0000000000000000       0x24
+ *(.comment)
+ .comment       0x0000000000000000       0x24 /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o
+                                         0x25 (size before relaxing)
+ .comment       0x0000000000000000       0x25 obj/Debug/Hello.o
+ .comment       0x0000000000000000       0x25 obj/Debug/POKITTO_SIM/Makewav.o
+ .comment       0x0000000000000000       0x25 obj/Debug/POKITTO_SIM/Pokitto_simport.o
+ .comment       0x0000000000000000       0x25 obj/Debug/POKITTO_SIM/PokittoClock.o
+ .comment       0x0000000000000000       0x25 obj/Debug/POKITTO_SIM/PokittoSimButtons.o
+ .comment       0x0000000000000000       0x25 obj/Debug/POKITTO_SIM/PokittoSimCore.o
+ .comment       0x0000000000000000       0x25 obj/Debug/POKITTO_SIM/PokittoSimulator.o
+ .comment       0x0000000000000000       0x25 ../lib/linux/libPokitto_sim.a(PokittoCore.o)
+ .comment       0x0000000000000000       0x25 ../lib/linux/libPokitto_sim.a(PokittoDisplay.o)
+ .comment       0x0000000000000000       0x25 ../lib/linux/libPokitto_sim.a(PokittoLogos.o)
+ .comment       0x0000000000000000       0x25 ../lib/linux/libPokitto_sim.a(PokittoSound.o)
+ .comment       0x0000000000000000       0x25 ../lib/linux/libPokitto_sim.a(Synth.o)
+ .comment       0x0000000000000000       0x25 ../lib/linux/libPokitto_sim.a(Synth_oscfuncs.o)
+ .comment       0x0000000000000000       0x25 ../lib/linux/libPokitto_sim.a(Synth_wavefuncs.o)
+ .comment       0x0000000000000000       0x25 ../lib/linux/libPokitto_sim.a(SimLCD.o)
+ .comment       0x0000000000000000       0x25 ../lib/linux/libPokitto_sim.a(SimSound.o)
+ .comment       0x0000000000000000       0x25 ../lib/linux/libPokitto_sim.a(font5x7.o)
+ .comment       0x0000000000000000       0x25 ../lib/linux/libPokitto_sim.a(palCGA.o)
+ .comment       0x0000000000000000       0x25 ../lib/linux/libPokitto_sim.a(PokittoBacklight.o)
+ .comment       0x0000000000000000       0x25 ../lib/linux/libPokitto_sim.a(PokittoBattery.o)
+ .comment       0x0000000000000000       0x25 ../lib/linux/libPokitto_sim.a(PokittoButtons.o)
+ .comment       0x0000000000000000       0x25 ../lib/linux/libPokitto_sim.a(Synth_envfuncs.o)
+ .comment       0x0000000000000000       0x25 ../lib/linux/libPokitto_sim.a(Synth_helpers.o)
+ .comment       0x0000000000000000       0x25 ../lib/linux/libPokitto_sim.a(Synth_mixfuncs.o)
+ .comment       0x0000000000000000       0x25 /usr/lib/x86_64-linux-gnu/libc_nonshared.a(elf-init.oS)
+ .comment       0x0000000000000000       0x25 /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x0000000000000000      0x480
+ *(.debug_aranges)
+ .debug_aranges
+                0x0000000000000000       0x30 obj/Debug/Hello.o
+ .debug_aranges
+                0x0000000000000030       0x30 obj/Debug/POKITTO_SIM/Makewav.o
+ .debug_aranges
+                0x0000000000000060       0x30 obj/Debug/POKITTO_SIM/Pokitto_simport.o
+ .debug_aranges
+                0x0000000000000090       0x30 obj/Debug/POKITTO_SIM/PokittoClock.o
+ .debug_aranges
+                0x00000000000000c0       0x30 obj/Debug/POKITTO_SIM/PokittoSimButtons.o
+ .debug_aranges
+                0x00000000000000f0       0x30 obj/Debug/POKITTO_SIM/PokittoSimCore.o
+ .debug_aranges
+                0x0000000000000120       0x30 obj/Debug/POKITTO_SIM/PokittoSimulator.o
+ .debug_aranges
+                0x0000000000000150       0x30 ../lib/linux/libPokitto_sim.a(PokittoCore.o)
+ .debug_aranges
+                0x0000000000000180       0x30 ../lib/linux/libPokitto_sim.a(PokittoDisplay.o)
+ .debug_aranges
+                0x00000000000001b0       0x20 ../lib/linux/libPokitto_sim.a(PokittoLogos.o)
+ .debug_aranges
+                0x00000000000001d0       0x30 ../lib/linux/libPokitto_sim.a(PokittoSound.o)
+ .debug_aranges
+                0x0000000000000200       0x30 ../lib/linux/libPokitto_sim.a(Synth.o)
+ .debug_aranges
+                0x0000000000000230       0x30 ../lib/linux/libPokitto_sim.a(Synth_oscfuncs.o)
+ .debug_aranges
+                0x0000000000000260       0x30 ../lib/linux/libPokitto_sim.a(Synth_wavefuncs.o)
+ .debug_aranges
+                0x0000000000000290       0x60 ../lib/linux/libPokitto_sim.a(SimLCD.o)
+ .debug_aranges
+                0x00000000000002f0       0x30 ../lib/linux/libPokitto_sim.a(SimSound.o)
+ .debug_aranges
+                0x0000000000000320       0x20 ../lib/linux/libPokitto_sim.a(font5x7.o)
+ .debug_aranges
+                0x0000000000000340       0x20 ../lib/linux/libPokitto_sim.a(palCGA.o)
+ .debug_aranges
+                0x0000000000000360       0x30 ../lib/linux/libPokitto_sim.a(PokittoBacklight.o)
+ .debug_aranges
+                0x0000000000000390       0x30 ../lib/linux/libPokitto_sim.a(PokittoBattery.o)
+ .debug_aranges
+                0x00000000000003c0       0x30 ../lib/linux/libPokitto_sim.a(PokittoButtons.o)
+ .debug_aranges
+                0x00000000000003f0       0x30 ../lib/linux/libPokitto_sim.a(Synth_envfuncs.o)
+ .debug_aranges
+                0x0000000000000420       0x30 ../lib/linux/libPokitto_sim.a(Synth_helpers.o)
+ .debug_aranges
+                0x0000000000000450       0x30 ../lib/linux/libPokitto_sim.a(Synth_mixfuncs.o)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info     0x0000000000000000    0x28865
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x0000000000000000     0x1dff obj/Debug/Hello.o
+ .debug_info    0x0000000000001dff      0x43a obj/Debug/POKITTO_SIM/Makewav.o
+ .debug_info    0x0000000000002239      0x163 obj/Debug/POKITTO_SIM/Pokitto_simport.o
+ .debug_info    0x000000000000239c     0x38d7 obj/Debug/POKITTO_SIM/PokittoClock.o
+ .debug_info    0x0000000000005c73     0x4972 obj/Debug/POKITTO_SIM/PokittoSimButtons.o
+ .debug_info    0x000000000000a5e5     0x3979 obj/Debug/POKITTO_SIM/PokittoSimCore.o
+ .debug_info    0x000000000000df5e     0x6fdd obj/Debug/POKITTO_SIM/PokittoSimulator.o
+ .debug_info    0x0000000000014f3b     0x4117 ../lib/linux/libPokitto_sim.a(PokittoCore.o)
+ .debug_info    0x0000000000019052     0x40a8 ../lib/linux/libPokitto_sim.a(PokittoDisplay.o)
+ .debug_info    0x000000000001d0fa      0x1ad ../lib/linux/libPokitto_sim.a(PokittoLogos.o)
+ .debug_info    0x000000000001d2a7     0x28c2 ../lib/linux/libPokitto_sim.a(PokittoSound.o)
+ .debug_info    0x000000000001fb69      0x5d8 ../lib/linux/libPokitto_sim.a(Synth.o)
+ .debug_info    0x0000000000020141      0x561 ../lib/linux/libPokitto_sim.a(Synth_oscfuncs.o)
+ .debug_info    0x00000000000206a2      0x4de ../lib/linux/libPokitto_sim.a(Synth_wavefuncs.o)
+ .debug_info    0x0000000000020b80     0x24df ../lib/linux/libPokitto_sim.a(SimLCD.o)
+ .debug_info    0x000000000002305f     0x1fc3 ../lib/linux/libPokitto_sim.a(SimSound.o)
+ .debug_info    0x0000000000025022       0x84 ../lib/linux/libPokitto_sim.a(font5x7.o)
+ .debug_info    0x00000000000250a6       0x52 ../lib/linux/libPokitto_sim.a(palCGA.o)
+ .debug_info    0x00000000000250f8      0x20e ../lib/linux/libPokitto_sim.a(PokittoBacklight.o)
+ .debug_info    0x0000000000025306      0x228 ../lib/linux/libPokitto_sim.a(PokittoBattery.o)
+ .debug_info    0x000000000002552e     0x2034 ../lib/linux/libPokitto_sim.a(PokittoButtons.o)
+ .debug_info    0x0000000000027562      0x36d ../lib/linux/libPokitto_sim.a(Synth_envfuncs.o)
+ .debug_info    0x00000000000278cf      0xb88 ../lib/linux/libPokitto_sim.a(Synth_helpers.o)
+ .debug_info    0x0000000000028457      0x40e ../lib/linux/libPokitto_sim.a(Synth_mixfuncs.o)
+
+.debug_abbrev   0x0000000000000000     0x37b7
+ *(.debug_abbrev)
+ .debug_abbrev  0x0000000000000000      0x280 obj/Debug/Hello.o
+ .debug_abbrev  0x0000000000000280       0xf5 obj/Debug/POKITTO_SIM/Makewav.o
+ .debug_abbrev  0x0000000000000375       0x9a obj/Debug/POKITTO_SIM/Pokitto_simport.o
+ .debug_abbrev  0x000000000000040f      0x3c4 obj/Debug/POKITTO_SIM/PokittoClock.o
+ .debug_abbrev  0x00000000000007d3      0x5bc obj/Debug/POKITTO_SIM/PokittoSimButtons.o
+ .debug_abbrev  0x0000000000000d8f      0x39b obj/Debug/POKITTO_SIM/PokittoSimCore.o
+ .debug_abbrev  0x000000000000112a      0x91e obj/Debug/POKITTO_SIM/PokittoSimulator.o
+ .debug_abbrev  0x0000000000001a48      0x4c6 ../lib/linux/libPokitto_sim.a(PokittoCore.o)
+ .debug_abbrev  0x0000000000001f0e      0x363 ../lib/linux/libPokitto_sim.a(PokittoDisplay.o)
+ .debug_abbrev  0x0000000000002271       0x68 ../lib/linux/libPokitto_sim.a(PokittoLogos.o)
+ .debug_abbrev  0x00000000000022d9      0x34f ../lib/linux/libPokitto_sim.a(PokittoSound.o)
+ .debug_abbrev  0x0000000000002628      0x10d ../lib/linux/libPokitto_sim.a(Synth.o)
+ .debug_abbrev  0x0000000000002735      0x13d ../lib/linux/libPokitto_sim.a(Synth_oscfuncs.o)
+ .debug_abbrev  0x0000000000002872      0x10e ../lib/linux/libPokitto_sim.a(Synth_wavefuncs.o)
+ .debug_abbrev  0x0000000000002980      0x344 ../lib/linux/libPokitto_sim.a(SimLCD.o)
+ .debug_abbrev  0x0000000000002cc4      0x304 ../lib/linux/libPokitto_sim.a(SimSound.o)
+ .debug_abbrev  0x0000000000002fc8       0x4e ../lib/linux/libPokitto_sim.a(font5x7.o)
+ .debug_abbrev  0x0000000000003016       0x43 ../lib/linux/libPokitto_sim.a(palCGA.o)
+ .debug_abbrev  0x0000000000003059       0xe4 ../lib/linux/libPokitto_sim.a(PokittoBacklight.o)
+ .debug_abbrev  0x000000000000313d       0xd4 ../lib/linux/libPokitto_sim.a(PokittoBattery.o)
+ .debug_abbrev  0x0000000000003211      0x2f6 ../lib/linux/libPokitto_sim.a(PokittoButtons.o)
+ .debug_abbrev  0x0000000000003507       0xd0 ../lib/linux/libPokitto_sim.a(Synth_envfuncs.o)
+ .debug_abbrev  0x00000000000035d7       0xec ../lib/linux/libPokitto_sim.a(Synth_helpers.o)
+ .debug_abbrev  0x00000000000036c3       0xf4 ../lib/linux/libPokitto_sim.a(Synth_mixfuncs.o)
+
+.debug_line     0x0000000000000000     0x426a
+ *(.debug_line .debug_line.* .debug_line_end)
+ .debug_line    0x0000000000000000      0x146 obj/Debug/Hello.o
+ .debug_line    0x0000000000000146      0x16b obj/Debug/POKITTO_SIM/Makewav.o
+ .debug_line    0x00000000000002b1       0xe5 obj/Debug/POKITTO_SIM/Pokitto_simport.o
+ .debug_line    0x0000000000000396      0x26d obj/Debug/POKITTO_SIM/PokittoClock.o
+ .debug_line    0x0000000000000603      0x542 obj/Debug/POKITTO_SIM/PokittoSimButtons.o
+ .debug_line    0x0000000000000b45      0x28b obj/Debug/POKITTO_SIM/PokittoSimCore.o
+ .debug_line    0x0000000000000dd0      0x6c8 obj/Debug/POKITTO_SIM/PokittoSimulator.o
+ .debug_line    0x0000000000001498      0x629 ../lib/linux/libPokitto_sim.a(PokittoCore.o)
+ .debug_line    0x0000000000001ac1      0xd6e ../lib/linux/libPokitto_sim.a(PokittoDisplay.o)
+ .debug_line    0x000000000000282f       0x56 ../lib/linux/libPokitto_sim.a(PokittoLogos.o)
+ .debug_line    0x0000000000002885      0x247 ../lib/linux/libPokitto_sim.a(PokittoSound.o)
+ .debug_line    0x0000000000002acc      0x11b ../lib/linux/libPokitto_sim.a(Synth.o)
+ .debug_line    0x0000000000002be7      0x240 ../lib/linux/libPokitto_sim.a(Synth_oscfuncs.o)
+ .debug_line    0x0000000000002e27      0x144 ../lib/linux/libPokitto_sim.a(Synth_wavefuncs.o)
+ .debug_line    0x0000000000002f6b      0x778 ../lib/linux/libPokitto_sim.a(SimLCD.o)
+ .debug_line    0x00000000000036e3      0x26f ../lib/linux/libPokitto_sim.a(SimSound.o)
+ .debug_line    0x0000000000003952       0x57 ../lib/linux/libPokitto_sim.a(font5x7.o)
+ .debug_line    0x00000000000039a9       0x59 ../lib/linux/libPokitto_sim.a(palCGA.o)
+ .debug_line    0x0000000000003a02       0xa1 ../lib/linux/libPokitto_sim.a(PokittoBacklight.o)
+ .debug_line    0x0000000000003aa3       0xcc ../lib/linux/libPokitto_sim.a(PokittoBattery.o)
+ .debug_line    0x0000000000003b6f      0x265 ../lib/linux/libPokitto_sim.a(PokittoButtons.o)
+ .debug_line    0x0000000000003dd4      0x13a ../lib/linux/libPokitto_sim.a(Synth_envfuncs.o)
+ .debug_line    0x0000000000003f0e       0xfe ../lib/linux/libPokitto_sim.a(Synth_helpers.o)
+ .debug_line    0x000000000000400c      0x25e ../lib/linux/libPokitto_sim.a(Synth_mixfuncs.o)
+
+.debug_frame
+ *(.debug_frame)
+
+.debug_str      0x0000000000000000     0xb743
+ *(.debug_str)
+ .debug_str     0x0000000000000000     0x2b93 obj/Debug/Hello.o
+                                       0x2c49 (size before relaxing)
+ .debug_str     0x0000000000002b93      0x27a obj/Debug/POKITTO_SIM/Makewav.o
+                                        0x39b (size before relaxing)
+ .debug_str     0x0000000000002e0d       0x5a obj/Debug/POKITTO_SIM/Pokitto_simport.o
+                                        0x1e5 (size before relaxing)
+ .debug_str     0x0000000000002e67     0x1f53 obj/Debug/POKITTO_SIM/PokittoClock.o
+                                       0x4bba (size before relaxing)
+ .debug_str     0x0000000000004dba     0x1de2 obj/Debug/POKITTO_SIM/PokittoSimButtons.o
+                                       0x445a (size before relaxing)
+ .debug_str     0x0000000000006b9c       0x41 obj/Debug/POKITTO_SIM/PokittoSimCore.o
+                                       0x4b7e (size before relaxing)
+ .debug_str     0x0000000000006bdd     0x2dc0 obj/Debug/POKITTO_SIM/PokittoSimulator.o
+                                       0x63f1 (size before relaxing)
+ .debug_str     0x000000000000999d      0x318 ../lib/linux/libPokitto_sim.a(PokittoCore.o)
+                                       0x4e5e (size before relaxing)
+ .debug_str     0x0000000000009cb5      0x4a6 ../lib/linux/libPokitto_sim.a(PokittoDisplay.o)
+                                       0x1999 (size before relaxing)
+ .debug_str     0x000000000000a15b       0x6c ../lib/linux/libPokitto_sim.a(PokittoLogos.o)
+                                        0x13c (size before relaxing)
+ .debug_str     0x000000000000a1c7      0x5c9 ../lib/linux/libPokitto_sim.a(PokittoSound.o)
+                                       0x31ce (size before relaxing)
+ .debug_str     0x000000000000a790      0x16e ../lib/linux/libPokitto_sim.a(Synth.o)
+                                        0x43a (size before relaxing)
+ .debug_str     0x000000000000a8fe      0x111 ../lib/linux/libPokitto_sim.a(Synth_oscfuncs.o)
+                                        0x391 (size before relaxing)
+ .debug_str     0x000000000000aa0f      0x116 ../lib/linux/libPokitto_sim.a(Synth_wavefuncs.o)
+                                        0x381 (size before relaxing)
+ .debug_str     0x000000000000ab25      0x2da ../lib/linux/libPokitto_sim.a(SimLCD.o)
+                                       0x24b7 (size before relaxing)
+ .debug_str     0x000000000000adff      0x18c ../lib/linux/libPokitto_sim.a(SimSound.o)
+                                       0x2509 (size before relaxing)
+ .debug_str     0x000000000000af8b       0x37 ../lib/linux/libPokitto_sim.a(font5x7.o)
+                                        0x102 (size before relaxing)
+ .debug_str     0x000000000000afc2       0x39 ../lib/linux/libPokitto_sim.a(palCGA.o)
+                                         0xb6 (size before relaxing)
+ .debug_str     0x000000000000affb      0x141 ../lib/linux/libPokitto_sim.a(PokittoBacklight.o)
+                                        0x2ef (size before relaxing)
+ .debug_str     0x000000000000b13c       0xcc ../lib/linux/libPokitto_sim.a(PokittoBattery.o)
+                                        0x2b8 (size before relaxing)
+ .debug_str     0x000000000000b208       0x80 ../lib/linux/libPokitto_sim.a(PokittoButtons.o)
+                                       0x266b (size before relaxing)
+ .debug_str     0x000000000000b288       0xb0 ../lib/linux/libPokitto_sim.a(Synth_envfuncs.o)
+                                        0x300 (size before relaxing)
+ .debug_str     0x000000000000b338      0x365 ../lib/linux/libPokitto_sim.a(Synth_helpers.o)
+                                        0x4f5 (size before relaxing)
+ .debug_str     0x000000000000b69d       0xa6 ../lib/linux/libPokitto_sim.a(Synth_mixfuncs.o)
+                                        0x334 (size before relaxing)
+
+.debug_loc
+ *(.debug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.debug_pubtypes
+ *(.debug_pubtypes)
+
+.debug_ranges   0x0000000000000000       0x50
+ *(.debug_ranges)
+ .debug_ranges  0x0000000000000000       0x50 ../lib/linux/libPokitto_sim.a(SimLCD.o)
+
+.debug_macro
+ *(.debug_macro)
+
+.gnu.attributes
+ *(.gnu.attributes)
+
+/DISCARD/
+ *(.note.GNU-stack)
+ *(.gnu_debuglink)
+ *(.gnu.lto_*)
+OUTPUT(bin/Debug/Pokitto_sim elf64-x86-64)

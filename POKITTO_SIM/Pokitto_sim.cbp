@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="PokittoSimHello" />
+		<Option makefile="makefile" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="HelloLinux">
+				<Option output="bin/Debug/Pokitto_sim" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin/Debug" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option use_console_runner="0" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-DPROJ_HIRES=0" />
+					<Add option="-DPROJ_STARTUPLOGO=0" />
+					<Add option="-DPROJ_GAMEBUINO=0" />
+					<Add option="-DPROJ_GBSOUND=0" />
+					<Add option="-DPROJ_STREAMING_MUSIC=0" />
+					<Add option="-DPROJ_ENABLE_SYNTH=0" />
+					<Add option="-DPROJ_ENABLESOUND=0" />
+				</Compiler>
+				<Linker>
+					<Add library="../lib/linux/libPokitto_sim.a" />
+					<Add library="/usr/lib/x86_64-linux-gnu/libpulse-mainloop-glib.so" />
+					<Add library="/usr/lib/x86_64-linux-gnu/libpulse-simple.so" />
+					<Add library="/usr/lib/x86_64-linux-gnu/libpulse.so" />
+					<Add library="/usr/lib/x86_64-linux-gnu/libdl.so" />
+					<Add library="/usr/lib/x86_64-linux-gnu/libSDL2.so" />
+					<Add library="/usr/lib/x86_64-linux-gnu/libwayland-server.so" />
+					<Add library="/usr/lib/x86_64-linux-gnu/libwayland-client.so" />
+					<Add library="/usr/lib/x86_64-linux-gnu/libasound.so" />
+					<Add library="/usr/lib/x86_64-linux-gnu/libwayland-cursor.so" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-std=gnu++11" />
+			<Add option="-fsigned-char" />
+			<Add option="-pthread" />
+			<Add option="-lasound" />
+			<Add option="-lX11" />
+			<Add option="-lXext" />
+			<Add option="-DPOK_SIM" />
+			<Add directory="../SDL2/include" />
+			<Add directory="../POKITTO_CORE" />
+			<Add directory="../POKITTO_SIM" />
+			<Add directory="../POKITTO_SIM/mbed_sim" />
+			<Add directory="../POKITTO_LIBS/FileIO" />
+			<Add directory="../POKITTO_LIBS/Synth" />
+			<Add directory="../POKITTO_CORE/FONTS" />
+			<Add directory="../" />
+		</Compiler>
+		<Linker>
+			<Add option="-Wl,-Map=main.map" />
+			<Add directory="../SDL2/lib" />
+		</Linker>
+		<Unit filename="../Hello.cpp" />
+		<Unit filename="../POKITTO_CORE/GBcompatibility.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../POKITTO_CORE/Macros_LCD.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../POKITTO_CORE/PokittoBacklight.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../POKITTO_CORE/PokittoBattery.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../POKITTO_CORE/PokittoButtons.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../POKITTO_CORE/PokittoConsole.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../POKITTO_CORE/PokittoCore.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../POKITTO_CORE/PokittoDisplay.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../POKITTO_CORE/PokittoFonts.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../POKITTO_CORE/PokittoLogos.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../POKITTO_CORE/PokittoSound.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../POKITTO_CORE/Pokitto_core.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../POKITTO_CORE/Pokitto_disk.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../POKITTO_CORE/Pokitto_fakeavr.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../POKITTO_CORE/Pokitto_itoa.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../POKITTO_CORE/Pokitto_timer.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../POKITTO_LIBS/FileIO/FileIO.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../POKITTO_LIBS/Synth/Synth.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../POKITTO_LIBS/Synth/Synth_osc.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../POKITTO_LIBS/Synth/Synth_song.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../Pokitto.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../Pokitto_settings.h">
+			<Option weight="0" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="Makewav.cpp" />
+		<Unit filename="Makewav.h" />
+		<Unit filename="PokittoClock.cpp" />
+		<Unit filename="PokittoSimButtons.cpp" />
+		<Unit filename="PokittoSimCore.cpp" />
+		<Unit filename="PokittoSimulator.cpp" />
+		<Unit filename="PokittoSimulator.h" />
+		<Unit filename="Pokitto_simport.cpp" />
+		<Unit filename="Pokitto_simport.h" />
+		<Unit filename="Pokitto_simsound.h" />
+		<Unit filename="SimLCD.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="SimLCD.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="SimSound.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="SimSound.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="mbed_sim/AnalogIn.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="mbed_sim/AnalogOut.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="mbed_sim/DigitalOut.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="mbed_sim/InterruptIn.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="mbed_sim/LPC11U6x.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="mbed_sim/PeripheralNames.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="mbed_sim/PinNames.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="mbed_sim/PwmOut.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="mbed_sim/analogin_api.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="mbed_sim/analogout_api.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="mbed_sim/device.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="mbed_sim/gpio_api.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="mbed_sim/gpio_irq_api.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="mbed_sim/gpio_object.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="mbed_sim/mbed.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="mbed_sim/mbed_sim.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="mbed_sim/objects.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="mbed_sim/platform.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="mbed_sim/pwmout_api.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
