@@ -44,6 +44,10 @@
 				<Option use_console_runner="0" />
 				<Compiler>
 					<Add option="-g" />
+					<Add option="-pthread" />
+					<Add option="-lasound" />
+					<Add option="-lX11" />
+					<Add option="-lXext" />
 					<Add option="-DPROJ_HIRES=0" />
 					<Add option="-DPROJ_STARTUPLOGO=0" />
 					<Add option="-DPROJ_GAMEBUINO=0" />
@@ -70,10 +74,6 @@
 			<Add option="-Wall" />
 			<Add option="-std=gnu++11" />
 			<Add option="-fsigned-char" />
-			<Add option="-pthread" />
-			<Add option="-lasound" />
-			<Add option="-lX11" />
-			<Add option="-lXext" />
 			<Add option="-DPOK_SIM" />
 			<Add directory="../SDL2/include" />
 			<Add directory="../POKITTO_CORE" />
