@@ -2,12 +2,12 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="Pokitto_simulator_Hello_World_linux" />
+		<Option title="PokittoSimHello" />
 		<Option makefile="makefile" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
-			<Target title="HelloWorld">
+			<Target title="HelloWindows">
 				<Option output="bin/Debug/Pokitto_sim" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="bin/Debug" />
 				<Option object_output="obj/Debug/" />
@@ -19,12 +19,45 @@
 					<Add option="-DPROJ_HIRES=0" />
 					<Add option="-DPROJ_STARTUPLOGO=0" />
 					<Add option="-DPROJ_GAMEBUINO=0" />
-					<Add option="-DPROJ_GBSOUND=1" />
-					<Add option="-DPROJ_STREAMING_MUSIC=1" />
+					<Add option="-DPROJ_GBSOUND=0" />
+					<Add option="-DPROJ_STREAMING_MUSIC=0" />
 					<Add option="-DPROJ_ENABLE_SYNTH=0" />
+					<Add option="-DPROJ_ENABLESOUND=0" />
 				</Compiler>
 				<Linker>
-					<Add library="bin/Debug/libPokitto_sim.a" />
+					<Add library="../lib/win/libPokitto_sim.a" />
+					<Add library="mingw32" />
+					<Add library="SDLmain" />
+					<Add library="SDL.dll" />
+					<Add library="user32" />
+					<Add library="gdi32" />
+					<Add library="winmm" />
+					<Add library="dxguid" />
+				</Linker>
+			</Target>
+			<Target title="HelloLinux">
+				<Option output="bin/Debug/Pokitto_sim" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin/Debug" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option use_console_runner="0" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-pthread" />
+					<Add option="-lasound" />
+					<Add option="-lX11" />
+					<Add option="-lXext" />
+					<Add option="-DPROJ_HIRES=0" />
+					<Add option="-DPROJ_STARTUPLOGO=0" />
+					<Add option="-DPROJ_GAMEBUINO=0" />
+					<Add option="-DPROJ_GBSOUND=0" />
+					<Add option="-DPROJ_STREAMING_MUSIC=0" />
+					<Add option="-DPROJ_ENABLE_SYNTH=0" />
+					<Add option="-DPROJ_ENABLESOUND=0" />
+				</Compiler>
+				<Linker>
+					<Add library="../lib/linux/libPokitto_sim.a" />
 					<Add library="/usr/lib/x86_64-linux-gnu/libpulse-mainloop-glib.so" />
 					<Add library="/usr/lib/x86_64-linux-gnu/libpulse-simple.so" />
 					<Add library="/usr/lib/x86_64-linux-gnu/libpulse.so" />
@@ -41,10 +74,6 @@
 			<Add option="-Wall" />
 			<Add option="-std=gnu++11" />
 			<Add option="-fsigned-char" />
-			<Add option="-pthread" />
-			<Add option="-lasound" />
-			<Add option="-lX11" />
-			<Add option="-lXext" />
 			<Add option="-DPOK_SIM" />
 			<Add directory="../SDL2/include" />
 			<Add directory="../POKITTO_CORE" />
@@ -57,7 +86,6 @@
 		</Compiler>
 		<Linker>
 			<Add option="-Wl,-Map=main.map" />
-			<Add library="/media/jo/WinExt/poksim2_linux/POKITTO_SIM/bin/Debug/libPokitto_sim.a" />
 			<Add directory="../SDL2/lib" />
 		</Linker>
 		<Unit filename="../Hello.cpp" />
