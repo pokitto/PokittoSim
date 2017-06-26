@@ -35,42 +35,26 @@
 					<Add library="dxguid" />
 				</Linker>
 			</Target>
-<<<<<<< HEAD
-			<Target title="HelloWinHires">
-=======
 			<Target title="HelloWindowsHires">
->>>>>>> 0cfdd929d322907bd56b6be9b813c508fc911f0e
 				<Option output="bin/Debug/Pokitto_sim" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="bin/Debug" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Option use_console_runner="0" />
-<<<<<<< HEAD
-				<Compiler>
-					<Add option="-g" />
-					<Add option="-DPROJ_HIRES=1" />
-=======
 				<Option projectLinkerOptionsRelation="1" />
 				<Compiler>
 					<Add option="-g" />
 					<Add option="-DPROJ_HIRES=0" />
->>>>>>> 0cfdd929d322907bd56b6be9b813c508fc911f0e
 					<Add option="-DPROJ_STARTUPLOGO=0" />
 					<Add option="-DPROJ_GAMEBUINO=0" />
 					<Add option="-DPROJ_GBSOUND=0" />
 					<Add option="-DPROJ_STREAMING_MUSIC=0" />
 					<Add option="-DPROJ_ENABLE_SYNTH=0" />
 					<Add option="-DPROJ_ENABLESOUND=0" />
-<<<<<<< HEAD
-					<Add option="-DDISABLEAVRMIN" />
-				</Compiler>
-				<Linker>
-=======
 				</Compiler>
 				<Linker>
 					<Add option="-Wl,-Map=main.map" />
->>>>>>> 0cfdd929d322907bd56b6be9b813c508fc911f0e
 					<Add library="../lib/win/libPokitto_hires.a" />
 					<Add library="mingw32" />
 					<Add library="SDLmain" />
