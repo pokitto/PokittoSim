@@ -3297,8 +3297,10 @@
 	"Makewav.h"
 	"PokittoConsole.h"
 
-1496619966 source:c:\poksim3\pokittosim\hello.cpp
+1497371666 source:c:\poksim3\pokittosim\hello.cpp
 	"Pokitto.h"
+	<stdint.h>
+	<stdint.h>
 
 1496563638 c:\poksim3\pokittosim\pokitto.h
 	"Pokitto_settings.h"
@@ -3350,7 +3352,7 @@
 
 1496563638 c:\poksim3\pokittosim\pokitto_sim\mbed_sim\gpio_object.h
 
-1496620017 c:\poksim3\pokittosim\pokitto_sim\pokittosimulator.h
+1497094303 c:\poksim3\pokittosim\pokitto_sim\pokittosimulator.h
 	<stdint.h>
 	<../SDL2/SDL.h>
 	"Pokitto_settings.h"
