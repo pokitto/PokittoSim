@@ -35,25 +35,42 @@
 					<Add library="dxguid" />
 				</Linker>
 			</Target>
+<<<<<<< HEAD
 			<Target title="HelloWinHires">
+=======
+			<Target title="HelloWindowsHires">
+>>>>>>> 0cfdd929d322907bd56b6be9b813c508fc911f0e
 				<Option output="bin/Debug/Pokitto_sim" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="bin/Debug" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Option use_console_runner="0" />
+<<<<<<< HEAD
 				<Compiler>
 					<Add option="-g" />
 					<Add option="-DPROJ_HIRES=1" />
+=======
+				<Option projectLinkerOptionsRelation="1" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-DPROJ_HIRES=0" />
+>>>>>>> 0cfdd929d322907bd56b6be9b813c508fc911f0e
 					<Add option="-DPROJ_STARTUPLOGO=0" />
 					<Add option="-DPROJ_GAMEBUINO=0" />
 					<Add option="-DPROJ_GBSOUND=0" />
 					<Add option="-DPROJ_STREAMING_MUSIC=0" />
 					<Add option="-DPROJ_ENABLE_SYNTH=0" />
 					<Add option="-DPROJ_ENABLESOUND=0" />
+<<<<<<< HEAD
 					<Add option="-DDISABLEAVRMIN" />
 				</Compiler>
 				<Linker>
+=======
+				</Compiler>
+				<Linker>
+					<Add option="-Wl,-Map=main.map" />
+>>>>>>> 0cfdd929d322907bd56b6be9b813c508fc911f0e
 					<Add library="../lib/win/libPokitto_hires.a" />
 					<Add library="mingw32" />
 					<Add library="SDLmain" />
@@ -87,6 +104,42 @@
 				</Compiler>
 				<Linker>
 					<Add library="../lib/linux/libPokitto_sim.a" />
+					<Add library="/usr/lib/x86_64-linux-gnu/libpulse-mainloop-glib.so" />
+					<Add library="/usr/lib/x86_64-linux-gnu/libpulse-simple.so" />
+					<Add library="/usr/lib/x86_64-linux-gnu/libpulse.so" />
+					<Add library="/usr/lib/x86_64-linux-gnu/libdl.so" />
+					<Add library="/usr/lib/x86_64-linux-gnu/libSDL2.so" />
+					<Add library="/usr/lib/x86_64-linux-gnu/libwayland-server.so" />
+					<Add library="/usr/lib/x86_64-linux-gnu/libwayland-client.so" />
+					<Add library="/usr/lib/x86_64-linux-gnu/libasound.so" />
+					<Add library="/usr/lib/x86_64-linux-gnu/libwayland-cursor.so" />
+				</Linker>
+			</Target>
+			<Target title="HelloLinuxHires">
+				<Option output="bin/Debug/Pokitto_sim" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin/Debug" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option use_console_runner="0" />
+				<Option projectLinkerOptionsRelation="1" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-pthread" />
+					<Add option="-lasound" />
+					<Add option="-lX11" />
+					<Add option="-lXext" />
+					<Add option="-DPROJ_HIRES=0" />
+					<Add option="-DPROJ_STARTUPLOGO=0" />
+					<Add option="-DPROJ_GAMEBUINO=0" />
+					<Add option="-DPROJ_GBSOUND=0" />
+					<Add option="-DPROJ_STREAMING_MUSIC=0" />
+					<Add option="-DPROJ_ENABLE_SYNTH=0" />
+					<Add option="-DPROJ_ENABLESOUND=0" />
+				</Compiler>
+				<Linker>
+					<Add option="-Wl,-Map=main.map" />
+					<Add library="../lib/linux/libPokitto_hires.a" />
 					<Add library="/usr/lib/x86_64-linux-gnu/libpulse-mainloop-glib.so" />
 					<Add library="/usr/lib/x86_64-linux-gnu/libpulse-simple.so" />
 					<Add library="/usr/lib/x86_64-linux-gnu/libpulse.so" />
