@@ -40,14 +40,6 @@
 #include <stdint.h>
 
 extern const uint8_t Pokitto_logo[];
-extern const uint8_t Pokitto_plus[];
-extern const uint8_t dogface[];
-extern const uint8_t tooth[];
-extern const uint8_t toothup[];
-extern const uint8_t nxp_n[];
-extern const uint8_t nxp_nx[];
-extern const uint8_t nxp_x[];
-extern const uint8_t nxp_xp[];
-extern const uint8_t nxp_p[];
+
 
 #endif

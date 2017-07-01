@@ -8,7 +8,7 @@
 1486071602 c:\pokittodev\pokitto\projects\pokulous\pokulous.h
 	<stdint.h>
 
-1496563638 
+1497371666 
 
 1485869967 source:c:\pokittodev\pokitto\projects\pokulous\anim_blue_flag2.cpp
 	<stdint.h>
@@ -2657,10 +2657,23 @@
 	"Makewav.h"
 	"PokittoConsole.h"
 
-1496522990 source:/home/jo/pokittodev/poksim2_linux/Hello.cpp
+1496664638 source:/home/jo/pokittodev/poksim2_linux/Hello.cpp
+	"Pokitto.h"
 	"Pokitto.h"
 
 1492908186 /home/jo/pokittodev/poksim2_linux/Pokitto.h
+	"Pokitto_settings.h"
+	"PokittoCore.h"
+	"mbed.h"
+	"HWLCD.h"
+	"Pokitto_timer.h"
+	"Pokitto_extport.h"
+	"PokittoEEPROM.h"
+	"PokittoSimulator.h"
+	"Pokitto_disk.h"
+	"FileIO.h"
+	"Synth.h"
+	"HWSound.h"
 	"Pokitto_settings.h"
 	"PokittoCore.h"
 	"mbed.h"
@@ -2692,14 +2705,34 @@
 	"PokittoBacklight.h"
 	"PokittoSound.h"
 	"Pokitto_fakeavr.h"
+	<stdint.h>
+	<math.h>
+	"pwmout_api.h"
+	"HWButtons.h"
+	"PokittoSimulator.h"
+	"PokittoConsole.h"
+	"Pokitto_disk.h"
+	"PokittoFonts.h"
+	"PokittoPalettes.h"
+	"PokittoDisplay.h"
+	"PokittoButtons.h"
+	"PokittoBattery.h"
+	"PokittoBacklight.h"
+	"PokittoSound.h"
+	"Pokitto_fakeavr.h"
 
 1464813426 /home/jo/pokittodev/poksim2_linux/POKITTO_SIM/mbed_sim/pwmout_api.h
+	"device.h"
 	"device.h"
 
 1464813426 /home/jo/pokittodev/poksim2_linux/POKITTO_SIM/mbed_sim/device.h
 	"objects.h"
+	"objects.h"
 
 1464813426 /home/jo/pokittodev/poksim2_linux/POKITTO_SIM/mbed_sim/objects.h
+	"PeripheralNames.h"
+	"PinNames.h"
+	"gpio_object.h"
 	"PeripheralNames.h"
 	"PinNames.h"
 	"gpio_object.h"
@@ -2710,7 +2743,12 @@
 
 1464813426 /home/jo/pokittodev/poksim2_linux/POKITTO_SIM/mbed_sim/gpio_object.h
 
-1496521039 /home/jo/pokittodev/poksim2_linux/POKITTO_SIM/PokittoSimulator.h
+1496665257 /home/jo/pokittodev/poksim2_linux/POKITTO_SIM/PokittoSimulator.h
+	<stdint.h>
+	<../SDL2/SDL.h>
+	"Pokitto_settings.h"
+	"SimLCD.h"
+	<SDL2/SDL_joystick.h>
 	<stdint.h>
 	<../SDL2/SDL.h>
 	"Pokitto_settings.h"
@@ -2747,8 +2785,40 @@
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_assert.h"
+	"SDL_atomic.h"
+	"SDL_audio.h"
+	"SDL_clipboard.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_filesystem.h"
+	"SDL_joystick.h"
+	"SDL_gamecontroller.h"
+	"SDL_haptic.h"
+	"SDL_hints.h"
+	"SDL_loadso.h"
+	"SDL_log.h"
+	"SDL_messagebox.h"
+	"SDL_mutex.h"
+	"SDL_power.h"
+	"SDL_render.h"
+	"SDL_rwops.h"
+	"SDL_system.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_version.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
 
 1470043446 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
@@ -2781,11 +2851,44 @@
 	<malloc.h>
 	<stdlib.h>
 	"close_code.h"
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<math.h>
+	<float.h>
+	<iconv.h>
+	<sal.h>
+	"begin_code.h"
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	"close_code.h"
 
 1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_config.h
 	"SDL_platform.h"
+	"SDL_platform.h"
 
 1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_platform.h
+	"AvailabilityMacros.h"
+	"TargetConditionals.h"
+	<winapifamily.h>
+	"begin_code.h"
+	"close_code.h"
 	"AvailabilityMacros.h"
 	"TargetConditionals.h"
 	<winapifamily.h>
@@ -2801,8 +2904,17 @@
 	"begin_code.h"
 	<signal.h>
 	"close_code.h"
+	"SDL_config.h"
+	"begin_code.h"
+	<signal.h>
+	"close_code.h"
 
 1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_atomic.h
+	"SDL_stdinc.h"
+	"SDL_platform.h"
+	"begin_code.h"
+	<mbarrier.h>
+	"close_code.h"
 	"SDL_stdinc.h"
 	"SDL_platform.h"
 	"begin_code.h"
@@ -2818,8 +2930,19 @@
 	"SDL_rwops.h"
 	"begin_code.h"
 	"close_code.h"
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
 
 1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
@@ -2829,8 +2952,16 @@
 	<endian.h>
 	"begin_code.h"
 	"close_code.h"
+	"SDL_stdinc.h"
+	<endian.h>
+	"begin_code.h"
+	"close_code.h"
 
 1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
@@ -2844,8 +2975,19 @@
 	"begin_code.h"
 	<process.h>
 	"close_code.h"
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_atomic.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	"close_code.h"
 
 1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
@@ -2855,8 +2997,21 @@
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
 
 1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_cpuinfo.h
+	"SDL_stdinc.h"
+	<intrin.h>
+	<intrin.h>
+	<altivec.h>
+	<mmintrin.h>
+	<mm3dnow.h>
+	<xmmintrin.h>
+	<emmintrin.h>
+	"begin_code.h"
+	"close_code.h"
 	"SDL_stdinc.h"
 	<intrin.h>
 	<intrin.h>
@@ -2881,8 +3036,26 @@
 	"SDL_touch.h"
 	"begin_code.h"
 	"close_code.h"
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_gamecontroller.h"
+	"SDL_quit.h"
+	"SDL_gesture.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
 
 1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_video.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_surface.h"
+	"begin_code.h"
+	"close_code.h"
 	"SDL_stdinc.h"
 	"SDL_pixels.h"
 	"SDL_rect.h"
@@ -2894,8 +3067,17 @@
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
 
 1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_rect.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_pixels.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_pixels.h"
@@ -2911,8 +3093,17 @@
 	"SDL_rwops.h"
 	"begin_code.h"
 	"close_code.h"
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_blendmode.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
 
 1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_blendmode.h
+	"begin_code.h"
+	"close_code.h"
 	"begin_code.h"
 	"close_code.h"
 
@@ -2923,12 +3114,21 @@
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keycode.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
 
 1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_keycode.h
 	"SDL_stdinc.h"
 	"SDL_scancode.h"
+	"SDL_stdinc.h"
+	"SDL_scancode.h"
 
 1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_scancode.h
+	"SDL_stdinc.h"
 	"SDL_stdinc.h"
 
 1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_mouse.h
@@ -2937,8 +3137,17 @@
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
 
 1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
@@ -2951,12 +3160,26 @@
 	"SDL_joystick.h"
 	"begin_code.h"
 	"close_code.h"
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
 
 1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_quit.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
+	"SDL_stdinc.h"
+	"SDL_error.h"
 
 1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_gesture.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
@@ -2970,8 +3193,16 @@
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
 
 1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_filesystem.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
@@ -2982,8 +3213,16 @@
 	"SDL_joystick.h"
 	"begin_code.h"
 	"close_code.h"
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
 
 1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_hints.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
@@ -2993,8 +3232,15 @@
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
 
 1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_log.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
@@ -3004,13 +3250,25 @@
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
+	"SDL_stdinc.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
 
 1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_power.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
 
 1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_render.h
+	"SDL_stdinc.h"
+	"SDL_rect.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
 	"SDL_stdinc.h"
 	"SDL_rect.h"
 	"SDL_video.h"
@@ -3024,8 +3282,18 @@
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
+	"SDL_stdinc.h"
+	"SDL_keyboard.h"
+	"SDL_render.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
 
 1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
@@ -3035,13 +3303,21 @@
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
 
 1493914880 /home/jo/pokittodev/poksim2_linux//Pokitto_settings.h
 
 1483750556 /home/jo/pokittodev/poksim2_linux/POKITTO_SIM/SimLCD.h
 	<stdint.h>
+	<stdint.h>
 
 1459857982 /home/jo/pokittodev/poksim2_linux//SDL2/SDL_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
@@ -3075,11 +3351,44 @@
 	<malloc.h>
 	<stdlib.h>
 	"close_code.h"
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<math.h>
+	<float.h>
+	<iconv.h>
+	<sal.h>
+	"begin_code.h"
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	"close_code.h"
 
 1459857982 /home/jo/pokittodev/poksim2_linux//SDL2/SDL_config.h
 	"SDL_platform.h"
+	"SDL_platform.h"
 
 1459857982 /home/jo/pokittodev/poksim2_linux//SDL2/SDL_platform.h
+	"AvailabilityMacros.h"
+	"TargetConditionals.h"
+	<winapifamily.h>
+	"begin_code.h"
+	"close_code.h"
 	"AvailabilityMacros.h"
 	"TargetConditionals.h"
 	<winapifamily.h>
@@ -3094,8 +3403,14 @@
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
 
 1480384394 /home/jo/pokittodev/poksim2_linux/POKITTO_CORE/PokittoConsole.h
+	"Pokitto_settings.h"
+	"PokittoButtons.h"
+	<stdint.h>
 	"Pokitto_settings.h"
 	"PokittoButtons.h"
 	<stdint.h>
@@ -3107,8 +3422,15 @@
 	"Pokitto_core.h"
 	"HWButtons.h"
 	"PokittoSimulator.h"
+	<stdint.h>
+	"Pokitto_settings.h"
+	"GBcompatibility.h"
+	"Pokitto_core.h"
+	"HWButtons.h"
+	"PokittoSimulator.h"
 
 1491252002 /home/jo/pokittodev/poksim2_linux/POKITTO_CORE/GBcompatibility.h
+	"binary.h"
 	"binary.h"
 
 1464813426 /home/jo/pokittodev/poksim2_linux/POKITTO_CORE/binary.h
@@ -3121,13 +3443,30 @@
 	"mbed.h"
 	"HWLCD.h"
 	"HWSound.h"
+	<stdint.h>
+	"SimLCD.h"
+	"SimSound.h"
+	"PokittoSimulator.h"
+	"mbed.h"
+	"HWLCD.h"
+	"HWSound.h"
 
 1483563486 /home/jo/pokittodev/poksim2_linux/POKITTO_SIM/SimSound.h
 	"PokittoSimulator.h"
 	<stdint.h>
 	<stdio.h>
+	"PokittoSimulator.h"
+	<stdint.h>
+	<stdio.h>
 
 1479588322 /home/jo/pokittodev/poksim2_linux/POKITTO_SIM/mbed_sim/mbed.h
+	<stdint.h>
+	"LPC11U6x.h"
+	"PinNames.h"
+	"DigitalOut.h"
+	"PwmOut.h"
+	"AnalogIn.h"
+	"InterruptIn.h"
 	<stdint.h>
 	"LPC11U6x.h"
 	"PinNames.h"
@@ -3141,8 +3480,15 @@
 1464813426 /home/jo/pokittodev/poksim2_linux/POKITTO_SIM/mbed_sim/DigitalOut.h
 	"platform.h"
 	"gpio_api.h"
+	"platform.h"
+	"gpio_api.h"
 
 1464813426 /home/jo/pokittodev/poksim2_linux/POKITTO_SIM/mbed_sim/platform.h
+	"PinNames.h"
+	<cstddef>
+	<cstdlib>
+	<cstdio>
+	<cstring>
 	"PinNames.h"
 	<cstddef>
 	<cstdlib>
@@ -3151,16 +3497,22 @@
 
 1464813426 /home/jo/pokittodev/poksim2_linux/POKITTO_SIM/mbed_sim/gpio_api.h
 	"device.h"
+	"device.h"
 
 1464813426 /home/jo/pokittodev/poksim2_linux/POKITTO_SIM/mbed_sim/PwmOut.h
+	"platform.h"
+	"pwmout_api.h"
 	"platform.h"
 	"pwmout_api.h"
 
 1464813426 /home/jo/pokittodev/poksim2_linux/POKITTO_SIM/mbed_sim/AnalogIn.h
 	"platform.h"
 	"analogin_api.h"
+	"platform.h"
+	"analogin_api.h"
 
 1464813426 /home/jo/pokittodev/poksim2_linux/POKITTO_SIM/mbed_sim/analogin_api.h
+	"device.h"
 	"device.h"
 
 1464813426 /home/jo/pokittodev/poksim2_linux/POKITTO_SIM/mbed_sim/InterruptIn.h
@@ -3168,11 +3520,18 @@
 	"gpio_api.h"
 	"gpio_irq_api.h"
 	"FunctionPointer.h"
+	"platform.h"
+	"gpio_api.h"
+	"gpio_irq_api.h"
+	"FunctionPointer.h"
 
 1464813426 /home/jo/pokittodev/poksim2_linux/POKITTO_SIM/mbed_sim/gpio_irq_api.h
 	"device.h"
+	"device.h"
 
 1464813426 /home/jo/pokittodev/poksim2_linux/POKITTO_SIM/mbed_sim/FunctionPointer.h
+	<string.h>
+	<stdint.h>
 	<string.h>
 	<stdint.h>
 
@@ -3182,14 +3541,29 @@
 	"connect.h"
 	"mbed.h"
 	<stdint.h>
+	"diskio.h"
+	"pff.h"
+	"connect.h"
+	"mbed.h"
+	<stdint.h>
 
 1493836110 /home/jo/pokittodev/poksim2_linux/POKITTO_CORE/PokittoFonts.h
+	"Pokitto_settings.h"
 	"Pokitto_settings.h"
 
 1493836110 /home/jo/pokittodev/poksim2_linux/POKITTO_CORE/PokittoPalettes.h
 	"Pokitto_settings.h"
+	"Pokitto_settings.h"
 
 1487196254 /home/jo/pokittodev/poksim2_linux/POKITTO_CORE/PokittoDisplay.h
+	<stdint.h>
+	"Pokitto_settings.h"
+	"Pokitto_core.h"
+	"PokittoFonts.h"
+	"PokittoPalettes.h"
+	<stdint.h>
+	<stdlib.h>
+	<string.h>
 	<stdint.h>
 	"Pokitto_settings.h"
 	"Pokitto_core.h"
@@ -3204,11 +3578,21 @@
 	"Pokitto_settings.h"
 	"GBcompatibility.h"
 	"Pokitto_core.h"
+	<stdint.h>
+	"Pokitto_settings.h"
+	"GBcompatibility.h"
+	"Pokitto_core.h"
 
 1480205380 /home/jo/pokittodev/poksim2_linux/POKITTO_CORE/PokittoBacklight.h
 	<stdint.h>
+	<stdint.h>
 
 1484007104 /home/jo/pokittodev/poksim2_linux/POKITTO_CORE/PokittoSound.h
+	<stdint.h>
+	"Pokitto_settings.h"
+	"GBcompatibility.h"
+	"Pokitto_fakeavr.h"
+	"Pokitto_core.h"
 	<stdint.h>
 	"Pokitto_settings.h"
 	"GBcompatibility.h"
@@ -3222,23 +3606,46 @@
 	<stdlib.h>
 	<stdbool.h>
 	<stdbool.h>
+	"Pokitto_itoa.h"
+	"binary.h"
+	<stdint.h>
+	<stdlib.h>
+	<stdbool.h>
+	<stdbool.h>
 
 1464813426 /home/jo/pokittodev/poksim2_linux/POKITTO_CORE/Pokitto_itoa.h
+	<stdint.h>
 	<stdint.h>
 
 1477868270 /home/jo/pokittodev/poksim2_linux/POKITTO_CORE/Pokitto_timer.h
 
 1464813426 /home/jo/pokittodev/poksim2_linux/POKITTO_LIBS/FileIO/FileIO.h
 	<stdint.h>
+	<stdint.h>
 
 1483998888 /home/jo/pokittodev/poksim2_linux/POKITTO_LIBS/Synth/Synth.h
+	"Synth_osc.h"
+	"Synth_song.h"
 	"Synth_osc.h"
 	"Synth_song.h"
 
 1483998102 /home/jo/pokittodev/poksim2_linux/POKITTO_LIBS/Synth/Synth_osc.h
 	"Pokitto.h"
+	"Pokitto.h"
 
 1492908186 /home/jo/pokittodev/poksim2_linux//Pokitto.h
+	"Pokitto_settings.h"
+	"PokittoCore.h"
+	"mbed.h"
+	"HWLCD.h"
+	"Pokitto_timer.h"
+	"Pokitto_extport.h"
+	"PokittoEEPROM.h"
+	"PokittoSimulator.h"
+	"Pokitto_disk.h"
+	"FileIO.h"
+	"Synth.h"
+	"HWSound.h"
 	"Pokitto_settings.h"
 	"PokittoCore.h"
 	"mbed.h"
@@ -3258,13 +3665,21 @@
 	<stdio.h>
 	<assert.h>
 	"Makewav.h"
+	<stdio.h>
+	<assert.h>
+	"Makewav.h"
 
 1483431792 /home/jo/pokittodev/poksim2_linux/POKITTO_SIM/Makewav.h
 
 1464813426 source:/home/jo/pokittodev/poksim2_linux/POKITTO_SIM/Pokitto_simport.cpp
 	"Pokitto.h"
+	"Pokitto.h"
 
 1493826884 source:/home/jo/pokittodev/poksim2_linux/POKITTO_SIM/PokittoClock.cpp
+	"PokittoCore.h"
+	"PokittoConsole.h"
+	"Pokitto_settings.h"
+	<../SDL2/SDL.h>
 	"PokittoCore.h"
 	"PokittoConsole.h"
 	"Pokitto_settings.h"
@@ -3276,8 +3691,15 @@
 	"PokittoConsole.h"
 	<../SDL2/SDL.h>
 	<iostream>
+	"PokittoSimulator.h"
+	"Pokitto_settings.h"
+	"PokittoConsole.h"
+	<../SDL2/SDL.h>
+	<iostream>
 
 1481033542 source:/home/jo/pokittodev/poksim2_linux/POKITTO_SIM/PokittoSimCore.cpp
+	"PokittoCore.h"
+	"PokittoSimulator.h"
 	"PokittoCore.h"
 	"PokittoSimulator.h"
 
@@ -3296,20 +3718,34 @@
 	<string.h>
 	"Makewav.h"
 	"PokittoConsole.h"
-<<<<<<< HEAD
-
-1497371666 source:c:\poksim3\pokittosim\hello.cpp
-	"Pokitto.h"
+	"PokittoSimulator.h"
+	"Pokitto_settings.h"
+	"Pokitto_core.h"
+	"PokittoSound.h"
+	<../SDL2/SDL.h>
+	<iostream>
+	<stdlib.h>
+	<sstream>
 	<stdint.h>
-	<stdint.h>
+	<stdio.h>
+	<math.h>
+	<string.h>
+	"Makewav.h"
+	"PokittoConsole.h"
 
-=======
+1496563638 D
 
-1496619966 source:c:\poksim3\pokittosim\hello.cpp
+1498942900 source:c:\poksim3\pokittosim\hello.cpp
 	"Pokitto.h"
 
->>>>>>> 0cfdd929d322907bd56b6be9b813c508fc911f0e
-1496563638 c:\poksim3\pokittosim\pokitto.h
+1496620017 dd929d322907bd56b6be9b813c508fc911f0e
+	<stdint.h>
+	<../SDL2/SDL.h>
+	"Pokitto_settings.h"
+	"SimLCD.h"
+	<SDL2/SDL_joystick.h>
+
+1498942628 c:\poksim3\pokittosim\pokitto.h
 	"Pokitto_settings.h"
 	"PokittoCore.h"
 	"mbed.h"
@@ -3323,16 +3759,16 @@
 	"Synth.h"
 	"HWSound.h"
 
-1496563638 c:\poksim3\pokittosim\pokitto_settings.h
+1498942603 c:\poksim3\pokittosim\pokitto_settings.h
 
-1496563638 c:\poksim3\pokittosim\pokitto_core\pokittocore.h
+1498660330 c:\poksim3\pokittosim\pokitto_core\pokittocore.h
 	<stdint.h>
 	<math.h>
 	"pwmout_api.h"
 	"HWButtons.h"
 	"PokittoSimulator.h"
 	"PokittoConsole.h"
-	"Pokitto_disk.h"
+	"PokittoDisk.h"
 	"PokittoFonts.h"
 	"PokittoPalettes.h"
 	"PokittoDisplay.h"
@@ -3340,7 +3776,7 @@
 	"PokittoBattery.h"
 	"PokittoBacklight.h"
 	"PokittoSound.h"
-	"Pokitto_fakeavr.h"
+	"PokittoFakeavr.h"
 
 1496563638 c:\poksim3\pokittosim\pokitto_sim\mbed_sim\pwmout_api.h
 	"device.h"
@@ -3358,15 +3794,10 @@
 1496563638 c:\poksim3\pokittosim\pokitto_sim\mbed_sim\pinnames.h
 
 1496563638 c:\poksim3\pokittosim\pokitto_sim\mbed_sim\gpio_object.h
-<<<<<<< HEAD
 
-1497094303 c:\poksim3\pokittosim\pokitto_sim\pokittosimulator.h
-=======
-
-1496620017 c:\poksim3\pokittosim\pokitto_sim\pokittosimulator.h
->>>>>>> 0cfdd929d322907bd56b6be9b813c508fc911f0e
+1498911032 c:\poksim3\pokittosim\pokitto_sim\pokittosimulator.h
 	<stdint.h>
-	<../SDL2/SDL.h>
+	<SDL2/SDL.h>
 	"Pokitto_settings.h"
 	"SimLCD.h"
 	<SDL2/SDL_joystick.h>
@@ -3690,9 +4121,9 @@
 	"begin_code.h"
 	"close_code.h"
 
-1496563638 c:\poksim3\pokittosim\\pokitto_settings.h
+1498942603 c:\poksim3\pokittosim\\pokitto_settings.h
 
-1496563638 c:\poksim3\pokittosim\pokitto_sim\simlcd.h
+1496865927 c:\poksim3\pokittosim\pokitto_sim\simlcd.h
 	<stdint.h>
 
 1496563638 c:\poksim3\pokittosim\\sdl2\sdl_joystick.h
@@ -3749,23 +4180,23 @@
 	"begin_code.h"
 	"close_code.h"
 
-1496563638 c:\poksim3\pokittosim\pokitto_core\pokittoconsole.h
+1480387992 c:\poksim3\pokittosim\pokitto_core\pokittoconsole.h
 	"Pokitto_settings.h"
 	"PokittoButtons.h"
 	<stdint.h>
 
-1496563638 c:\poksim3\pokittosim\pokitto_core\pokittobuttons.h
+1498661126 c:\poksim3\pokittosim\pokitto_core\pokittobuttons.h
 	<stdint.h>
 	"Pokitto_settings.h"
 	"GBcompatibility.h"
-	"Pokitto_core.h"
+	"PokittoGlobs.h"
 	"HWButtons.h"
 	"PokittoSimulator.h"
 
-1496563638 c:\poksim3\pokittosim\pokitto_core\gbcompatibility.h
+1491255601 c:\poksim3\pokittosim\pokitto_core\gbcompatibility.h
 	"binary.h"
 
-1496563638 c:\poksim3\pokittosim\pokitto_core\binary.h
+1464817025 c:\poksim3\pokittosim\pokitto_core\binary.h
 
 1496563638 c:\poksim3\pokittosim\pokitto_core\pokitto_core.h
 	<stdint.h>
@@ -3776,7 +4207,7 @@
 	"HWLCD.h"
 	"HWSound.h"
 
-1496563638 c:\poksim3\pokittosim\pokitto_sim\simsound.h
+1497463928 c:\poksim3\pokittosim\pokitto_sim\simsound.h
 	"PokittoSimulator.h"
 	<stdint.h>
 	<stdio.h>
@@ -3837,37 +4268,37 @@
 	"mbed.h"
 	<stdint.h>
 
-1496563638 c:\poksim3\pokittosim\pokitto_core\pokittofonts.h
+1498593136 c:\poksim3\pokittosim\pokitto_core\pokittofonts.h
 	"Pokitto_settings.h"
 
-1496563638 c:\poksim3\pokittosim\pokitto_core\pokittopalettes.h
+1482853534 c:\poksim3\pokittosim\pokitto_core\pokittopalettes.h
 	"Pokitto_settings.h"
 
-1496563638 c:\poksim3\pokittosim\pokitto_core\pokittodisplay.h
+1498659084 c:\poksim3\pokittosim\pokitto_core\pokittodisplay.h
 	<stdint.h>
 	"Pokitto_settings.h"
-	"Pokitto_core.h"
+	"PokittoGlobs.h"
 	"PokittoFonts.h"
 	"PokittoPalettes.h"
 	<stdint.h>
 	<stdlib.h>
 	<string.h>
 
-1496563638 c:\poksim3\pokittosim\pokitto_core\pokittobattery.h
+1498661126 c:\poksim3\pokittosim\pokitto_core\pokittobattery.h
 	<stdint.h>
 	"Pokitto_settings.h"
 	"GBcompatibility.h"
-	"Pokitto_core.h"
+	"PokittoGlobs.h"
 
-1496563638 c:\poksim3\pokittosim\pokitto_core\pokittobacklight.h
+1480208978 c:\poksim3\pokittosim\pokitto_core\pokittobacklight.h
 	<stdint.h>
 
-1496563638 c:\poksim3\pokittosim\pokitto_core\pokittosound.h
+1498774029 c:\poksim3\pokittosim\pokitto_core\pokittosound.h
 	<stdint.h>
 	"Pokitto_settings.h"
 	"GBcompatibility.h"
-	"Pokitto_fakeavr.h"
-	"Pokitto_core.h"
+	"PokittoFakeavr.h"
+	"PokittoGlobs.h"
 
 1496563638 c:\poksim3\pokittosim\pokitto_core\pokitto_fakeavr.h
 	"Pokitto_itoa.h"
@@ -3882,17 +4313,17 @@
 
 1496563638 c:\poksim3\pokittosim\pokitto_core\pokitto_timer.h
 
-1496563638 c:\poksim3\pokittosim\pokitto_libs\fileio\fileio.h
+1464817025 c:\poksim3\pokittosim\pokitto_libs\fileio\fileio.h
 	<stdint.h>
 
-1496563638 c:\poksim3\pokittosim\pokitto_libs\synth\synth.h
+1498043602 c:\poksim3\pokittosim\pokitto_libs\synth\synth.h
 	"Synth_osc.h"
 	"Synth_song.h"
 
-1496563638 c:\poksim3\pokittosim\pokitto_libs\synth\synth_osc.h
+1484001701 c:\poksim3\pokittosim\pokitto_libs\synth\synth_osc.h
 	"Pokitto.h"
 
-1496563638 c:\poksim3\pokittosim\\pokitto.h
+1498942628 c:\poksim3\pokittosim\\pokitto.h
 	"Pokitto_settings.h"
 	"PokittoCore.h"
 	"mbed.h"
@@ -3906,7 +4337,7 @@
 	"Synth.h"
 	"HWSound.h"
 
-1496563638 c:\poksim3\pokittosim\pokitto_libs\synth\synth_song.h
+1464817025 c:\poksim3\pokittosim\pokitto_libs\synth\synth_song.h
 
 1496563638 source:c:\poksim3\pokittosim\pokitto_sim\makewav.cpp
 	<stdio.h>
@@ -3918,29 +4349,30 @@
 1496563638 source:c:\poksim3\pokittosim\pokitto_sim\pokitto_simport.cpp
 	"Pokitto.h"
 
-1496563638 source:c:\poksim3\pokittosim\pokitto_sim\pokittoclock.cpp
+1498935765 source:c:\poksim3\pokittosim\pokitto_sim\pokittoclock.cpp
 	"PokittoCore.h"
 	"PokittoConsole.h"
 	"Pokitto_settings.h"
-	<../SDL2/SDL.h>
+	<SDL2/SDL.h>
 
-1496563638 source:c:\poksim3\pokittosim\pokitto_sim\pokittosimbuttons.cpp
+1495177011 source:c:\poksim3\pokittosim\pokitto_sim\pokittosimbuttons.cpp
 	"PokittoSimulator.h"
 	"Pokitto_settings.h"
 	"PokittoConsole.h"
-	<../SDL2/SDL.h>
+	<SDL2/SDL.h>
 	<iostream>
 
-1496563638 source:c:\poksim3\pokittosim\pokitto_sim\pokittosimcore.cpp
+1498935833 source:c:\poksim3\pokittosim\pokitto_sim\pokittosimcore.cpp
 	"PokittoCore.h"
 	"PokittoSimulator.h"
+	<time.h>
 
-1496563638 source:c:\poksim3\pokittosim\pokitto_sim\pokittosimulator.cpp
+1498944282 source:c:\poksim3\pokittosim\pokitto_sim\pokittosimulator.cpp
 	"PokittoSimulator.h"
 	"Pokitto_settings.h"
-	"Pokitto_core.h"
+	"PokittoGlobs.h"
 	"PokittoSound.h"
-	<../SDL2/SDL.h>
+	<SDL2/SDL.h>
 	<iostream>
 	<stdlib.h>
 	<sstream>
@@ -3948,77 +4380,46 @@
 	<stdio.h>
 	<math.h>
 	<string.h>
-	"Makewav.h"
+	"WriteWav.h"
 	"PokittoConsole.h"
 
-1483435006 source:/home/jo/pokittodev/poksim2_linux/POKITTO_SIM/Makewav.cpp
-	<stdio.h>
-	<assert.h>
-	"Makewav.h"
-
-1483431792 /home/jo/pokittodev/poksim2_linux/POKITTO_SIM/Makewav.h
-
-1464813426 source:/home/jo/pokittodev/poksim2_linux/POKITTO_SIM/Pokitto_simport.cpp
-	"Pokitto.h"
-
-1492908186 /home/jo/pokittodev/poksim2_linux//Pokitto.h
-	"Pokitto_settings.h"
-	"PokittoCore.h"
+1498659062 c:\poksim3\pokittosim\pokitto_core\pokittoglobs.h
+	<stdint.h>
+	"SimLCD.h"
+	"SimSound.h"
+	"PokittoSimulator.h"
 	"mbed.h"
 	"HWLCD.h"
-	"Pokitto_timer.h"
-	"Pokitto_extport.h"
-	"PokittoEEPROM.h"
-	"PokittoSimulator.h"
-	"Pokitto_disk.h"
-	"FileIO.h"
-	"Synth.h"
 	"HWSound.h"
 
-1493914880 /home/jo/pokittodev/poksim2_linux//Pokitto_settings.h
-
-1483575816 /home/jo/pokittodev/poksim2_linux/POKITTO_CORE/PokittoCore.h
+1498659343 c:\poksim3\pokittosim\pokitto_core\pokittodisk.h
+	"diskio.h"
+	"pff.h"
+	"connect.h"
+	"mbed.h"
 	<stdint.h>
-	<math.h>
-	"pwmout_api.h"
-	"HWButtons.h"
-	"PokittoSimulator.h"
-	"PokittoConsole.h"
-	"Pokitto_disk.h"
-	"PokittoFonts.h"
-	"PokittoPalettes.h"
-	"PokittoDisplay.h"
-	"PokittoButtons.h"
-	"PokittoBattery.h"
-	"PokittoBacklight.h"
-	"PokittoSound.h"
-	"Pokitto_fakeavr.h"
 
-1464813426 /home/jo/pokittodev/poksim2_linux/POKITTO_SIM/mbed_sim/pwmout_api.h
-	"device.h"
-
-1464813426 /home/jo/pokittodev/poksim2_linux/POKITTO_SIM/mbed_sim/device.h
-	"objects.h"
-
-1464813426 /home/jo/pokittodev/poksim2_linux/POKITTO_SIM/mbed_sim/objects.h
-	"PeripheralNames.h"
-	"PinNames.h"
-	"gpio_object.h"
-
-1464813426 /home/jo/pokittodev/poksim2_linux/POKITTO_SIM/mbed_sim/PeripheralNames.h
-
-1464813426 /home/jo/pokittodev/poksim2_linux/POKITTO_SIM/mbed_sim/PinNames.h
-
-1464813426 /home/jo/pokittodev/poksim2_linux/POKITTO_SIM/mbed_sim/gpio_object.h
-
-1496665257 /home/jo/pokittodev/poksim2_linux/POKITTO_SIM/PokittoSimulator.h
+1498660245 c:\poksim3\pokittosim\pokitto_core\pokittofakeavr.h
+	"PokittoItoa.h"
+	"binary.h"
 	<stdint.h>
-	<../SDL2/SDL.h>
+	<stdlib.h>
+	<stdbool.h>
+	<stdbool.h>
+
+1498659717 c:\poksim3\pokittosim\pokitto_core\pokittoitoa.h
+	<stdint.h>
+
+1498658551 source:c:\poksim3\pokittosim\pokitto_core\pokittocore.cpp
+	"PokittoCore.h"
 	"Pokitto_settings.h"
-	"SimLCD.h"
-	<SDL2/SDL_joystick.h>
+	"PokittoConsole.h"
+	"PokittoFonts.h"
+	"PokittoTimer.h"
+	"PokittoLogos.h"
+	<stdlib.h>
 
-1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL.h
+1496563638 c:\poksim3\pokittosim\\sdl2\sdl.h
 	"SDL_main.h"
 	"SDL_stdinc.h"
 	"SDL_assert.h"
@@ -4049,68 +4450,25 @@
 	"begin_code.h"
 	"close_code.h"
 
-1470043446 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_main.h
+1496563638 c:\poksim3\pokittosim\\sdl2\sdl_main.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_stdinc.h
-	"SDL_config.h"
-	<sys/types.h>
-	<stdio.h>
-	<stdlib.h>
-	<stddef.h>
-	<stdarg.h>
-	<stdlib.h>
-	<malloc.h>
-	<stddef.h>
-	<stdarg.h>
-	<memory.h>
-	<string.h>
-	<strings.h>
-	<inttypes.h>
-	<stdint.h>
-	<ctype.h>
-	<math.h>
-	<float.h>
-	<iconv.h>
-	<sal.h>
-	"begin_code.h"
-	<alloca.h>
-	<malloc.h>
-	<malloc.h>
-	<malloc.h>
-	<stdlib.h>
-	"close_code.h"
-
-1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_config.h
-	"SDL_platform.h"
-
-1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_platform.h
-	"AvailabilityMacros.h"
-	"TargetConditionals.h"
-	<winapifamily.h>
-	"begin_code.h"
-	"close_code.h"
-
-1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/begin_code.h
-
-1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/close_code.h
-
-1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_assert.h
+1496563638 c:\poksim3\pokittosim\\sdl2\sdl_assert.h
 	"SDL_config.h"
 	"begin_code.h"
 	<signal.h>
 	"close_code.h"
 
-1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_atomic.h
+1496563638 c:\poksim3\pokittosim\\sdl2\sdl_atomic.h
 	"SDL_stdinc.h"
 	"SDL_platform.h"
 	"begin_code.h"
 	<mbarrier.h>
 	"close_code.h"
 
-1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_audio.h
+1496563638 c:\poksim3\pokittosim\\sdl2\sdl_audio.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_endian.h"
@@ -4120,24 +4478,19 @@
 	"begin_code.h"
 	"close_code.h"
 
-1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_error.h
-	"SDL_stdinc.h"
-	"begin_code.h"
-	"close_code.h"
-
-1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_endian.h
+1496563638 c:\poksim3\pokittosim\\sdl2\sdl_endian.h
 	"SDL_stdinc.h"
 	<endian.h>
 	"begin_code.h"
 	"close_code.h"
 
-1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_mutex.h
+1496563638 c:\poksim3\pokittosim\\sdl2\sdl_mutex.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_thread.h
+1496563638 c:\poksim3\pokittosim\\sdl2\sdl_thread.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_atomic.h"
@@ -4146,18 +4499,18 @@
 	<process.h>
 	"close_code.h"
 
-1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_rwops.h
+1496563638 c:\poksim3\pokittosim\\sdl2\sdl_rwops.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_clipboard.h
+1496563638 c:\poksim3\pokittosim\\sdl2\sdl_clipboard.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_cpuinfo.h
+1496563638 c:\poksim3\pokittosim\\sdl2\sdl_cpuinfo.h
 	"SDL_stdinc.h"
 	<intrin.h>
 	<intrin.h>
@@ -4169,7 +4522,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_events.h
+1496563638 c:\poksim3\pokittosim\\sdl2\sdl_events.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
@@ -4183,7 +4536,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_video.h
+1496563638 c:\poksim3\pokittosim\\sdl2\sdl_video.h
 	"SDL_stdinc.h"
 	"SDL_pixels.h"
 	"SDL_rect.h"
@@ -4191,12 +4544,12 @@
 	"begin_code.h"
 	"close_code.h"
 
-1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_pixels.h
+1496563638 c:\poksim3\pokittosim\\sdl2\sdl_pixels.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_rect.h
+1496563638 c:\poksim3\pokittosim\\sdl2\sdl_rect.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_pixels.h"
@@ -4204,7 +4557,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_surface.h
+1496563638 c:\poksim3\pokittosim\\sdl2\sdl_surface.h
 	"SDL_stdinc.h"
 	"SDL_pixels.h"
 	"SDL_rect.h"
@@ -4213,11 +4566,11 @@
 	"begin_code.h"
 	"close_code.h"
 
-1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_blendmode.h
+1496563638 c:\poksim3\pokittosim\\sdl2\sdl_blendmode.h
 	"begin_code.h"
 	"close_code.h"
 
-1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_keyboard.h
+1496563638 c:\poksim3\pokittosim\\sdl2\sdl_keyboard.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_keycode.h"
@@ -4225,27 +4578,21 @@
 	"begin_code.h"
 	"close_code.h"
 
-1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_keycode.h
+1496563638 c:\poksim3\pokittosim\\sdl2\sdl_keycode.h
 	"SDL_stdinc.h"
 	"SDL_scancode.h"
 
-1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_scancode.h
+1496563638 c:\poksim3\pokittosim\\sdl2\sdl_scancode.h
 	"SDL_stdinc.h"
 
-1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_mouse.h
+1496563638 c:\poksim3\pokittosim\\sdl2\sdl_mouse.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_joystick.h
-	"SDL_stdinc.h"
-	"SDL_error.h"
-	"begin_code.h"
-	"close_code.h"
-
-1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_gamecontroller.h
+1496563638 c:\poksim3\pokittosim\\sdl2\sdl_gamecontroller.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_rwops.h"
@@ -4253,11 +4600,11 @@
 	"begin_code.h"
 	"close_code.h"
 
-1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_quit.h
+1496563638 c:\poksim3\pokittosim\\sdl2\sdl_quit.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 
-1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_gesture.h
+1496563638 c:\poksim3\pokittosim\\sdl2\sdl_gesture.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
@@ -4265,60 +4612,60 @@
 	"begin_code.h"
 	"close_code.h"
 
-1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_touch.h
+1496563638 c:\poksim3\pokittosim\\sdl2\sdl_touch.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_filesystem.h
+1496563638 c:\poksim3\pokittosim\\sdl2\sdl_filesystem.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_haptic.h
+1496563638 c:\poksim3\pokittosim\\sdl2\sdl_haptic.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_joystick.h"
 	"begin_code.h"
 	"close_code.h"
 
-1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_hints.h
+1496563638 c:\poksim3\pokittosim\\sdl2\sdl_hints.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_loadso.h
+1496563638 c:\poksim3\pokittosim\\sdl2\sdl_loadso.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_log.h
+1496563638 c:\poksim3\pokittosim\\sdl2\sdl_log.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_messagebox.h
+1496563638 c:\poksim3\pokittosim\\sdl2\sdl_messagebox.h
 	"SDL_stdinc.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_power.h
+1496563638 c:\poksim3\pokittosim\\sdl2\sdl_power.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_render.h
+1496563638 c:\poksim3\pokittosim\\sdl2\sdl_render.h
 	"SDL_stdinc.h"
 	"SDL_rect.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_system.h
+1496563638 c:\poksim3\pokittosim\\sdl2\sdl_system.h
 	"SDL_stdinc.h"
 	"SDL_keyboard.h"
 	"SDL_render.h"
@@ -4326,268 +4673,180 @@
 	"begin_code.h"
 	"close_code.h"
 
-1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_timer.h
+1496563638 c:\poksim3\pokittosim\\sdl2\sdl_timer.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1459857982 /home/jo/pokittodev/poksim2_linux/SDL2/SDL_version.h
+1496563638 c:\poksim3\pokittosim\\sdl2\sdl_version.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1483750556 /home/jo/pokittodev/poksim2_linux/POKITTO_SIM/SimLCD.h
+1498658247 c:\poksim3\pokittosim\pokitto_core\pokittotimer.h
+
+1498773916 c:\poksim3\pokittosim\pokitto_core\pokittologos.h
 	<stdint.h>
 
-1459857982 /home/jo/pokittodev/poksim2_linux//SDL2/SDL_joystick.h
-	"SDL_stdinc.h"
-	"SDL_error.h"
-	"begin_code.h"
-	"close_code.h"
-
-1459857982 /home/jo/pokittodev/poksim2_linux//SDL2/SDL_stdinc.h
-	"SDL_config.h"
-	<sys/types.h>
-	<stdio.h>
-	<stdlib.h>
-	<stddef.h>
-	<stdarg.h>
-	<stdlib.h>
-	<malloc.h>
-	<stddef.h>
-	<stdarg.h>
-	<memory.h>
-	<string.h>
-	<strings.h>
-	<inttypes.h>
-	<stdint.h>
-	<ctype.h>
-	<math.h>
-	<float.h>
-	<iconv.h>
-	<sal.h>
-	"begin_code.h"
-	<alloca.h>
-	<malloc.h>
-	<malloc.h>
-	<malloc.h>
-	<stdlib.h>
-	"close_code.h"
-
-1459857982 /home/jo/pokittodev/poksim2_linux//SDL2/SDL_config.h
-	"SDL_platform.h"
-
-1459857982 /home/jo/pokittodev/poksim2_linux//SDL2/SDL_platform.h
-	"AvailabilityMacros.h"
-	"TargetConditionals.h"
-	<winapifamily.h>
-	"begin_code.h"
-	"close_code.h"
-
-1459857982 /home/jo/pokittodev/poksim2_linux//SDL2/begin_code.h
-
-1459857982 /home/jo/pokittodev/poksim2_linux//SDL2/close_code.h
-
-1459857982 /home/jo/pokittodev/poksim2_linux//SDL2/SDL_error.h
-	"SDL_stdinc.h"
-	"begin_code.h"
-	"close_code.h"
-
-1480384394 /home/jo/pokittodev/poksim2_linux/POKITTO_CORE/PokittoConsole.h
-	"Pokitto_settings.h"
-	"PokittoButtons.h"
-	<stdint.h>
-
-1481029304 /home/jo/pokittodev/poksim2_linux/POKITTO_CORE/PokittoButtons.h
-	<stdint.h>
-	"Pokitto_settings.h"
-	"GBcompatibility.h"
-	"Pokitto_core.h"
-	"HWButtons.h"
-	"PokittoSimulator.h"
-
-1491252002 /home/jo/pokittodev/poksim2_linux/POKITTO_CORE/GBcompatibility.h
-	"binary.h"
-
-1464813426 /home/jo/pokittodev/poksim2_linux/POKITTO_CORE/binary.h
-
-1484588044 /home/jo/pokittodev/poksim2_linux/POKITTO_CORE/Pokitto_core.h
-	<stdint.h>
-	"SimLCD.h"
-	"SimSound.h"
-	"PokittoSimulator.h"
-	"mbed.h"
-	"HWLCD.h"
-	"HWSound.h"
-
-1483563486 /home/jo/pokittodev/poksim2_linux/POKITTO_SIM/SimSound.h
-	"PokittoSimulator.h"
-	<stdint.h>
-	<stdio.h>
-
-1479588322 /home/jo/pokittodev/poksim2_linux/POKITTO_SIM/mbed_sim/mbed.h
-	<stdint.h>
-	"LPC11U6x.h"
-	"PinNames.h"
-	"DigitalOut.h"
-	"PwmOut.h"
-	"AnalogIn.h"
-	"InterruptIn.h"
-
-1464813426 /home/jo/pokittodev/poksim2_linux/POKITTO_SIM/mbed_sim/LPC11U6x.h
-
-1464813426 /home/jo/pokittodev/poksim2_linux/POKITTO_SIM/mbed_sim/DigitalOut.h
-	"platform.h"
-	"gpio_api.h"
-
-1464813426 /home/jo/pokittodev/poksim2_linux/POKITTO_SIM/mbed_sim/platform.h
-	"PinNames.h"
-	<cstddef>
-	<cstdlib>
-	<cstdio>
-	<cstring>
-
-1464813426 /home/jo/pokittodev/poksim2_linux/POKITTO_SIM/mbed_sim/gpio_api.h
-	"device.h"
-
-1464813426 /home/jo/pokittodev/poksim2_linux/POKITTO_SIM/mbed_sim/PwmOut.h
-	"platform.h"
-	"pwmout_api.h"
-
-1464813426 /home/jo/pokittodev/poksim2_linux/POKITTO_SIM/mbed_sim/AnalogIn.h
-	"platform.h"
-	"analogin_api.h"
-
-1464813426 /home/jo/pokittodev/poksim2_linux/POKITTO_SIM/mbed_sim/analogin_api.h
-	"device.h"
-
-1464813426 /home/jo/pokittodev/poksim2_linux/POKITTO_SIM/mbed_sim/InterruptIn.h
-	"platform.h"
-	"gpio_api.h"
-	"gpio_irq_api.h"
-	"FunctionPointer.h"
-
-1464813426 /home/jo/pokittodev/poksim2_linux/POKITTO_SIM/mbed_sim/gpio_irq_api.h
-	"device.h"
-
-1464813426 /home/jo/pokittodev/poksim2_linux/POKITTO_SIM/mbed_sim/FunctionPointer.h
-	<string.h>
-	<stdint.h>
-
-1492907068 /home/jo/pokittodev/poksim2_linux/POKITTO_CORE/Pokitto_disk.h
-	"diskio.h"
-	"pff.h"
-	"connect.h"
-	"mbed.h"
-	<stdint.h>
-
-1493836110 /home/jo/pokittodev/poksim2_linux/POKITTO_CORE/PokittoFonts.h
-	"Pokitto_settings.h"
-
-1493836110 /home/jo/pokittodev/poksim2_linux/POKITTO_CORE/PokittoPalettes.h
-	"Pokitto_settings.h"
-
-1487196254 /home/jo/pokittodev/poksim2_linux/POKITTO_CORE/PokittoDisplay.h
-	<stdint.h>
-	"Pokitto_settings.h"
-	"Pokitto_core.h"
+1498903728 source:c:\poksim3\pokittosim\pokitto_core\fonts\adventurer12x16.cpp
 	"PokittoFonts.h"
+
+1479462039 source:c:\poksim3\pokittosim\pokitto_core\fonts\donut7x10.cpp
+	"PokittoFonts.h"
+
+1479459091 source:c:\poksim3\pokittosim\pokitto_core\fonts\dragon6x8.cpp
+	"PokittoFonts.h"
+
+1483023036 source:c:\poksim3\pokittosim\pokitto_core\fonts\font3x3.cpp
+	<stdint.h>
+	"PokittoFonts.h"
+
+1482871014 source:c:\poksim3\pokittosim\pokitto_core\fonts\font3x5.cpp
+	<stdint.h>
+	"PokittoFonts.h"
+
+1480459080 source:c:\poksim3\pokittosim\pokitto_core\fonts\font5x7.cpp
+	<stdint.h>
+	"PokittoFonts.h"
+
+1479462928 source:c:\poksim3\pokittosim\pokitto_core\fonts\karateka8x11.cpp
+	"PokittoFonts.h"
+
+1479459091 source:c:\poksim3\pokittosim\pokitto_core\fonts\koubit7x7.cpp
+	"PokittoFonts.h"
+
+1480445773 source:c:\poksim3\pokittosim\pokitto_core\fonts\mini4x6.cpp
+	"PokittoFonts.h"
+
+1479463342 source:c:\poksim3\pokittosim\pokitto_core\fonts\runes6x8.cpp
+	"PokittoFonts.h"
+
+1479459091 source:c:\poksim3\pokittosim\pokitto_core\fonts\tight4x7.cpp
+	"PokittoFonts.h"
+
+1479459091 source:c:\poksim3\pokittosim\pokitto_core\fonts\tiny5x7.cpp
+	"PokittoFonts.h"
+
+1481065805 source:c:\poksim3\pokittosim\pokitto_core\palettes\palaction.cpp
 	"PokittoPalettes.h"
-	<stdint.h>
-	<stdlib.h>
-	<string.h>
 
-1484587884 /home/jo/pokittodev/poksim2_linux/POKITTO_CORE/PokittoBattery.h
-	<stdint.h>
+1481069066 source:c:\poksim3\pokittosim\pokitto_core\palettes\palcga.cpp
+	"PokittoPalettes.h"
+
+1481062872 source:c:\poksim3\pokittosim\pokitto_core\palettes\paldefault.cpp
+	"PokittoPalettes.h"
+
+1481762884 source:c:\poksim3\pokittosim\pokitto_core\palettes\palgameboy.cpp
+	"PokittoPalettes.h"
+
+1481069957 source:c:\poksim3\pokittosim\pokitto_core\palettes\palmagma.cpp
+	"PokittoPalettes.h"
+
+1481750829 source:c:\poksim3\pokittosim\pokitto_core\palettes\palmono.cpp
+	"PokittoPalettes.h"
+
+1481065424 source:c:\poksim3\pokittosim\pokitto_core\palettes\palpico.cpp
+	"PokittoPalettes.h"
+
+1481073828 source:c:\poksim3\pokittosim\pokitto_core\palettes\palrainbow.cpp
+	"PokittoPalettes.h"
+
+1480209068 source:c:\poksim3\pokittosim\pokitto_core\pokittobacklight.cpp
+	"PokittoBacklight.h"
+
+1480453950 source:c:\poksim3\pokittosim\pokitto_core\pokittobattery.cpp
+	"PokittoBattery.h"
+
+1498592240 source:c:\poksim3\pokittosim\pokitto_core\pokittobuttons.cpp
+	"PokittoCore.h"
+
+1498937361 source:c:\poksim3\pokittosim\pokitto_core\pokittodisplay.cpp
+	"PokittoDisplay.h"
 	"Pokitto_settings.h"
 	"GBcompatibility.h"
-	"Pokitto_core.h"
-
-1480205380 /home/jo/pokittodev/poksim2_linux/POKITTO_CORE/PokittoBacklight.h
-	<stdint.h>
-
-1484007104 /home/jo/pokittodev/poksim2_linux/POKITTO_CORE/PokittoSound.h
-	<stdint.h>
-	"Pokitto_settings.h"
-	"GBcompatibility.h"
-	"Pokitto_fakeavr.h"
-	"Pokitto_core.h"
-
-1488350486 /home/jo/pokittodev/poksim2_linux/POKITTO_CORE/Pokitto_fakeavr.h
-	"Pokitto_itoa.h"
-	"binary.h"
-	<stdint.h>
-	<stdlib.h>
-	<stdbool.h>
-	<stdbool.h>
-
-1464813426 /home/jo/pokittodev/poksim2_linux/POKITTO_CORE/Pokitto_itoa.h
-	<stdint.h>
-
-1477868270 /home/jo/pokittodev/poksim2_linux/POKITTO_CORE/Pokitto_timer.h
-
-1464813426 /home/jo/pokittodev/poksim2_linux/POKITTO_LIBS/FileIO/FileIO.h
-	<stdint.h>
-
-1483998888 /home/jo/pokittodev/poksim2_linux/POKITTO_LIBS/Synth/Synth.h
-	"Synth_osc.h"
-	"Synth_song.h"
-
-1483998102 /home/jo/pokittodev/poksim2_linux/POKITTO_LIBS/Synth/Synth_osc.h
-	"Pokitto.h"
-
-1464813426 /home/jo/pokittodev/poksim2_linux/POKITTO_LIBS/Synth/Synth_song.h
-
-1493826884 source:/home/jo/pokittodev/poksim2_linux/POKITTO_SIM/PokittoClock.cpp
-	"PokittoCore.h"
-	"PokittoConsole.h"
-	"Pokitto_settings.h"
-	<../SDL2/SDL.h>
-
-1493826890 source:/home/jo/pokittodev/poksim2_linux/POKITTO_SIM/PokittoSimButtons.cpp
-	"PokittoSimulator.h"
-	"Pokitto_settings.h"
-	"PokittoConsole.h"
-	<../SDL2/SDL.h>
-	<iostream>
-
-1481033542 source:/home/jo/pokittodev/poksim2_linux/POKITTO_SIM/PokittoSimCore.cpp
-	"PokittoCore.h"
-	"PokittoSimulator.h"
-
-1493826896 source:/home/jo/pokittodev/poksim2_linux/POKITTO_SIM/PokittoSimulator.cpp
-	"PokittoSimulator.h"
-	"Pokitto_settings.h"
-	"Pokitto_core.h"
-	"PokittoSound.h"
-	<../SDL2/SDL.h>
-	<iostream>
-	<stdlib.h>
-	<sstream>
-	<stdint.h>
 	<stdio.h>
-	<math.h>
 	<string.h>
-	"Makewav.h"
-	"PokittoConsole.h"
-
-1496664638 source:/home/jo/pokittodev/poksim2_linux/Hello.cpp
-	"Pokitto.h"
-
-1492908186 /home/jo/pokittodev/poksim2_linux/Pokitto.h
-	"Pokitto_settings.h"
-	"PokittoCore.h"
-	"mbed.h"
 	"HWLCD.h"
-	"Pokitto_timer.h"
-	"Pokitto_extport.h"
-	"PokittoEEPROM.h"
-	"PokittoSimulator.h"
-	"Pokitto_disk.h"
-	"FileIO.h"
+	"SimLCD.h"
+
+1498659758 source:c:\poksim3\pokittosim\pokitto_core\pokittoitoa.cpp
+	"PokittoItoa.h"
+	<string.h>
+	<stdint.h>
+
+1498773996 source:c:\poksim3\pokittosim\pokitto_core\pokittologos.cpp
+	"PokittoLogos.h"
+
+1498904279 source:c:\poksim3\pokittosim\pokitto_core\pokittosound.cpp
+	"PokittoSound.h"
+	"Pokitto_settings.h"
 	"Synth.h"
 	"HWSound.h"
+	"SimSound.h"
+	"PokittoSimulator.h"
 
-1493914880 /home/jo/pokittodev/poksim2_linux/Pokitto_settings.h
+1498907261 source:c:\poksim3\pokittosim\pokitto_libs\fileio\fileio_sim.cpp
+	<stdint.h>
+	<stdio.h>
+	<math.h>
+	<string.h>
+	"FileIO.h"
+	"tinydir.h"
+
+1496218775 c:\poksim3\pokittosim\pokitto_sim\tinydir\tinydir.h
+	<errno.h>
+	<stdlib.h>
+	<string.h>
+	<windows.h>
+	<tchar.h>
+	<dirent.h>
+	<libgen.h>
+	<sys/stat.h>
+	<stddef.h>
+	<tchar.h>
+	<windows.h>
+	<linux/limits.h>
+	<unistd.h>
+	<sys/types.h>
+
+1498907435 source:c:\poksim3\pokittosim\pokitto_libs\synth\synth.cpp
+	"Pokitto.h"
+	"Synth.h"
+
+1498907322 source:c:\poksim3\pokittosim\pokitto_libs\synth\synth_envfuncs.cpp
+	"Synth.h"
+
+1498907434 source:c:\poksim3\pokittosim\pokitto_libs\synth\synth_helpers.cpp
+	"Pokitto.h"
+	"Synth.h"
+
+1498907458 source:c:\poksim3\pokittosim\pokitto_libs\synth\synth_mixfuncs.cpp
+	"PokittoGlobs.h"
+	"Synth.h"
+
+1498907475 source:c:\poksim3\pokittosim\pokitto_libs\synth\synth_oscfuncs.cpp
+	"Synth.h"
+
+1498907491 source:c:\poksim3\pokittosim\pokitto_libs\synth\synth_songfuncs.cpp
+	"PokittoDisk.h"
+	"Synth.h"
+	"FileIO.h"
+
+1498907508 source:c:\poksim3\pokittosim\pokitto_libs\synth\synth_wavefuncs.cpp
+	"Synth.h"
+
+1498913132 c:\poksim3\pokittosim\pokitto_sim\writewav.h
+	<stdint.h>
+	<stdio.h>
+
+1498659173 source:c:\poksim3\pokittosim\pokitto_sim\simsound.cpp
+	"SimSound.h"
+	"PokittoSimulator.h"
+	"PokittoGlobs.h"
+	"Synth.h"
+	<stdint.h>
+
+1498913168 source:c:\poksim3\pokittosim\pokitto_sim\writewav.cpp
+	"WriteWav.h"
 

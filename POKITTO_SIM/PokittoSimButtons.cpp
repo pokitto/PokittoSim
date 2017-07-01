@@ -37,7 +37,7 @@
 #include "PokittoSimulator.h"
 #include "Pokitto_settings.h"
 #include "PokittoConsole.h"
-#include <../SDL2/SDL.h>
+#include <SDL2/SDL.h>
 #include <iostream>
 
 using namespace Pokitto;
@@ -59,7 +59,7 @@ void Simulator::pollButtons() {
     if (joystickPresent) {
     if (SDL_GameControllerGetButton(gGameController, SDL_CONTROLLER_BUTTON_A)) buttons_state |= (1<<ABIT);
     else buttons_state &= ~(1<<ABIT);
-    if (SDL_GameControllerGetButton(gGameController, SDL_CONTROLLER_BUTTON_RIGHTSHOULDER)) buttons_state |= (1<<BBIT);
+    if (SDL_GameControllerGetButton(gGameController, SDL_CONTROLLER_BUTTON_B)) buttons_state |= (1<<BBIT);
     else buttons_state &= ~(1<<BBIT);
     if (SDL_GameControllerGetButton(gGameController, SDL_CONTROLLER_BUTTON_BACK)) buttons_state |= (1<<CBIT);
     else buttons_state &= ~(1<<CBIT);

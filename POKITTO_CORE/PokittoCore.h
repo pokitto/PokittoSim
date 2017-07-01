@@ -49,7 +49,7 @@
     #include "PokittoConsole.h"
 #endif // POK_USE_CONSOLE
 #if POK_ENABLE_SD > 0
-    #include "Pokitto_disk.h"
+    #include "PokittoDisk.h"
 #endif
 
 #include "PokittoFonts.h"
@@ -59,12 +59,12 @@
 #include "PokittoBattery.h"
 #include "PokittoBacklight.h"
 #include "PokittoSound.h"
-#include "Pokitto_fakeavr.h"
+#include "PokittoFakeavr.h"
 
 #define PALETTE_SIZE 16
 #define PI 3.141592741f
 
-/** For GB compatibility */
+// For GB compatibility
 #if PROJ_GAMEBUINO > 0
 extern void setup();
 extern void loop();
@@ -78,83 +78,102 @@ namespace Pokitto {
  *  The Core class is a class consisting of static data and methods.
  *  It handles the lowlevel hardware functions of the Pokitto.
  *  It is declared as static to prevent several instances running at same time.
+ * Example:
+ * @code
+ * // A simple "Hello World!" program with Pokitto
+ *
+ * #include "Pokitto.h"
+ *
+ * Pokitto::Core myApp;
+ *
+ * int main() {
+ *     myApp.begin(); // This starts up the console (the display, buttons etc.)
+ *     while(myApp.isRunning()) {
+ *         if(myApp.Update()) {
+ *             myApp.display.print("Hello World!");
+ *         }
+ *     }
+ * }
+ * @endcode
  */
+
 class Core
 {
 public:
-  /** Create Runtime instance */
+  /** Create a Core runtime instance
+  */
   Core();
 
-  /** Components */
+  /** Backlight component of the Core runtime */
   static Backlight backlight;
+  /** Buttons component of the Core runtime */
   static Buttons buttons;
+  /** Battery component of the Core runtime */
   static Battery battery;
+  /** Sound component of the Core runtime */
   static Sound sound;
+  /** Display component of the Core runtime */
   static Display display;
 
   // EXCECUTION CONTROL
 public:
-  /** initialize runtime, GB compatibility */
+  /** Initialize runtime (use this one) */
   static void begin();
-  /** initialize runtime */
+  /** Initialize runtime (deprecated, avoid) */
   static void init();
-  /** initialize runtime with switches */
+  /** Initialize runtime with options (deprecated, avoid) */
   static void init(uint8_t);
-  /** return run state */
+  /** Return run state (1 = running, 0 = shutting down) */
   static bool isRunning();
-  /** stop running */
+  /** Stop running */
   static void quit();
-  /** master run state is true as long as program is running */
 private:
+  /** run_state is true as long as program is running */
   static bool run_state;
 
 public:
   // INITIALIZATION
-  /** initialize display */
+  /** Initialize display */
   static void initDisplay();
-  /** initialize random generator */
+  /** Initialize random generator */
   static void initRandom();
-  /** initialize GPIO */
+  /** Initialize GPIO */
   static void initGPIO();
-  /** initialize LCD */
+  /** Initialize LCD */
   static void initLCD();
-  /** initialize Audio */
+  /** Initialize Audio */
   static void initAudio();
 
 
   // DISPLAY
 public:
-  /** initialize backlight */
+  /** Initialize backlight */
   static void initBacklight();
-private:
-
 
 private:
-  /** backlight PWM pointer*/
+  /** Backlight PWM pointer */
   #ifndef POK_SIM
   static pwmout_t backlightpwm;
   #endif
 
   // TIMEKEEPING
 public:
-  /** initialize runtime clock */
+  /** Initialize runtime clock */
   static void initClock();
-  /** get value of time counter */
+  /** Get value of time elapsed during program in milliseconds */
   static uint32_t getTime();
-  /** wait for milliseconds */
+  /** Wait for n milliseconds */
   static void wait(uint16_t);
 private:
-  /** time of next refresh */
+  /** Time of next refresh */
   static uint32_t refreshtime;
 
   // DIRECT TO SCREEN
 public:
+  /** Display Pokitto logo */
   static void showLogo();
-  /** immediately clear screen (no buffering) */
 
-
-
-  // BUTTON INPUT HANDLING
+// BUTTON INPUT HANDLING
 private:
   static uint8_t heldStates[];
 public:
@@ -198,6 +217,8 @@ public:
     static bool update();
     static uint32_t frameCount;
     static int8_t menu(const char* const* items, uint8_t length);
+    static char* filemenu(char*);
+    static char* filemenu();
     static void keyboard(char* text, uint8_t length);
     static void popup(const char* text, uint8_t duration);
     static void setFrameRate(uint8_t fps);

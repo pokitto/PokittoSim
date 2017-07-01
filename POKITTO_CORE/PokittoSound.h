@@ -41,8 +41,8 @@
 #include <stdint.h>
 #include "Pokitto_settings.h"
 #include "GBcompatibility.h"
-#include "Pokitto_fakeavr.h"
-#include "Pokitto_core.h"
+#include "PokittoFakeavr.h"
+#include "PokittoGlobs.h"
 
 extern void pokPauseStream();
 extern void pokPlayStream();
@@ -62,6 +62,13 @@ extern uint8_t pokStreamPaused();
 
 namespace Pokitto {
 
+/** Sound class.
+ *  The Sound class is an API-compatible version of the Gamebuino Sound API by Aurelien Rodot.
+ *  Because it is a class consisting of only static members, there is only 1 instance running,
+ *  no matter how many Sound classes are declared (see example below). This means sound can
+ *  be used through a simple Sound class object or as a member of the Core class.
+ *
+ */
 
 extern void audio_IRQ();  // audio interrupt
 
@@ -125,10 +132,6 @@ public:
 	static uint8_t globalVolume;
 	static uint8_t volumeMax;
 
-//the following is no longer private, but...
-//with great powers comes great responsibility.
-//it up to you to mess everything up and burn your speaker
-//private:
 #if (NUM_CHANNELS > 0)
 	//tracks data
 	static uint16_t *trackData[NUM_CHANNELS];

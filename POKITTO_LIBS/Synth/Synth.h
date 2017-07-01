@@ -35,7 +35,9 @@ int main()
 }
 */
 
+#ifndef boolean
 typedef bool boolean;
+#endif
 
 //extern void fakeISR(); // was defined in Rboy_soundsim.h
 

@@ -70,7 +70,7 @@ POSSIBILITY OF SUCH DAMAGE.
 
 #include <stdint.h>
 #include "Pokitto_settings.h"
-#include "Pokitto_core.h"
+#include "PokittoGlobs.h"
 #include "PokittoFonts.h"
 #include "PokittoPalettes.h"
 
@@ -356,11 +356,25 @@ public:
     static void println(double, int = 2);
     static void println(void);
 
-    static uint8_t cursorX,cursorY,fontSize;
+    static int16_t cursorX,cursorY;
+    static uint8_t fontSize;
 
     static void inc_txtline();
     static void printNumber(unsigned long, uint8_t);
     static void printFloat(double, uint8_t);
+
+    /** Tiled mode functions **/
+
+    static void loadTileset(const uint8_t*);
+
+    static void setTileBufferTo(uint8_t*);
+    static void clearTileBuffer();
+    static void shiftTileBuffer(int8_t,int8_t);
+
+    static void setTile(uint16_t,uint8_t);
+    static uint8_t getTile(uint16_t);
+    static uint8_t getTile(uint8_t,uint8_t);
+
 
 
 private:
@@ -368,6 +382,12 @@ private:
     static uint16_t m_w,m_h; // store these for faster access when switching printing modes
     /** Pointer to screen buffer */
     static uint8_t* m_scrbuf;
+    /** Pointer to tileset */
+    static uint8_t* m_tileset;
+    /** Pointer to tilebuffer */
+    static uint8_t* m_tilebuf;
+    /** Pointer to tilecolorbuffer */
+    static uint8_t* m_tilecolorbuf;
 
 };
 

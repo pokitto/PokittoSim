@@ -38,7 +38,7 @@
 #define POKITTOSIM_H
 
 #include <stdint.h>
-#include <../SDL2/SDL.h>
+#include <SDL2/SDL.h>
 
 #include "Pokitto_settings.h"
 #include "SimLCD.h"
@@ -51,14 +51,10 @@
 /** SETTINGS FOR SIMULATOR **/
 #define LCD_OPAQUENESS 190
 #define FLICKER_AMOUNT 10
-#define SIM_SDL_AUDIO   0       // nonzero = initialize SDL audio
+#define SIM_SDL_AUDIO   1       // nonzero = initialize SDL audio
 #define SIM_FULLSCREEN  0       // nonzero = run in fullscreen. WARNING ! Debug may hang !
-<<<<<<< HEAD
 #define SIM_SHOWDEVICE  0       // nonzero = show Pokitto device in simulation
-=======
-#define SIM_SHOWDEVICE  1       // nonzero = show Pokitto device in simulation
->>>>>>> 0cfdd929d322907bd56b6be9b813c508fc911f0e
-#define SCREENCAPTURE   0     // nonzero = the nth frame will be written to disk
+#define SCREENCAPTURE   0      // nonzero = the nth frame will be written to disk
 #define SOUNDCAPTURE    0       // nonzero = continuous capture of sound stream to disk
 #define USE_JOYSTICK    0       // check for presence & use a game controller (analog stick is not supported yet)
 
@@ -98,8 +94,6 @@ public:
   void initSDLGfx();
   /** Initialize SDL audio */
   int initSDLAudio();
-  /** Pause SDL audio */
-  void pauseSDLAudio(uint8_t);
   /** Quit simulation */
   static void quit();
   /** Indicate status of simulator */

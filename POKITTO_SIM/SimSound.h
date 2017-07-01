@@ -62,7 +62,7 @@ extern void pauseAudio(uint8_t);
     extern volatile unsigned char * endPtr;
     extern int8_t streamvol;
     extern uint32_t streamcounter;
-    extern uint8_t streamstep;
+    extern uint8_t streamstep, streamon;
 #endif
 
 #endif // POKSOUND_H

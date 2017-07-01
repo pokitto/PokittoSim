@@ -71,7 +71,28 @@ extern void lcdRefreshAB(uint8_t*, uint16_t*);
 extern void lcdRefreshModeLamenes(uint8_t*, uint16_t*);
 /** Update LCD from Gameboy mode*/
 extern void lcdRefreshModeGBC(uint8_t* , uint16_t*);
+/** Update LCD from 1-bit tile mode */
+extern void lcdRefreshT1(uint8_t*, uint8_t*, uint8_t*, uint16_t*);
 
 }
+
+// Basic Color definitions
+#define	COLOR_BLACK                         (uint16_t)(0x0000)
+#define	COLOR_BLUE                          (uint16_t)(0x001F)
+#define	COLOR_RED                           (uint16_t)(0xF800)
+#define	COLOR_GREEN                         (uint16_t)(0x07E0)
+#define COLOR_CYAN                          (uint16_t)(0x07FF)
+#define COLOR_MAGENTA                       (uint16_t)(0xF81F)
+#define COLOR_YELLOW                        (uint16_t)(0xFFE0)
+#define COLOR_WHITE                         (uint16_t)(0xFFFF)
+
+// Grayscale Values
+#define COLOR_GRAY_15                       (uint16_t)(0x0861)    //  15  15  15
+#define COLOR_GRAY_30                       (uint16_t)(0x18E3)    //  30  30  30
+#define COLOR_GRAY_50                       (uint16_t)(0x3186)    //  50  50  50
+#define COLOR_GRAY_80                       (uint16_t)(0x528A)    //  80  80  80
+#define COLOR_GRAY_128                      (uint16_t)(0x8410)    // 128 128 128
+#define COLOR_GRAY_200                      (uint16_t)(0xCE59)    // 200 200 200
+#define COLOR_GRAY_225                      (uint16_t)(0xE71C)    // 225 225 225
 
 #endif // POKLCD_H

@@ -5,9 +5,9 @@
 
     @section LICENSE
 
-    Software License Agreement (BSD License)
+Software License Agreement (BSD License)
 
-    Copyright (c) 2015, Jonne Valola
+    Copyright (c) 2016, Jonne Valola
     All rights reserved.
 
     Redistribution and use in source and binary forms, with or without
@@ -37,7 +37,7 @@
 #include "PokittoCore.h"
 #include "PokittoConsole.h"
 #include "Pokitto_settings.h"
-#include <../SDL2/SDL.h>
+#include <SDL2/SDL.h>
 
 using namespace Pokitto;
 

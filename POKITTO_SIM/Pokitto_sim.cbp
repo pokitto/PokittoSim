@@ -7,7 +7,7 @@
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
-			<Target title="HelloWindows">
+			<Target title="HelloWorld_win">
 				<Option output="bin/Debug/Pokitto_sim" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="bin/Debug" />
 				<Option object_output="obj/Debug/" />
@@ -16,16 +16,16 @@
 				<Option use_console_runner="0" />
 				<Compiler>
 					<Add option="-g" />
-					<Add option="-DPROJ_HIRES=0" />
-					<Add option="-DPROJ_STARTUPLOGO=0" />
+					<Add option="-DPROJ_HIRES=1" />
+					<Add option="-DPROJ_STARTUPLOGO=1" />
 					<Add option="-DPROJ_GAMEBUINO=0" />
-					<Add option="-DPROJ_GBSOUND=0" />
+					<Add option="-DPROJ_GBSOUND=1" />
 					<Add option="-DPROJ_STREAMING_MUSIC=0" />
 					<Add option="-DPROJ_ENABLE_SYNTH=0" />
-					<Add option="-DPROJ_ENABLESOUND=0" />
+					<Add option="-DPROJ_ENABLESOUND=1" />
 				</Compiler>
 				<Linker>
-					<Add library="../lib/win/libPokitto_sim.a" />
+					<Add library="../lib/win/libPokittoCore.a" />
 					<Add library="mingw32" />
 					<Add library="SDLmain" />
 					<Add library="SDL.dll" />
@@ -35,37 +35,7 @@
 					<Add library="dxguid" />
 				</Linker>
 			</Target>
-			<Target title="HelloWindowsHires">
-				<Option output="bin/Debug/Pokitto_sim" prefix_auto="1" extension_auto="1" />
-				<Option working_dir="bin/Debug" />
-				<Option object_output="obj/Debug/" />
-				<Option type="1" />
-				<Option compiler="gcc" />
-				<Option use_console_runner="0" />
-				<Option projectLinkerOptionsRelation="1" />
-				<Compiler>
-					<Add option="-g" />
-					<Add option="-DPROJ_HIRES=0" />
-					<Add option="-DPROJ_STARTUPLOGO=0" />
-					<Add option="-DPROJ_GAMEBUINO=0" />
-					<Add option="-DPROJ_GBSOUND=0" />
-					<Add option="-DPROJ_STREAMING_MUSIC=0" />
-					<Add option="-DPROJ_ENABLE_SYNTH=0" />
-					<Add option="-DPROJ_ENABLESOUND=0" />
-				</Compiler>
-				<Linker>
-					<Add option="-Wl,-Map=main.map" />
-					<Add library="../lib/win/libPokitto_hires.a" />
-					<Add library="mingw32" />
-					<Add library="SDLmain" />
-					<Add library="SDL.dll" />
-					<Add library="user32" />
-					<Add library="gdi32" />
-					<Add library="winmm" />
-					<Add library="dxguid" />
-				</Linker>
-			</Target>
-			<Target title="HelloLinux">
+			<Target title="HelloLinux(notworking)">
 				<Option output="bin/Debug/Pokitto_sim" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="bin/Debug" />
 				<Option object_output="obj/Debug/" />
@@ -99,7 +69,7 @@
 					<Add library="/usr/lib/x86_64-linux-gnu/libwayland-cursor.so" />
 				</Linker>
 			</Target>
-			<Target title="HelloLinuxHires">
+			<Target title="HelloLinuxHires(notworking)">
 				<Option output="bin/Debug/Pokitto_sim" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="bin/Debug" />
 				<Option object_output="obj/Debug/" />
@@ -149,71 +119,203 @@
 			<Add directory="../POKITTO_LIBS/Synth" />
 			<Add directory="../POKITTO_CORE/FONTS" />
 			<Add directory="../" />
+			<Add directory="tinydir" />
 		</Compiler>
 		<Linker>
 			<Add option="-Wl,-Map=main.map" />
 			<Add directory="../SDL2/lib" />
 		</Linker>
 		<Unit filename="../Hello.cpp" />
+		<Unit filename="../POKITTO_CORE/FONTS/adventurer12x16.cpp">
+			<Option target="HelloWorld_win" />
+		</Unit>
+		<Unit filename="../POKITTO_CORE/FONTS/donut7x10.cpp">
+			<Option target="HelloWorld_win" />
+		</Unit>
+		<Unit filename="../POKITTO_CORE/FONTS/dragon6x8.cpp">
+			<Option target="HelloWorld_win" />
+		</Unit>
+		<Unit filename="../POKITTO_CORE/FONTS/font3x3.cpp">
+			<Option target="HelloWorld_win" />
+		</Unit>
+		<Unit filename="../POKITTO_CORE/FONTS/font3x5.cpp">
+			<Option target="HelloWorld_win" />
+		</Unit>
+		<Unit filename="../POKITTO_CORE/FONTS/font5x7.cpp">
+			<Option target="HelloWorld_win" />
+		</Unit>
+		<Unit filename="../POKITTO_CORE/FONTS/karateka8x11.cpp">
+			<Option target="HelloWorld_win" />
+		</Unit>
+		<Unit filename="../POKITTO_CORE/FONTS/koubit7x7.cpp">
+			<Option target="HelloWorld_win" />
+		</Unit>
+		<Unit filename="../POKITTO_CORE/FONTS/mini4x6.cpp">
+			<Option target="HelloWorld_win" />
+		</Unit>
+		<Unit filename="../POKITTO_CORE/FONTS/runes6x8.cpp">
+			<Option target="HelloWorld_win" />
+		</Unit>
+		<Unit filename="../POKITTO_CORE/FONTS/tight4x7.cpp">
+			<Option target="HelloWorld_win" />
+		</Unit>
+		<Unit filename="../POKITTO_CORE/FONTS/tiny5x7.cpp">
+			<Option target="HelloWorld_win" />
+		</Unit>
 		<Unit filename="../POKITTO_CORE/GBcompatibility.h">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="HelloWorld_win" />
 		</Unit>
 		<Unit filename="../POKITTO_CORE/Macros_LCD.h">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="HelloWorld_win" />
+		</Unit>
+		<Unit filename="../POKITTO_CORE/PALETTES/palAction.cpp">
+			<Option target="HelloWorld_win" />
+		</Unit>
+		<Unit filename="../POKITTO_CORE/PALETTES/palCGA.cpp">
+			<Option target="HelloWorld_win" />
+		</Unit>
+		<Unit filename="../POKITTO_CORE/PALETTES/palDefault.cpp">
+			<Option target="HelloWorld_win" />
+		</Unit>
+		<Unit filename="../POKITTO_CORE/PALETTES/palGameboy.cpp">
+			<Option target="HelloWorld_win" />
+		</Unit>
+		<Unit filename="../POKITTO_CORE/PALETTES/palMagma.cpp">
+			<Option target="HelloWorld_win" />
+		</Unit>
+		<Unit filename="../POKITTO_CORE/PALETTES/palMono.cpp">
+			<Option target="HelloWorld_win" />
+		</Unit>
+		<Unit filename="../POKITTO_CORE/PALETTES/palPico.cpp">
+			<Option target="HelloWorld_win" />
+		</Unit>
+		<Unit filename="../POKITTO_CORE/PALETTES/palRainbow.cpp">
+			<Option target="HelloWorld_win" />
+		</Unit>
+		<Unit filename="../POKITTO_CORE/PokittoBacklight.cpp">
+			<Option target="HelloWorld_win" />
 		</Unit>
 		<Unit filename="../POKITTO_CORE/PokittoBacklight.h">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="HelloWorld_win" />
+		</Unit>
+		<Unit filename="../POKITTO_CORE/PokittoBattery.cpp">
+			<Option target="HelloWorld_win" />
 		</Unit>
 		<Unit filename="../POKITTO_CORE/PokittoBattery.h">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="HelloWorld_win" />
+		</Unit>
+		<Unit filename="../POKITTO_CORE/PokittoButtons.cpp">
+			<Option target="HelloWorld_win" />
 		</Unit>
 		<Unit filename="../POKITTO_CORE/PokittoButtons.h">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="HelloWorld_win" />
 		</Unit>
 		<Unit filename="../POKITTO_CORE/PokittoConsole.h">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="HelloWorld_win" />
+		</Unit>
+		<Unit filename="../POKITTO_CORE/PokittoCore.cpp">
+			<Option weight="0" />
+			<Option target="HelloWorld_win" />
 		</Unit>
 		<Unit filename="../POKITTO_CORE/PokittoCore.h">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="HelloWorld_win" />
+		</Unit>
+		<Unit filename="../POKITTO_CORE/PokittoDisk.h" />
+		<Unit filename="../POKITTO_CORE/PokittoDisplay.cpp">
+			<Option target="HelloWorld_win" />
 		</Unit>
 		<Unit filename="../POKITTO_CORE/PokittoDisplay.h">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="HelloWorld_win" />
+		</Unit>
+		<Unit filename="../POKITTO_CORE/PokittoFakeavr.h">
+			<Option target="HelloWorld_win" />
 		</Unit>
 		<Unit filename="../POKITTO_CORE/PokittoFonts.h">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="HelloWorld_win" />
+		</Unit>
+		<Unit filename="../POKITTO_CORE/PokittoGlobs.h">
+			<Option target="HelloWorld_win" />
+		</Unit>
+		<Unit filename="../POKITTO_CORE/PokittoItoa.cpp">
+			<Option target="HelloWorld_win" />
+		</Unit>
+		<Unit filename="../POKITTO_CORE/PokittoItoa.h">
+			<Option target="HelloWorld_win" />
+		</Unit>
+		<Unit filename="../POKITTO_CORE/PokittoLogos.cpp">
+			<Option target="HelloWorld_win" />
 		</Unit>
 		<Unit filename="../POKITTO_CORE/PokittoLogos.h">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="HelloWorld_win" />
+		</Unit>
+		<Unit filename="../POKITTO_CORE/PokittoPalettes.h">
+			<Option target="HelloWorld_win" />
+		</Unit>
+		<Unit filename="../POKITTO_CORE/PokittoSound.cpp">
+			<Option target="HelloWorld_win" />
 		</Unit>
 		<Unit filename="../POKITTO_CORE/PokittoSound.h">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="HelloWorld_win" />
+		</Unit>
+		<Unit filename="../POKITTO_CORE/PokittoTimer.h">
+			<Option target="HelloWorld_win" />
 		</Unit>
 		<Unit filename="../POKITTO_CORE/Pokitto_core.h">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="HelloWorld_win" />
 		</Unit>
 		<Unit filename="../POKITTO_CORE/Pokitto_disk.h">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="HelloWorld_win" />
 		</Unit>
 		<Unit filename="../POKITTO_CORE/Pokitto_fakeavr.h">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="HelloWorld_win" />
 		</Unit>
 		<Unit filename="../POKITTO_CORE/Pokitto_itoa.h">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="HelloWorld_win" />
 		</Unit>
 		<Unit filename="../POKITTO_CORE/Pokitto_timer.h">
+			<Option target="HelloWorld_win" />
+		</Unit>
+		<Unit filename="../POKITTO_CORE/binary.h">
+			<Option target="HelloWorld_win" />
+		</Unit>
+		<Unit filename="../POKITTO_CORE/pok_logo_186.png">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../POKITTO_LIBS/FileIO/FileIO.h">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="HelloWorld_win" />
+		</Unit>
+		<Unit filename="../POKITTO_LIBS/FileIO/FileIO_SIM.cpp">
+			<Option target="HelloWorld_win" />
+		</Unit>
+		<Unit filename="../POKITTO_LIBS/Synth/Synth.cpp">
+			<Option target="HelloWorld_win" />
 		</Unit>
 		<Unit filename="../POKITTO_LIBS/Synth/Synth.h">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="HelloWorld_win" />
+		</Unit>
+		<Unit filename="../POKITTO_LIBS/Synth/Synth_envfuncs.cpp">
+			<Option target="HelloWorld_win" />
+		</Unit>
+		<Unit filename="../POKITTO_LIBS/Synth/Synth_helpers.cpp">
+			<Option target="HelloWorld_win" />
+		</Unit>
+		<Unit filename="../POKITTO_LIBS/Synth/Synth_mixfuncs.cpp">
+			<Option target="HelloWorld_win" />
 		</Unit>
 		<Unit filename="../POKITTO_LIBS/Synth/Synth_osc.h">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="HelloWorld_win" />
+		</Unit>
+		<Unit filename="../POKITTO_LIBS/Synth/Synth_oscfuncs.cpp">
+			<Option target="HelloWorld_win" />
 		</Unit>
 		<Unit filename="../POKITTO_LIBS/Synth/Synth_song.h">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="HelloWorld_win" />
+		</Unit>
+		<Unit filename="../POKITTO_LIBS/Synth/Synth_songfuncs.cpp">
+			<Option target="HelloWorld_win" />
+		</Unit>
+		<Unit filename="../POKITTO_LIBS/Synth/Synth_wavefuncs.cpp">
+			<Option target="HelloWorld_win" />
 		</Unit>
 		<Unit filename="../Pokitto.h">
 			<Option target="&lt;{~None~}&gt;" />
@@ -222,27 +324,25 @@
 			<Option weight="0" />
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
-		<Unit filename="Makewav.cpp" />
-		<Unit filename="Makewav.h" />
 		<Unit filename="PokittoClock.cpp" />
 		<Unit filename="PokittoSimButtons.cpp" />
 		<Unit filename="PokittoSimCore.cpp" />
 		<Unit filename="PokittoSimulator.cpp" />
 		<Unit filename="PokittoSimulator.h" />
-		<Unit filename="Pokitto_simport.cpp" />
-		<Unit filename="Pokitto_simport.h" />
-		<Unit filename="Pokitto_simsound.h" />
-		<Unit filename="SimLCD.cpp">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
 		<Unit filename="SimLCD.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="SimSound.cpp">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="HelloWorld_win" />
 		</Unit>
 		<Unit filename="SimSound.h">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="HelloWorld_win" />
+		</Unit>
+		<Unit filename="WriteWav.cpp">
+			<Option target="HelloWorld_win" />
+		</Unit>
+		<Unit filename="WriteWav.h">
+			<Option target="HelloWorld_win" />
 		</Unit>
 		<Unit filename="mbed_sim/AnalogIn.h">
 			<Option target="&lt;{~None~}&gt;" />

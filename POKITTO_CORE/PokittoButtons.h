@@ -41,7 +41,7 @@
 #include <stdint.h>
 #include "Pokitto_settings.h"
 #include "GBcompatibility.h"
-#include "Pokitto_core.h"
+#include "PokittoGlobs.h"
 
 #ifndef POK_SIM
     #include "HWButtons.h"

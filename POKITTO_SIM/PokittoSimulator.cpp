@@ -7,7 +7,7 @@
 
     Software License Agreement (BSD License)
 
-    Copyright (c) 2015, Jonne Valola
+    Copyright (c) 2016, Jonne Valola
     All rights reserved.
 
     Redistribution and use in source and binary forms, with or without
@@ -36,9 +36,9 @@
 
 #include "PokittoSimulator.h"
 #include "Pokitto_settings.h"
-#include "Pokitto_core.h"
+#include "PokittoGlobs.h"
 #include "PokittoSound.h"
-#include <../SDL2/SDL.h>
+#include <SDL2/SDL.h>
 #include <iostream>
 #include <stdlib.h>
 #include <sstream>
@@ -46,12 +46,11 @@
 #include <stdio.h>
 #include <math.h>
 #include <string.h>
-#include "Makewav.h"
+#include "WriteWav.h"
 
 #if POK_USE_CONSOLE > 0
     #include "PokittoConsole.h"
 #endif // POK_USE_CONSOLE
-
 
 
 bool PromptForChar( const char* prompt, char& readch )
@@ -247,7 +246,7 @@ void Simulator::quit() {
 }
 
 int Simulator::isRunning() {
-    refreshDisplay();
+    //refreshDisplay(); //<-- crash!!
     return simRunning;
 }
 
@@ -386,7 +385,7 @@ void Simulator::killSound() {
 
 void Simulator::CleanUp() {
     if (cleaned) return;
-    #ifdef USE_JOYSTICK
+    #if USE_JOYSTICK > 0
     SDL_GameControllerClose( gGameController );
     gGameController = NULL;
     #endif // USE_JOYSTICK
@@ -446,7 +445,7 @@ void Simulator::CleanUp() {
                     s = os2.str();
                     system(s.c_str());
                     fclose(soundfile);
-                    write_wav("c:\\screencap\\soundcapture.raw", "c:\\screencap\\soundcapture.wav", realfreq);
+                    writeWav("c:\\screencap\\soundcapture.raw", "c:\\screencap\\soundcapture.wav", realfreq);
 
                     /** video and sound joined here **/
                     system("c:\\screencap\\ffmpeg -i c:\\screencap\\output.avi -i c:\\screencap\\output.wav -shortest -c:v copy -c:a aac -strict experimental c:\\screencap\\output.mp4");
@@ -487,11 +486,10 @@ void simAudioCallback(void* userdata, uint8_t* stream, int len) {
 
   /** create sound buffer by using the ISR **/
   for (j=0;j<wanted.samples;j++) {
-        /** create sample **/
-        fakeISR();
 
         /** Move outputted sound to output buffer **/
         if (sound_on == false) soundbyte = 0;
+        else fakeISR(); /** create sample **/
         *buf++ = soundbyte;
         #if SOUNDCAPTURE > 0
         soundfilebuffer[activesfbuf][sfbufindex++] = soundbyte;
@@ -533,10 +531,6 @@ int Simulator::initSDLAudio() {
 
     SDL_PauseAudioDevice(audioDevice, 0); /* play! */
     return 1;
-}
-
-void Simulator::pauseSDLAudio(uint8_t v) {
-SDL_PauseAudio(v);
 }
 
 void Simulator::simSoundEnabled(int v) {

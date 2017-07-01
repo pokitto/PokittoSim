@@ -7,7 +7,7 @@
 
     Software License Agreement (BSD License)
 
-    Copyright (c) 2015, Jonne Valola
+    Copyright (c) 2016, Jonne Valola
     All rights reserved.
 
     Redistribution and use in source and binary forms, with or without
@@ -41,6 +41,7 @@
 
 #include "PokittoCore.h"
 #include "PokittoSimulator.h"
+#include <time.h>
 
 
 /** Functions, that are equivalents of the hardware functions in PokittoHW*/
@@ -56,6 +57,10 @@ void Core::quit() {
 
 void Core::initRandom() {
     //TODO: hook random seed to battery level
+    time_t t;
+    time(&t);
+    t = t&0xFF;
+    srand((unsigned int) t);
 }
 
 void Core::initGPIO() {
