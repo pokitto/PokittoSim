@@ -143,6 +143,10 @@ uint8_t Display::bpp = POK_COLORDEPTH;
 #endif
 #endif //tiledmode
 
+// RLE decoding
+#define RLE_ESC_EOL 0
+#define RLE_ESC_EOB 1
+#define RLE_ESC_OFFSET 2
 
 Display::Display() {
     m_scrbuf = screenbuffer;
@@ -1291,6 +1295,162 @@ void Display::drawBitmap(int16_t x, int16_t y, const uint8_t* bitmap)
             // increment the y jump in the scrptr
             scrptr = scrptr + ((width - w)>>1)+scrxjump;
     }
+}
+
+void Display::drawRleBitmap(int16_t x, int16_t y, const uint8_t* rlebitmap)
+{
+    // ONLY can copy 4-bit bitmap to 4-bit screen mode for time being
+    #if (POK_SCREENMODE != MODE_FAST_16COLOR)
+    return;
+    #endif
+
+    int16_t w = *rlebitmap;
+	int16_t h = *(rlebitmap + 1);
+    rlebitmap = rlebitmap + 2; //add an offset to the pointer to start after the width and height
+
+    // visibility check
+    if (y<-h || y>height) return; //invisible
+    if (x<-w || x>width) return;  //invisible
+
+    // Clipping is not supported
+    if ((x < 0) || (x+w > width) || (y < 0) || (y+h > height)) return;
+
+    // Currently only support RLE bitmaps in 16 color mode.
+    if (m_colordepth != 4)  //
+        return;
+
+    // Go through each line.
+    uint8_t* scrptr = m_scrbuf + (y*(width>>1) + (x>>1));
+    bool is_endofbitmap = false;
+    for (int16_t scry = y; scry < y+h && !is_endofbitmap;) {
+
+        // Process one line. Go through each pixel run and escape command in RLE data.
+        for (int16_t scrx = x;;) {
+            uint8_t rle_count = *rlebitmap++;
+
+            if (rle_count == 0) {
+
+               /** Escape or absolute mode */
+
+                uint8_t rle_escape_or_runsize = *rlebitmap++;
+                if ( rle_escape_or_runsize == RLE_ESC_EOL) {
+                    // End of line.
+                    break;
+                }
+                else if ( rle_escape_or_runsize == RLE_ESC_EOB) {
+                    // End of bitmap.
+                    is_endofbitmap = true;
+                    break;
+                }
+                else if ( rle_escape_or_runsize == RLE_ESC_OFFSET) {
+                    // Move position in target.
+                    // TODO: not tested yet.
+                    uint8_t xoffset = *rlebitmap++;
+                    uint8_t yoffset = *rlebitmap++;
+                    scrptr += (xoffset>1);
+                    scrx += xoffset;
+                    scrptr += yoffset*width;
+                    scry += yoffset;
+                 }
+                else {
+
+                    /** Absolute mode. Copy pixels from the source bitmap to the target screen. */
+
+                    int16_t runsize = rle_escape_or_runsize;
+                    uint8_t targetpixel = *scrptr;  // initial value
+                    uint8_t sourcepixel = *rlebitmap;  // initial value
+                    for( int16_t runx = 0; runx < runsize; ) {
+                        if (scrx&0x1)  { // screen pixel is in the low nibble
+                            if (runx&0x1) { // bitmap pixel is in the low nibble
+                                if ((sourcepixel&0x0F) != invisiblecolor)
+                                    targetpixel = (targetpixel&0xF0) | (sourcepixel&0x0F); // Copy low to low nibble.
+                                rlebitmap++;
+                            }
+                            else // bitmap pixel is in the high nibble
+                                if ((sourcepixel>>4) != invisiblecolor)
+                                    targetpixel = (targetpixel&0xF0) | (sourcepixel>>4); // Copy high to low nibble.
+
+                            // Copy the byte to the target.
+                            *scrptr = targetpixel;
+                            scrptr++;
+                        }
+                        else  { // screen pixel is in the high nibble
+                            targetpixel = *scrptr;
+                            sourcepixel = *rlebitmap;
+                            if (runx&0x1) { // bitmap pixel is sourcepixel = *rlebitmapin the low nibble
+                                if ((sourcepixel&0x0F) != invisiblecolor )
+                                    targetpixel = (targetpixel&0x0F) | ((sourcepixel<<4)&0xF0); // Copy low to high nibble.
+                                rlebitmap++;  // read the new source byte
+                            }
+                            else // bitmap pixel is in the high nibble
+                                if ((sourcepixel>>4) != invisiblecolor )
+                                    targetpixel = (targetpixel&0x0F) | (sourcepixel&0xF0); // Copy high to high nibble.
+                        }
+                        runx++;
+                        scrx++;
+                    }  // end for
+
+                     // If this is odd target index, copy the byte to the target.
+                    if (scrx&0x1) {
+                        *scrptr = targetpixel;
+                        scrptr++;
+                    }
+
+                    // In absolute mode the source size is always padded to the word boundary.
+                    if (runsize%4) {
+                        int16_t padpixcount = 4 - (runsize%4);
+                        rlebitmap += padpixcount>>1;  // skip n padding bytes
+                    }
+                }
+            }
+            else {
+
+                /** Encoded mode. Duplicate one pixel pair to the all required pixels on the target screen */
+
+                int16_t runsize = rle_count;
+                uint8_t clonepixelpair = *rlebitmap++;
+                uint8_t targetpixel = *scrptr;  // initial value
+                for( int16_t runx = 0;  runx < runsize; ) {
+                    if (scrx&0x1)  { // screen pixel is in the low nibble
+                        if (runx&0x1) { // bitmap pixel is in the low nibble
+                            if ((clonepixelpair&0x0F) != invisiblecolor)
+                                targetpixel = (targetpixel&0xF0) | (clonepixelpair&0x0F); // Copy low to low nibble.
+                        }
+                        else // bitmap pixel is in the high nibble
+                            if ((clonepixelpair>>4) != invisiblecolor)
+                                targetpixel = (targetpixel&0xF0) | (clonepixelpair>>4); // Copy high to low nibble.
+
+                        // Copy the byte to the target.
+                        *scrptr = targetpixel;
+                        scrptr++;
+                    }
+                    else  { // screen pixel is in the high nibble
+                        targetpixel = *scrptr;
+                        if (runx&0x1) {// bitmap pixel is in the low nibble
+                            if ((clonepixelpair&0x0F) != invisiblecolor )
+                                targetpixel = (targetpixel&0x0F) | ((clonepixelpair<<4)&0xF0); // Copy low to high nibble.
+                        }
+                        else // bitmap pixel is in the high nibble
+                            if ((clonepixelpair>>4) != invisiblecolor )
+                                targetpixel = (targetpixel&0x0F) | (clonepixelpair&0xF0); // Copy high to high nibble.
+                    }
+                    runx++;
+                    scrx++;
+
+                }  // end for
+
+                // If this is odd target index, copy the byte to the target.
+                if (scrx&0x1) {
+                    *scrptr = targetpixel;
+                    scrptr++;
+                 }
+            } // end if
+        }  // end while
+
+        // Increment the target screen pointer and index.
+        scrptr = scrptr + ((width - w)>>1);
+        scry++;
+    } // end for scry
 }
 
 void Display::drawBitmapXFlipped(int16_t x, int16_t y, const uint8_t* bitmap)

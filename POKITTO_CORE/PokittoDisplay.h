@@ -288,6 +288,8 @@ public:
     static void drawMonoBitmap(int16_t x, int16_t y, const uint8_t* bitmap, uint8_t index);
     /** Draw bitmap */
     static void drawBitmap(int16_t x, int16_t y, const uint8_t* bitmap);
+    /** Draw RLE bitmap */
+    static void drawRleBitmap(int16_t x, int16_t y, const uint8_t* bitmap);
     /** Draw animated bitmap frame */
     static void drawBitmap(int16_t x, int16_t y, const uint8_t* bitmap, uint8_t frame);
     /** Draw bitmap flipped on x-axis*/
