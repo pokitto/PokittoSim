@@ -226,12 +226,14 @@ void Sound::begin() {
 soundInit();
 #if (NUM_CHANNELS > 0)
 #if POK_ENABLE_SOUND > 0
+#if POK_GBSOUND
 	prescaler = 1;
 	for(byte i=0; i<NUM_CHANNELS; i++){
 		chanVolumes[i] = VOLUME_CHANNEL_MAX;
 		changeInstrumentSet(defaultInstruments, i); //load default instruments. #0:square wave, #1: noise
 		command(CMD_INSTRUMENT, 0, 0, i); //set the default instrument to square wave
 	}
+#endif
 #endif //POK_ENABLE_SOUND
 #endif
 }
