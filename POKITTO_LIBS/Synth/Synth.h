@@ -69,7 +69,7 @@ extern mixFunction HWMarr []; // counts down
 #define MAXBLOCKS 30 // 10 *3
 
 #define VOLTICK 5
-#define ARPTICK 150 // was 200
+#define ARPTICK 50 // was 200, smaller number makes faster
 
 #define NUMWAVES 5
 #define NUMENVELOPES 3
@@ -114,7 +114,7 @@ extern OSC osc1,osc2,osc3;
 extern OSC patch[];
 extern BLOCK block[]; // array of blocks
 
-#define MAX_ARPMODE 6
+#define MAX_ARPMODE 16
 
 extern int8_t arptable[][5];
 
