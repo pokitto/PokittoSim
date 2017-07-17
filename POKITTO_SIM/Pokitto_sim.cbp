@@ -97,6 +97,40 @@
 					<Add library="dxguid" />
 				</Linker>
 			</Target>
+			<Target title="Chipengine_lin">
+				<Option output="bin/Debug/Pokitto_sim" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin/Debug" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option use_console_runner="0" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-pthread" />
+					<Add option="-lasound" />
+					<Add option="-lX11" />
+					<Add option="-lXext" />
+					<Add option="-DPROJ_HIRES=0" />
+					<Add option="-DPROJ_STARTUPLOGO=1" />
+					<Add option="-DPROJ_GAMEBUINO=0" />
+					<Add option="-DPROJ_GBSOUND=0" />
+					<Add option="-DPROJ_STREAMING_MUSIC=0" />
+					<Add option="-DPROJ_ENABLE_SYNTH=1" />
+					<Add option="-DPROJ_ENABLE_SOUND=1" />
+				</Compiler>
+				<Linker>
+					<Add library="../lib/linux/libPokittoCoreLin.a" />
+					<Add library="/usr/lib/x86_64-linux-gnu/libpulse-mainloop-glib.so" />
+					<Add library="/usr/lib/x86_64-linux-gnu/libpulse-simple.so" />
+					<Add library="/usr/lib/x86_64-linux-gnu/libpulse.so" />
+					<Add library="/usr/lib/x86_64-linux-gnu/libdl.so" />
+					<Add library="/usr/lib/x86_64-linux-gnu/libSDL2.so" />
+					<Add library="/usr/lib/x86_64-linux-gnu/libwayland-server.so" />
+					<Add library="/usr/lib/x86_64-linux-gnu/libwayland-client.so" />
+					<Add library="/usr/lib/x86_64-linux-gnu/libasound.so" />
+					<Add library="/usr/lib/x86_64-linux-gnu/libwayland-cursor.so" />
+				</Linker>
+			</Target>
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
@@ -119,6 +153,7 @@
 		</Linker>
 		<Unit filename="../EXAMPLES/Chipeng.cpp">
 			<Option target="Chipengine_win" />
+			<Option target="Chipengine_lin" />
 		</Unit>
 		<Unit filename="../EXAMPLES/Hello.cpp">
 			<Option target="HelloWorld_win" />
@@ -179,6 +214,7 @@
 		<Unit filename="../POKITTO_CORE/binary.h" />
 		<Unit filename="../POKITTO_CORE/pok_logo_186.png">
 			<Option target="HelloWorld_lin" />
+			<Option target="Chipengine_lin" />
 		</Unit>
 		<Unit filename="../POKITTO_LIBS/FileIO/FileIO.h" />
 		<Unit filename="../POKITTO_LIBS/FileIO/FileIO_SIM.cpp" />
@@ -194,10 +230,12 @@
 		<Unit filename="../POKITTO_LIBS/Synth/Synth_wavefuncs.cpp" />
 		<Unit filename="../Pokitto.h">
 			<Option target="HelloWorld_lin" />
+			<Option target="Chipengine_lin" />
 		</Unit>
 		<Unit filename="../Pokitto_settings.h">
 			<Option weight="0" />
 			<Option target="HelloWorld_lin" />
+			<Option target="Chipengine_lin" />
 		</Unit>
 		<Unit filename="PokittoClock.cpp" />
 		<Unit filename="PokittoSimButtons.cpp" />
@@ -206,6 +244,7 @@
 		<Unit filename="PokittoSimulator.h" />
 		<Unit filename="SimLCD.h">
 			<Option target="HelloWorld_lin" />
+			<Option target="Chipengine_lin" />
 		</Unit>
 		<Unit filename="SimSound.cpp" />
 		<Unit filename="SimSound.h" />
@@ -213,60 +252,79 @@
 		<Unit filename="WriteWav.h" />
 		<Unit filename="mbed_sim/AnalogIn.h">
 			<Option target="HelloWorld_lin" />
+			<Option target="Chipengine_lin" />
 		</Unit>
 		<Unit filename="mbed_sim/AnalogOut.h">
 			<Option target="HelloWorld_lin" />
+			<Option target="Chipengine_lin" />
 		</Unit>
 		<Unit filename="mbed_sim/DigitalOut.h">
 			<Option target="HelloWorld_lin" />
+			<Option target="Chipengine_lin" />
 		</Unit>
 		<Unit filename="mbed_sim/InterruptIn.h">
 			<Option target="HelloWorld_lin" />
+			<Option target="Chipengine_lin" />
 		</Unit>
 		<Unit filename="mbed_sim/LPC11U6x.h">
 			<Option target="HelloWorld_lin" />
+			<Option target="Chipengine_lin" />
 		</Unit>
 		<Unit filename="mbed_sim/PeripheralNames.h">
 			<Option target="HelloWorld_lin" />
+			<Option target="Chipengine_lin" />
 		</Unit>
 		<Unit filename="mbed_sim/PinNames.h">
 			<Option target="HelloWorld_lin" />
+			<Option target="Chipengine_lin" />
 		</Unit>
 		<Unit filename="mbed_sim/PwmOut.h">
 			<Option target="HelloWorld_lin" />
+			<Option target="Chipengine_lin" />
 		</Unit>
 		<Unit filename="mbed_sim/analogin_api.h">
 			<Option target="HelloWorld_lin" />
+			<Option target="Chipengine_lin" />
 		</Unit>
 		<Unit filename="mbed_sim/analogout_api.h">
 			<Option target="HelloWorld_lin" />
+			<Option target="Chipengine_lin" />
 		</Unit>
 		<Unit filename="mbed_sim/device.h">
 			<Option target="HelloWorld_lin" />
+			<Option target="Chipengine_lin" />
 		</Unit>
 		<Unit filename="mbed_sim/gpio_api.h">
 			<Option target="HelloWorld_lin" />
+			<Option target="Chipengine_lin" />
 		</Unit>
 		<Unit filename="mbed_sim/gpio_irq_api.h">
 			<Option target="HelloWorld_lin" />
+			<Option target="Chipengine_lin" />
 		</Unit>
 		<Unit filename="mbed_sim/gpio_object.h">
 			<Option target="HelloWorld_lin" />
+			<Option target="Chipengine_lin" />
 		</Unit>
 		<Unit filename="mbed_sim/mbed.h">
 			<Option target="HelloWorld_lin" />
+			<Option target="Chipengine_lin" />
 		</Unit>
 		<Unit filename="mbed_sim/mbed_sim.cpp">
 			<Option target="HelloWorld_lin" />
+			<Option target="Chipengine_lin" />
 		</Unit>
 		<Unit filename="mbed_sim/objects.h">
 			<Option target="HelloWorld_lin" />
+			<Option target="Chipengine_lin" />
 		</Unit>
 		<Unit filename="mbed_sim/platform.h">
 			<Option target="HelloWorld_lin" />
+			<Option target="Chipengine_lin" />
 		</Unit>
 		<Unit filename="mbed_sim/pwmout_api.h">
 			<Option target="HelloWorld_lin" />
+			<Option target="Chipengine_lin" />
 		</Unit>
 		<Extensions>
 			<code_completion />

@@ -118,6 +118,7 @@ void Core::begin() {
 		sound.setVolume(0);
 	}
 	else{ //play the startup sound on each channel for it to be louder
+		#if POK_GBSOUND > 0
 		#if(NUM_CHANNELS > 0)
 			sound.playPattern(startupSound, 0);
 		#endif
@@ -130,6 +131,7 @@ void Core::begin() {
 		#if(NUM_CHANNELS > 3)
 			sound.playPattern(startupSound, 3);
 		#endif
+		#endif // POK_GBSOUND
 	}
 	#endif // POK ENABLE_SOUND
 }
