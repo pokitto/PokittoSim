@@ -117,10 +117,10 @@
 			<Add option="-Wl,-Map=main.map" />
 			<Add directory="../SDL2/lib" />
 		</Linker>
-		<Unit filename="../Chipeng.cpp">
+		<Unit filename="../EXAMPLES/Chipeng.cpp">
 			<Option target="Chipengine_win" />
 		</Unit>
-		<Unit filename="../Hello.cpp">
+		<Unit filename="../EXAMPLES/Hello.cpp">
 			<Option target="HelloWorld_win" />
 			<Option target="HelloWorld_lin" />
 		</Unit>
