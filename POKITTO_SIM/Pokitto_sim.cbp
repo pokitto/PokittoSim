@@ -22,7 +22,7 @@
 					<Add option="-DPROJ_GBSOUND=1" />
 					<Add option="-DPROJ_STREAMING_MUSIC=0" />
 					<Add option="-DPROJ_ENABLE_SYNTH=0" />
-					<Add option="-DPROJ_ENABLESOUND=1" />
+					<Add option="-DPROJ_ENABLE_SOUND=1" />
 				</Compiler>
 				<Linker>
 					<Add library="../lib/win/libPokittoCore.a" />
@@ -54,7 +54,7 @@
 					<Add option="-DPROJ_GBSOUND=1" />
 					<Add option="-DPROJ_STREAMING_MUSIC=0" />
 					<Add option="-DPROJ_ENABLE_SYNTH=0" />
-					<Add option="-DPROJ_ENABLESOUND=1" />
+					<Add option="-DPROJ_ENABLE_SOUND=1" />
 				</Compiler>
 				<Linker>
 					<Add library="../lib/linux/libPokittoCoreLin.a" />
@@ -67,6 +67,34 @@
 					<Add library="/usr/lib/x86_64-linux-gnu/libwayland-client.so" />
 					<Add library="/usr/lib/x86_64-linux-gnu/libasound.so" />
 					<Add library="/usr/lib/x86_64-linux-gnu/libwayland-cursor.so" />
+				</Linker>
+			</Target>
+			<Target title="Chipengine_win">
+				<Option output="bin/Debug/Pokitto_sim" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin/Debug" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option use_console_runner="0" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-DPROJ_HIRES=0" />
+					<Add option="-DPROJ_STARTUPLOGO=1" />
+					<Add option="-DPROJ_GAMEBUINO=0" />
+					<Add option="-DPROJ_GBSOUND=0" />
+					<Add option="-DPROJ_STREAMING_MUSIC=0" />
+					<Add option="-DPROJ_ENABLE_SYNTH=1" />
+					<Add option="-DPROJ_ENABLE_SOUND=1" />
+				</Compiler>
+				<Linker>
+					<Add library="../lib/win/libPokittoCore.a" />
+					<Add library="mingw32" />
+					<Add library="SDLmain" />
+					<Add library="SDL.dll" />
+					<Add library="user32" />
+					<Add library="gdi32" />
+					<Add library="winmm" />
+					<Add library="dxguid" />
 				</Linker>
 			</Target>
 		</Build>
@@ -89,7 +117,13 @@
 			<Add option="-Wl,-Map=main.map" />
 			<Add directory="../SDL2/lib" />
 		</Linker>
-		<Unit filename="../Hello.cpp" />
+		<Unit filename="../Chipeng.cpp">
+			<Option target="Chipengine_win" />
+		</Unit>
+		<Unit filename="../Hello.cpp">
+			<Option target="HelloWorld_win" />
+			<Option target="HelloWorld_lin" />
+		</Unit>
 		<Unit filename="../POKITTO_CORE/FONTS/adventurer12x16.cpp" />
 		<Unit filename="../POKITTO_CORE/FONTS/donut7x10.cpp" />
 		<Unit filename="../POKITTO_CORE/FONTS/dragon6x8.cpp" />

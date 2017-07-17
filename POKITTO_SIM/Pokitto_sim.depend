@@ -3795,7 +3795,7 @@
 
 1496563638 c:\poksim3\pokittosim\pokitto_sim\mbed_sim\gpio_object.h
 
-1498911032 c:\poksim3\pokittosim\pokitto_sim\pokittosimulator.h
+1498944819 c:\poksim3\pokittosim\pokitto_sim\pokittosimulator.h
 	<stdint.h>
 	<SDL2/SDL.h>
 	"Pokitto_settings.h"
@@ -4274,7 +4274,7 @@
 1482853534 c:\poksim3\pokittosim\pokitto_core\pokittopalettes.h
 	"Pokitto_settings.h"
 
-1498659084 c:\poksim3\pokittosim\pokitto_core\pokittodisplay.h
+1500284051 c:\poksim3\pokittosim\pokitto_core\pokittodisplay.h
 	<stdint.h>
 	"Pokitto_settings.h"
 	"PokittoGlobs.h"

@@ -54,7 +54,7 @@
 #define POK_ENABLE_FPSCOUNTER 0 // turn off to save some cpu
 #define POK_ENABLE_SD 1 // Define true to include SD library
 
-#ifndef PROJ_ENABLESOUND
+#ifndef PROJ_ENABLE_SOUND
     #define POK_ENABLE_SOUND 1
 #else
     #define POK_ENABLE_SOUND PROJ_ENABLE_SOUND
