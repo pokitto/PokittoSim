@@ -22,7 +22,7 @@
 					<Add option="-DPROJ_GBSOUND=1" />
 					<Add option="-DPROJ_STREAMING_MUSIC=0" />
 					<Add option="-DPROJ_ENABLE_SYNTH=0" />
-					<Add option="-DPROJ_ENABLE_SOUND=1" />
+					<Add option="-DPROJ_ENABLE_SOUND=0" />
 					<Add option="-DPROJ_WINDOWS=1" />
 				</Compiler>
 				<Linker>

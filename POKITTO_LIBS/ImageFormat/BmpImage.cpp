@@ -1,7 +1,7 @@
 /**************************************************************************/
 /*!
     @file     BmpImage.cpp
-    @author   Hannu Viitala, original BMP decoder code by Jonne Valola
+    @author   Hannu Viitala. Original BMP decoder code by Jonne Valola.
 
     @section LICENSE
 
@@ -83,18 +83,18 @@ int openImageFileFromSD(char* filepath, uint16_t **palette_out, uint8_t **bitmap
     else
         return -1;  // Already open, not good.
 
-    if (fileOK() && fileReadBytes((uint8_t*)&bf, sizeof(bf)) == sizeof(bf) ) {  //!HV why we have to check fileOK()?
+    if (fileOK() && fileReadBytes((uint8_t*)&bf, sizeof(bf)) == sizeof(bf) ) {
         bytes_read += sizeof(bf);
     }
 	else
 	{
-		//printf("Error reading BMP header\n");
+		POK_TRACE("Error reading BMP header\n");
 		fileClose();
 		return(-1);
 	}
 
     if (fileReadBytes((uint8_t*)&bmi,sizeof(bmi.bmiHeader)) != sizeof(bmi.bmiHeader)) {
-		//printf("Error reading BMP info\n");
+		POK_TRACE("Error reading BMP info\n");
 		fileClose();
 		return(-1);
 	}
@@ -103,43 +103,43 @@ int openImageFileFromSD(char* filepath, uint16_t **palette_out, uint8_t **bitmap
     /** Check image validity */
 
     if (bf.bfType != 0x4D42) {
-        //printf("Bitmap file has an unrecognized format (4D42 id missing from beginning).\n");
-        //printf("BMP2POK accepts .BMP files that have an indexed (1,-bit, 4-bit or 8-bit) color palette.\n");
+        POK_TRACE("Bitmap file has an unrecognized format (4D42 id missing from beginning).\n");
+        POK_TRACE("BMP2POK accepts .BMP files that have an indexed (1,-bit, 4-bit or 8-bit) color palette.\n");
         fileClose();
         return(-1);
     }
     if (bmi.bmiHeader.biBitCount != POK_COLORDEPTH ) {
-        //printf("ERROR!\nThe image color depth (%d) should be the same as screen color depth (%d)!\n", bmi.bmiHeader.biBitCount, POK_COLORDEPTH );
+        POK_TRACE("ERROR!\nThe image color depth should be the same as screen color depth!\n");
     }
     if (bmi.bmiHeader.biWidth%32 && bmi.bmiHeader.biBitCount == 1) {
-        //printf("ERROR!\nPadding of 1-bit (monochrome) images is not yet supported\n");
-        //printf("1-bit images need to have width that is divisible by 32!\n");
-        //printf("Adjust size of source image.\n", padbytes);
+        POK_TRACE("ERROR!\nPadding of 1-bit (monochrome) images is not yet supported\n");
+        POK_TRACE("1-bit images need to have width that is divisible by 32!\n");
+        POK_TRACE("Adjust size of source image.\n");
         fileClose();
         return(-1);
     }
 	if (bmi.bmiHeader.biWidth%4) {
-        //printf("Width is not divisible by 4\n");
+        POK_TRACE("Width is not divisible by 4\n");
         fileClose();
         return(-1);
 	}
 	if (bmi.bmiHeader.biWidth%8 && bmi.bmiHeader.biBitCount==4) {
         if (bmi.bmiHeader.biWidth%4) {
-            //printf("ERROR!\n4-bit source images have to have a width that is divisible by 4\n");
+            POK_TRACE("ERROR!\n4-bit source images have to have a width that is divisible by 4\n");
             fileClose();
             return(-1);
         }
 	}
     if (bmi.bmiHeader.biBitCount != 8 && bmi.bmiHeader.biBitCount != 4 && bmi.bmiHeader.biBitCount != 1)
     {
-        //printf("Only 8bpp, 4bpp & 1bpp BMP files are supported\n");
+        POK_TRACE("Only 8bpp, 4bpp & 1bpp BMP files are supported\n");
         fileClose();
         return(-1);
     }
     if (bmi.bmiHeader.biCompression != 0 &&
         !(bmi.bmiHeader.biCompression == BI_RLE4 && bmi.bmiHeader.biBitCount == 4))
     {
-        //printf("Only RLE compression for bitmaps with 4 bpp is supported\n");
+        POK_TRACE("Only RLE compression for bitmaps with 4 bpp is supported\n");
         fileClose();
         return(-1);
     }
@@ -157,23 +157,12 @@ int openImageFileFromSD(char* filepath, uint16_t **palette_out, uint8_t **bitmap
     if (c==0) c = 1 << bmi.bmiHeader.biBitCount; // from MS BMP specs. 0 means 2^n colors
     bmi.bmiHeader.biClrUsed = c;
 
-    //printf("Number of colours used: %d\n", c);
-    //printf("Bits per pixel: %d\n", bmi.bmiHeader.biBitCount);
-    //printf("Size in pixels: %d x %d\n", bmi.bmiHeader.biWidth, biAbsHeight );
-    //int uncompsize = bmi.bmiHeader.biWidth * biAbsHeight*bmi.bmiHeader.biBitCount/8;
-    //printf("Size in bytes: %d\n", uncompsize );
-    //if (bmi.bmiHeader.biCompression == BI_RLE4) {
-        //printf("RLE compression for 4 bpp used.\n");
-        //int compsize = bmi.bmiHeader.biSizeImage;
-        //printf("RLE compressed size in bytes: %d (%1.2f %%)\n", compsize, 100*compsize/(float)uncompsize );
-    //}
-
     /* Allocate memory for the output parameter */
     if (numcol>bmi.bmiHeader.biClrUsed) numcol = bmi.bmiHeader.biClrUsed;
     *palette_out = (uint16_t*) malloc(numcol*2);
   	if (*palette_out == NULL)
 	{
-		//printf("Error allocating temporary palette buffer.\n");
+		POK_TRACE("Error allocating temporary palette buffer.\n");
 		free(*palette_out);
 		return(-1);
 	}
@@ -210,7 +199,7 @@ int openImageFileFromSD(char* filepath, uint16_t **palette_out, uint8_t **bitmap
     *bitmap_out = (uint8_t *) malloc(bmpsize + 2);  // header takes 2 bytes
     if (*bitmap_out == NULL)
     {
-        //printf("Error allocating temporary data buffer, is image too big?\n");
+        POK_TRACE("Error allocating temporary data buffer, is image too big?\n");
         free(*palette_out);
         return(-1);
     }
@@ -230,24 +219,24 @@ int openImageFileFromSD(char* filepath, uint16_t **palette_out, uint8_t **bitmap
                 /* End of file reached. Allocate a new bitmap which is of the exact size of the data */
                 eofReached = true;
 
-//                /* Allocate output data buffer */
-//                uint8_t* old_bitmap = *bitmap_out;
-//                *bitmap_out = NULL;
-//                *bitmap_out = (uint8_t *) malloc(outindex);  // header takes 2 bytes
-//                if (*bitmap_out == NULL)
-//                {
-//                    //printf("Error allocating temporary data buffer, is image too big?\n");
-//                    free(old_bitmap);
-//                    free(*palette_out);
-//                    return(-1);
-//                }
-//
-//                /* Copy data */
-//                for (int i=0; i<outindex;i++)
-//                   (*bitmap_out)[i] = old_bitmap[i];
-//
-//                /* Free original bitmap */
-//                free(old_bitmap);
+                /* Allocate output data buffer */
+                uint8_t* old_bitmap = *bitmap_out;
+                *bitmap_out = NULL;
+                *bitmap_out = (uint8_t *) malloc(outindex);  // header takes 2 bytes
+                if (*bitmap_out == NULL)
+                {
+                    POK_TRACE("Error allocating temporary data buffer, is image too big?\n");
+                    free(old_bitmap);
+                    free(*palette_out);
+                    return(-1);
+                }
+
+                /* Copy data */
+                for (int i=0; i<outindex;i++)
+                   (*bitmap_out)[i] = old_bitmap[i];
+
+                /* Free original bitmap */
+                free(old_bitmap);
             }
             else {
                 /* Store byte */
@@ -288,7 +277,7 @@ int openImageFileFromSD(char* filepath, uint16_t **palette_out, uint8_t **bitmap
                 unsigned char byteOfPixels;
                 if (fileReadBytes(&byteOfPixels, sizeof(byteOfPixels)) != sizeof(byteOfPixels))
                 {
-                    //printf("Error reading BMP data\n");
+                    POK_TRACE("Error reading BMP data\n");
                     fileClose();
                     free(*bitmap_out);
                     free(*palette_out);
@@ -304,21 +293,6 @@ int openImageFileFromSD(char* filepath, uint16_t **palette_out, uint8_t **bitmap
 
 	// Done with the file reading.
 	fileClose();
-
-//  if (bmi.bmiHeader.biClrUsed>numcol) {
-//    printf("WARNING! \n");
-//    printf("Your image has %d different colors.\n",(int)bmi.bmiHeader.biClrUsed);
-//    if (use4) printf("But 4bpp mode only allows 16 different colors in the palette.\n");
-//    else if (use2) printf("But 2bpp mode only allows 4 different colors in the palette.\n");
-//    else if (use1) printf("But 1bpp mode only allows 2 different colors in the palette.\n");
-//    printf("The program will automatically IGNORE any colors used above this limit.\n");
-//  }
-
-//  if (truncated_warning) {
-//        printf("WARNING! \nYou have pixels in your image that use colors that are not in the output palette.\n");
-//        printf("The image may not look right. Reduce number of image colors in the drawing program before converting.\n");
-//  }
-
 
     return 0;
 }
