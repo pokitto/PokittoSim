@@ -21,7 +21,7 @@ while (game.isRunning()) {
 return 1;
 }
 
-/** Test: Open 16 color BMP format image from SD. */
+/** Test: Read 16 color BMP format image. */
 #elif TEST_MAIN == 1
 
 /*
@@ -67,8 +67,54 @@ int main(){
 	return(1);
 }
 
+/** Test: Read 16 color BMP-RLE format image. */
+#elif TEST_MAIN == 2
+
+/*
+	In this tutorial we are using fast screen mode.
+	It means screen resolution is 110x88
+
+*/
+
+#if POK_SCREENMODE != MODE_FAST_16COLOR
+#error Wrong color mode for the test code. Should be MODE_FAST_16COLOR.
+#endif
+
+int main(){
+	game.begin();
+	game.display.width = 110;
+	game.display.height = 88;
+	game.setFrameRate(60);
+	game.display.persistence = 1 ;
+
+	bool firstTime = true;
+	bool ready = false;
+    uint8_t *bitmap = 0;
+	while (game.isRunning()) {
+    	if (game.update()) {
+
+            if (firstTime) {
+                firstTime = false;
+                uint16_t *palette = 0;
+                int ret = openImageFileFromSD("..\\..\\..\\EXAMPLES\\rletest_pochand.bmp", &palette, &bitmap);
+
+                game.display.load565Palette(palette);
+                free( palette );
+                ready = true;
+            }
+
+            if( ready == true )
+                game.display.drawRleBitmap(0,0,bitmap);
+    	}
+	}
+
+	free( bitmap );
+
+	return(1);
+}
+
 /** Test: Open 24-bit color BMP format image from SD card and draw directly to the screen */
-#elif TEST_MAIN == 2  // Test: Open 16 color BMP format image from SD.
+#elif TEST_MAIN == 3  // Test: Open 16 color BMP format image from SD.
 
 #if POK_SCREENMODE != MODE_HI_4COLOR
 #error Wrong color mode for the test code. Should be MODE_HI_4COLOR.

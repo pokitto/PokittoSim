@@ -16,7 +16,7 @@
 				<Option use_console_runner="0" />
 				<Compiler>
 					<Add option="-g" />
-					<Add option="-DPROJ_HIRES=1" />
+					<Add option="-DPROJ_HIRES=0" />
 					<Add option="-DPROJ_STARTUPLOGO=1" />
 					<Add option="-DPROJ_GAMEBUINO=0" />
 					<Add option="-DPROJ_GBSOUND=1" />
