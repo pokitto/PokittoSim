@@ -390,7 +390,7 @@ void Display::setDefaultPalette() {
     #if PICOPALETTE
         loadRGBPalette(palettePico);
     #else
-        loadRGBPalette(DEFAULT_PALETTE);
+        loadRGBPalette(POK_DEFAULT_PALETTE);
     #endif //PICOPALETTE
 }
 

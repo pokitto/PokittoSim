@@ -214,7 +214,7 @@ public:
 	static void titleScreen(const char* name);
 	static void titleScreen(const uint8_t* logo);
     static void titleScreen();
-    static bool update();
+    static bool update(bool useDirectMode=false);
     static uint32_t frameCount;
     static int8_t menu(const char* const* items, uint8_t length);
     static char* filemenu(char*);

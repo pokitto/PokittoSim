@@ -312,7 +312,7 @@ void Core::titleScreen(const char*  name, const uint8_t *logo){
 	}
 }
 
-bool Core::update() {
+bool Core::update(bool useDirectMode) {
 #if POK_STREAMING_MUSIC
         sound.updateStream();
     #endif
@@ -338,7 +338,8 @@ bool Core::update() {
 			updatePopup();
 			displayBattery();
 
-			display.update(); //send the buffer to the screen
+			if(!useDirectMode)
+				display.update(); //send the buffer to the screen
 
             frameEndMicros = 1; //jonne
 
