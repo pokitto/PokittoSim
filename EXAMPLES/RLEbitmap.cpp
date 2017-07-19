@@ -2,7 +2,7 @@
 Pokitto::Core game;
 
 /** Select the test code */
-#define TEST_MAIN 0
+#define TEST_MAIN 3
 
 /** Test: Hello World */
 #if TEST_MAIN == 0
