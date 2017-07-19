@@ -337,9 +337,7 @@ bool Core::update() {
 			#endif
 			updatePopup();
 			displayBattery();
-
-			if(!useDirectMode)
-				display.update(); //send the buffer to the screen
+			display.update(); //send the buffer to the screen
 
             frameEndMicros = 1; //jonne
 
