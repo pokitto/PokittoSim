@@ -312,41 +312,6 @@ void Core::titleScreen(const char*  name, const uint8_t *logo){
 	}
 }
 
-bool Core::update() {
-#if POK_STREAMING_MUSIC
-        sound.updateStream();
-    #endif
-
-	if ((((nextFrameMillis - getTime())) > timePerFrame) && frameEndMicros) { //if time to render a new frame is reached and the frame end has ran once
-		nextFrameMillis = getTime() + timePerFrame;
-		frameCount++;
-
-		frameEndMicros = 0;
-		backlight.update();
-		buttons.update();
-		battery.update();
-
-		return true;
-
-	} else {
-		if (!frameEndMicros) { //runs once at the end of the frame
-			#if POK_ENABLE_SOUND > 0
-			sound.updateTrack();
-			sound.updatePattern();
-			sound.updateNote();
-			#endif
-			updatePopup();
-			displayBattery();
-			display.update(); //send the buffer to the screen
-
-            frameEndMicros = 1; //jonne
-
-		}
-		return false;
-	}
-}
-
-
 bool Core::update(bool useDirectMode) {
 #if POK_STREAMING_MUSIC
         sound.updateStream();
