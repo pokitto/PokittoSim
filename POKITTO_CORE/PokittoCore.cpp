@@ -312,7 +312,7 @@ void Core::titleScreen(const char*  name, const uint8_t *logo){
 	}
 }
 
-bool Core::update(bool useDirectMode) {
+bool Core::update(bool useDirectMode=false) {
 #if POK_STREAMING_MUSIC
         sound.updateStream();
     #endif
