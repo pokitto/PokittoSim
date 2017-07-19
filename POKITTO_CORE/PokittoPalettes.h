@@ -16,7 +16,7 @@ extern const unsigned char paletteGameboy[];
 
 
 
-#define DEFAULT_PALETTE paletteCGA
+#define POK_DEFAULT_PALETTE paletteCGA
 
 #endif
 

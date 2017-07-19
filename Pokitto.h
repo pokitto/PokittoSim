@@ -59,6 +59,7 @@
     #else
         #include "FileIO.h"
     #endif // if not POK_SIM
+    #include "ImageFormat.h"
 #endif // if SD ENABLED
 
 #if POK_ENABLE_SOUND > 0

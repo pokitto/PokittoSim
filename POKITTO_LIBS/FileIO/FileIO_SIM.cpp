@@ -176,7 +176,10 @@ int fileOK() {
 }
 
 void fileClose() {
-    if (filemode != FILE_MODE_FAILED) fclose(fp);
+    if (filemode != FILE_MODE_FAILED) {
+            fclose(fp);
+            memset(currentfile,0,sizeof(currentfile)); // empty current file name
+    }
 }
 
 int fileGetChar() {

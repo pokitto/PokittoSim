@@ -35,7 +35,7 @@ int main()
 }
 */
 
-#ifndef boolean
+#ifdef PROJ_LINUX
 typedef bool boolean;
 #endif
 

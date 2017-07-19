@@ -23,6 +23,7 @@
 					<Add option="-DPROJ_STREAMING_MUSIC=0" />
 					<Add option="-DPROJ_ENABLE_SYNTH=0" />
 					<Add option="-DPROJ_ENABLE_SOUND=1" />
+					<Add option="-DPROJ_WINDOWS=1" />
 				</Compiler>
 				<Linker>
 					<Add library="../lib/win/libPokittoCore.a" />
@@ -55,6 +56,7 @@
 					<Add option="-DPROJ_STREAMING_MUSIC=0" />
 					<Add option="-DPROJ_ENABLE_SYNTH=0" />
 					<Add option="-DPROJ_ENABLE_SOUND=1" />
+					<Add option="-DPROJ_LINUX=1" />
 				</Compiler>
 				<Linker>
 					<Add library="../lib/linux/libPokittoCoreLin.a" />
@@ -85,6 +87,7 @@
 					<Add option="-DPROJ_STREAMING_MUSIC=0" />
 					<Add option="-DPROJ_ENABLE_SYNTH=1" />
 					<Add option="-DPROJ_ENABLE_SOUND=1" />
+					<Add option="-DPROJ_WINDOWS=1" />
 				</Compiler>
 				<Linker>
 					<Add library="../lib/win/libPokittoCore.a" />
@@ -117,6 +120,7 @@
 					<Add option="-DPROJ_STREAMING_MUSIC=0" />
 					<Add option="-DPROJ_ENABLE_SYNTH=1" />
 					<Add option="-DPROJ_ENABLE_SOUND=1" />
+					<Add option="-DPROJ_LINUX=1" />
 				</Compiler>
 				<Linker>
 					<Add library="../lib/linux/libPokittoCoreLin.a" />
@@ -143,6 +147,7 @@
 			<Add directory="../POKITTO_SIM/mbed_sim" />
 			<Add directory="../POKITTO_LIBS/FileIO" />
 			<Add directory="../POKITTO_LIBS/Synth" />
+			<Add directory="../POKITTO_LIBS/ImageFormat" />
 			<Add directory="../POKITTO_CORE/FONTS" />
 			<Add directory="../" />
 			<Add directory="tinydir" />
@@ -218,6 +223,16 @@
 		</Unit>
 		<Unit filename="../POKITTO_LIBS/FileIO/FileIO.h" />
 		<Unit filename="../POKITTO_LIBS/FileIO/FileIO_SIM.cpp" />
+		<Unit filename="../POKITTO_LIBS/ImageFormat/BmpImage.cpp" />
+		<Unit filename="../POKITTO_LIBS/ImageFormat/ImageFormat.h" />
+		<Unit filename="../POKITTO_LIBS/ImageFormat/defines_linux_SIM.h">
+			<Option target="HelloWorld_lin" />
+			<Option target="Chipengine_lin" />
+		</Unit>
+		<Unit filename="../POKITTO_LIBS/ImageFormat/defines_win_SIM.h">
+			<Option target="HelloWorld_win" />
+			<Option target="Chipengine_win" />
+		</Unit>
 		<Unit filename="../POKITTO_LIBS/Synth/Synth.cpp" />
 		<Unit filename="../POKITTO_LIBS/Synth/Synth.h" />
 		<Unit filename="../POKITTO_LIBS/Synth/Synth_envfuncs.cpp" />
