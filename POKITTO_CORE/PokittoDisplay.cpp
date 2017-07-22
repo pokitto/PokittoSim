@@ -558,8 +558,8 @@ uint8_t Display::getPixel(int16_t x,int16_t y) {
     #elif POK_COLORDEPTH == 4
     uint16_t i = y*(width>>1) + (x>>1);
     uint8_t pixel = m_scrbuf[i];
-    if (x&1) return pixel>>4;
-    else return pixel & 0x0F;
+    if (x&1) return pixel & 0x0F;
+    else return pixel>>4;
     #endif // POK_COLORDEPTH
     #endif // POK_GAMEBUINO_SUPPORT
 }
