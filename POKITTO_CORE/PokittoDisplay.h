@@ -360,6 +360,7 @@ public:
 
     static int16_t cursorX,cursorY;
     static uint8_t fontSize;
+    static int8_t charSpacingAdjust;
 
     static void inc_txtline();
     static void printNumber(unsigned long, uint8_t);

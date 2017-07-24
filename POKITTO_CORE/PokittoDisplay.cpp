@@ -99,6 +99,7 @@ uint16_t Display::directbgcolor=0x0;
 uint16_t* Display::paletteptr;
 uint16_t Display::palette[PALETTE_SIZE];
 const unsigned char* Display::font;
+int8_t Display::charSpacingAdjust = 1;
 
 /** drawing canvas **/
 //uint8_t* Display::canvas; // points to the active buffer. if null, draw direct to screen
@@ -351,7 +352,7 @@ int Display::bufferChar(int16_t x, int16_t y, uint16_t index){
             }
     }
 
-    return numBytes+1; // for character stepping
+    return numBytes+charSpacingAdjust; // for character stepping
 }
 
 void Display::clear() {

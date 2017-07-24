@@ -4270,13 +4270,13 @@
 	"mbed.h"
 	<stdint.h>
 
-1498593136 c:\poksim3\pokittosim\pokitto_core\pokittofonts.h
+1500930792 c:\poksim3\pokittosim\pokitto_core\pokittofonts.h
 	"Pokitto_settings.h"
 
 1500474005 c:\poksim3\pokittosim\pokitto_core\pokittopalettes.h
 	"Pokitto_settings.h"
 
-1500284051 c:\poksim3\pokittosim\pokitto_core\pokittodisplay.h
+1500932690 c:\poksim3\pokittosim\pokitto_core\pokittodisplay.h
 	<stdint.h>
 	"Pokitto_settings.h"
 	"PokittoGlobs.h"
@@ -4766,7 +4766,7 @@
 1498592240 source:c:\poksim3\pokittosim\pokitto_core\pokittobuttons.cpp
 	"PokittoCore.h"
 
-1500474005 source:c:\poksim3\pokittosim\pokitto_core\pokittodisplay.cpp
+1500932688 source:c:\poksim3\pokittosim\pokitto_core\pokittodisplay.cpp
 	"PokittoDisplay.h"
 	"Pokitto_settings.h"
 	"GBcompatibility.h"
@@ -6380,5 +6380,11 @@
 	<ctype.h>
 
 1500475002 source:c:\poksim3\pokittosim\examples\rlebitmap.cpp
+	"Pokitto.h"
+
+1500932275 source:c:\poksim3\pokittosim\pokitto_core\fonts\fontc64.cpp
+	"PokittoFonts.h"
+
+1500932305 source:c:\poksim3\pokittosim\examples\hello.cpp
 	"Pokitto.h"
 
