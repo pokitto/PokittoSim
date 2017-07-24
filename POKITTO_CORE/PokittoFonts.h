@@ -51,6 +51,7 @@ extern const unsigned char fontAdventurer[];
 extern const unsigned char font5x7[];
 extern const unsigned char font3x5[];
 extern const unsigned char font3x3[];
+extern const unsigned char fontC64[];
 
 #if POK_GAMEBUINO_SUPPORT > 0
 #define DEFAULT_FONT font3x5
