@@ -147,10 +147,10 @@
 					<Add option="-DPROJ_HIRES=1" />
 					<Add option="-DPROJ_STARTUPLOGO=1" />
 					<Add option="-DPROJ_GAMEBUINO=0" />
-					<Add option="-DPROJ_GBSOUND=1" />
+					<Add option="-DPROJ_GBSOUND=0" />
 					<Add option="-DPROJ_STREAMING_MUSIC=0" />
 					<Add option="-DPROJ_ENABLE_SYNTH=0" />
-					<Add option="-DPROJ_ENABLE_SOUND=1" />
+					<Add option="-DPROJ_ENABLE_SOUND=0" />
 					<Add option="-DPROJ_WINDOWS=1" />
 				</Compiler>
 				<Linker>
@@ -193,12 +193,16 @@
 			<Option target="HelloWorld_win" />
 			<Option target="HelloWorld_lin" />
 		</Unit>
+		<Unit filename="../EXAMPLES/RLEbitmap.cpp">
+			<Option target="RLEbitmapDemo_win" />
+		</Unit>
 		<Unit filename="../POKITTO_CORE/FONTS/adventurer12x16.cpp" />
 		<Unit filename="../POKITTO_CORE/FONTS/donut7x10.cpp" />
 		<Unit filename="../POKITTO_CORE/FONTS/dragon6x8.cpp" />
 		<Unit filename="../POKITTO_CORE/FONTS/font3x3.cpp" />
 		<Unit filename="../POKITTO_CORE/FONTS/font3x5.cpp" />
 		<Unit filename="../POKITTO_CORE/FONTS/font5x7.cpp" />
+		<Unit filename="../POKITTO_CORE/FONTS/fontC64.cpp" />
 		<Unit filename="../POKITTO_CORE/FONTS/karateka8x11.cpp" />
 		<Unit filename="../POKITTO_CORE/FONTS/koubit7x7.cpp" />
 		<Unit filename="../POKITTO_CORE/FONTS/mini4x6.cpp" />
