@@ -1,6 +1,35 @@
 #include "Pokitto.h"
+#include <new>          // std::nothrow SIMULATOR!!!
+
 
 Pokitto::Core game;
+Pokitto::PokWindow window;
+
+int main () {
+    game.begin();
+    // Next 4 lines are just to show the C64 font, you can comment them out by adding // in the start of the line
+    game.display.setFont(fontC64);
+    game.display.palette[0] = game.display.RGBto565(0x42, 0x42, 0xe7); //default background is palette[0]
+    game.display.palette[1] = game.display.RGBto565(0xa5, 0xa5, 0xff); //default foreground is palette[1]
+    game.display.charSpacingAdjust = 0; //needed for the non-proportional C64 font (normal value=1)
+
+    Pokitto::PokWindow* win = new(std::nothrow) Pokitto::PokWindow();
+    win->init(0, 0, game.display.getWidth(), game.display.getHeight());
+
+    while (game.isRunning()) {
+        if (game.update()) {
+            //game.display.print("Hello World!");
+            //game.display.print("**** COMMODORE 64 LIVES ****\n\n");
+            //game.display.println(" 32K RAM POKITTO SYSTEM \n");
+            //game.display.println("READY.");
+            win->draw();
+        }
+    }
+
+    return 1;
+}
+
+#if 0
 
 #define BLINKYPERIOD 500
 
@@ -34,3 +63,4 @@ while (game.isRunning()) {
 
 return 1;
 }
+#endif
