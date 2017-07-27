@@ -1,13 +1,12 @@
 /**************************************************************************/
 /*!
-    @file     BmpImage.cpp
-    @author   Hannu Viitala. Original BMP decoder code by Jonne Valola.
-
+    @file     UIWidget.cpp
+    @author   Hannu Viitala.
     @section LICENSE
 
     Software License Agreement (BSD License)
 
-    Copyright (c) 2016, Jonne Valola
+    Copyright (c) 2017, Jonne Valola
     All rights reserved.
 
     Redistribution and use in source and binary forms, with or without
@@ -54,8 +53,146 @@
 
 using namespace Pokitto;
 
-PokWindow::draw() {
+const int16_t fontW = 8, fontH=8;
 
-    // Draw borders
-    Display::print("a____c");
+// PokWindowBase class.
+
+void PokWindowBase::draw() {
+
+    // Clear
+    uint16_t currColor = Display::color;
+    Display::color = 0;
+    Display::fillRectangle(m_x,m_y,m_w,m_h);
+    Display::color = currColor;
+
+    drawBorders(m_x,m_y,m_w,m_h);
 }
+
+void PokWindowBase::drawBorders(int16_t x, int16_t y, int16_t w, int16_t h) {
+
+    int16_t numCharsInLine = (w/fontW) + 1;
+    numCharsInLine-=2;
+    if(numCharsInLine<0)
+        return;
+    int16_t numCharsInCol = (h/fontH) + 1;
+    numCharsInCol-=2;
+    if(numCharsInCol<0)
+        return;
+
+    // Draw top border
+    Display::print(x,y,'a');
+    for (int16_t i = 0; i < numCharsInLine; i++)
+        Display::print('b');
+    Display::print(x+w-fontW,y,'c');
+
+    // Draw left and right borders
+    int16_t x1=x, x2=x+w-fontW, y1=y+fontH;
+    for (int16_t i = 0; i < numCharsInCol; i++, y1+=fontH) {
+        Display::print(x1,y1,'|');
+        Display::print(x2,y1,'|');
+    }
+
+    // Draw bottom border
+    Display::print(x,y+h-fontH,'d');
+    for (int16_t i = 0; i < numCharsInLine; i++)
+        Display::print('b');
+    Display::print(x+w-fontW,y+h-fontH,'e');
+
+    // Draw dots decoration on left and right sides
+    if (numCharsInCol > 7) {
+
+        // Right side
+        y1=y+((numCharsInCol/2)-3)*fontH;
+        Display::print(x1,y1,'f');
+        y1+=fontH;
+        Display::print(x1,y1,'i');
+        y1+=fontH;
+        Display::print(x1,y1,'i');
+        y1+=fontH;
+        Display::print(x1,y1,'i');
+        y1+=fontH;
+        Display::print(x1,y1,'f');
+
+        // Left side
+        y1=y+((numCharsInCol*5/6)-3)*fontH;
+        Display::print(x2,y1,'f');
+        y1+=fontH;
+        Display::print(x2,y1,'i');
+        y1+=fontH;
+        Display::print(x2,y1,'i');
+        y1+=fontH;
+        Display::print(x2,y1,'i');
+        y1+=fontH;
+        Display::print(x2,y1,'f');
+   }
+}
+
+// PokWindow class.
+
+void PokWindow::draw() {
+
+    // Clear
+    uint16_t currColor = Display::color;
+    Display::color = 0;
+    Display::fillRectangle(m_x,m_y,m_w,m_h);
+    Display::color = currColor;
+
+     if (m_ptitle)
+        drawBorders(m_x,m_y+(2*fontH),m_w,m_h-(2*fontH));
+    else
+        drawBorders(m_x,m_y,m_w,m_h);
+
+    drawTitle();
+}
+
+void PokWindow::drawTitle() {
+
+    if (m_ptitle) {
+
+        int16_t titleLen = strlen(m_ptitle);
+        int16_t numCharsInLine = titleLen;
+
+        // Draw top border.
+        int16_t x1=m_x, x2=m_x+((numCharsInLine-1) * fontW);
+        Display::print(x1,m_y,'a');
+        for (int16_t i = 0; i < numCharsInLine; i++)
+            Display::print('b');
+        Display::print('c');
+
+        // Draw 2nd line: text and left and right borders.
+        int16_t y=m_y+fontH;
+        Display::print(x1,y,'|');
+        for (int16_t i = 0; i < numCharsInLine; i++)
+            Display::print(m_ptitle[i]);
+
+        //Display::print(m_ptitle);
+        Display::print('|');
+
+        // Draw 3rd line.
+        Display::print(m_x,m_y+(2*fontH),'|');
+        for (int16_t i = 0; i < numCharsInLine; i++)
+            Display::print('i'); // space
+        Display::print('d');
+   }
+
+   // PokTextListbox class.
+
+    void PokTextListbox::setTextArray( char** ptextPointerArray, int16_t count ) {
+
+        // Do not take ownership.
+        m_ptextPointerArray = ptextPointerArray;
+        m_count = count;
+    }
+
+    void PokTextListbox::draw() {
+
+        // Clear
+        uint16_t currColor = Display::color;
+        Display::color = 0;
+        Display::fillRectangle(m_x,m_y,m_w,m_h);
+        Display::color = currColor;
+
+        // Draw text list
+    }
+}
+
