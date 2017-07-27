@@ -53,22 +53,22 @@
 
 using namespace Pokitto;
 
-const int16_t fontW = 8, fontH=8;
+// WidgetBase class.
 
-// PokWindowBase class.
-
-void PokWindowBase::draw() {
+void WidgetBase::draw() {
 
     // Clear
     uint16_t currColor = Display::color;
     Display::color = 0;
-    Display::fillRectangle(m_x,m_y,m_w,m_h);
+    Display::fillRectangle(m_x, m_y, m_w, m_h);
     Display::color = currColor;
 
-    drawBorders(m_x,m_y,m_w,m_h);
+    // Draw borders.
+    if (m_flags & Flags::hasBorders)
+        drawBorders(m_x, m_y, m_w, m_h);
 }
 
-void PokWindowBase::drawBorders(int16_t x, int16_t y, int16_t w, int16_t h) {
+void WidgetBase::drawBorders(int16_t x, int16_t y, int16_t w, int16_t h) {
 
     int16_t numCharsInLine = (w/fontW) + 1;
     numCharsInLine-=2;
@@ -127,9 +127,9 @@ void PokWindowBase::drawBorders(int16_t x, int16_t y, int16_t w, int16_t h) {
    }
 }
 
-// PokWindow class.
+// Window class.
 
-void PokWindow::draw() {
+void Window::draw() {
 
     // Clear
     uint16_t currColor = Display::color;
@@ -145,7 +145,7 @@ void PokWindow::draw() {
     drawTitle();
 }
 
-void PokWindow::drawTitle() {
+void Window::drawTitle() {
 
     if (m_ptitle) {
 
@@ -175,24 +175,4 @@ void PokWindow::drawTitle() {
         Display::print('d');
    }
 
-   // PokTextListbox class.
-
-    void PokTextListbox::setTextArray( char** ptextPointerArray, int16_t count ) {
-
-        // Do not take ownership.
-        m_ptextPointerArray = ptextPointerArray;
-        m_count = count;
-    }
-
-    void PokTextListbox::draw() {
-
-        // Clear
-        uint16_t currColor = Display::color;
-        Display::color = 0;
-        Display::fillRectangle(m_x,m_y,m_w,m_h);
-        Display::color = currColor;
-
-        // Draw text list
-    }
 }
-

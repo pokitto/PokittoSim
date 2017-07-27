@@ -116,7 +116,12 @@ int main(){
 /** Test: Open 24-bit color BMP format image from SD card and draw directly to the screen */
 #elif TEST_MAIN == 3  // Test: Open 16 color BMP format image from SD.
 
-#if POK_SCREENMODE != MODE_HI_4COLOR
+#/** Select the test code */
+#define TEST_MAIN 3
+
+/** Test: Hello World */
+#if TEST_MAIN == 0
+if POK_SCREENMODE != MODE_HI_4COLOR
 #error Wrong color mode for the test code. Should be MODE_HI_4COLOR.
 #endif
 

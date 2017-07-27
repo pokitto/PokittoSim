@@ -40,6 +40,7 @@
 #include "Pokitto_settings.h"
 #include "PokittoCore.h"
 #include "UIWidget.h"
+#include "ListBox.h"
 
 //typedef void (*funcptr)(PokittoApp&);
 
