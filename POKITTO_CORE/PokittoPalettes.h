@@ -13,7 +13,7 @@ extern const unsigned char paletteMagma[];
 extern const unsigned char paletteRainbow[];
 extern const unsigned char paletteMono[];
 extern const unsigned char paletteGameboy[];
-
+extern const unsigned char paletteZXSpec[];
 
 
 #define POK_DEFAULT_PALETTE paletteCGA
