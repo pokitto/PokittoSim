@@ -57,6 +57,7 @@
 #define SCREENCAPTURE   0      // nonzero = the nth frame will be written to disk
 #define SOUNDCAPTURE    0       // nonzero = continuous capture of sound stream to disk
 #define USE_JOYSTICK    0       // check for presence & use a game controller (analog stick is not supported yet)
+#define SIM_RES_MUL     2       // simulator resolution multiplier
 
 /** INTERNAL SETTINGS, DO NOT CHANGE UNLESS YOU UNDERSTAND WHAT YOU'RE DOING **/
 //#if SCREENCAPTURE > 1
