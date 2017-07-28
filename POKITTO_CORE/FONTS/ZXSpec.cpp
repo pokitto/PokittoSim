@@ -6,8 +6,8 @@
 //MikroElektronika 2011
 //http://www.mikroe.com
 
-//GLCD FontName : MicroStyle8x8
-//GLCD FontSize : 8 x 8
+//RECREATED BY @ROGB_UK
+
 
 #include "PokittoFonts.h"
 
