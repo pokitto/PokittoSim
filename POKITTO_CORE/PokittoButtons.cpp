@@ -174,7 +174,7 @@ void Buttons::pollButtons() {
     #else
     uint8_t buttons_state_old = buttons_state;
     buttons_state = 0; // clear all
-    if (upBtn()) buttons_state |= (1<<UPBIT);
+    if (upBtn()) buttons_state |= (1<<UPBIT);held
     if (downBtn()) buttons_state |= (1<<DOWNBIT);
     if (leftBtn()) buttons_state |= (1<<LEFTBIT);
     if (rightBtn()) buttons_state |= (1<<RIGHTBIT);

@@ -24,116 +24,111 @@
 
 #define UI_WIDGET_H
 
+#include "UIWidgetBasic.h"
+#include "ListBox.h"
+
+
 namespace Pokitto {
 
-const int16_t fontW = 8, fontH = 8;
-
-/** WidgetBase class.
-*/
-class WidgetBase {
-
-public:
-    /** Flags.
-     */
-    enum Flags {
-        none = 0x0,
-        hasBorders = 0x1, /** The widget has borders */
-    };
+/** InfoDlg class.
+ *  Note ment to be inherited.
+ */
+class InfoDlg : public WidgetBase {
 
 public:
     /** Constructor.
-     * @param flags Flags
+     * @param ptext Dialog text
+     * @param pdone True, if the user has done the selection.
      */
-    WidgetBase(uint32_t flags){setRect(0,0,0,0); m_flags = flags;}
+    InfoDlg(char* ptext, bool* pdone);
+
+    /** Constructor.
+     * @param ptext Dialog text
+     * @param okText Dialog text
+     * @param pdone True, if the user has done the selection.
+     */
+    InfoDlg(char* ptext, char* okText, bool* pdone);
 
     /** Destructor.
-     */
-    ~WidgetBase(){}
+    */// Owned
+    ~InfoDlg();
 
-    /** Sets the window extent rect.
-     * @param x Window x position
-     * @param y Window y position
-     * @param w Window width
-     * @param h Window height
-     */
-    virtual void setRect(int16_t x, int16_t y, int16_t w, int16_t h) {m_x = x; m_y = y; m_w = w; m_h = h;}
-
-    /** Gets the window extent rect.
-     * @param x Return window extent x position
-     * @param y Return window extent y position
-     * @param w Return window extent width
-     * @param h Return window extent height
-     */
-    virtual void getRect(int16_t& x, int16_t& y, int16_t& w, int16_t& h) {
-
-        if (m_flags & Flags::hasBorders) {
-            x = m_x + fontW; y = m_y + fontH; w = m_w - (2 * fontW); h = m_h - (2 * fontH);
-        }
-        else {
-            x = m_x; y = m_y; w = m_w; h = m_h;
-        }
-    }
-
-    /** Gets the rect of the view area.
-     * @param x Return view area x position
-     * @param y Return view area y position
-     * @param w Return view area width
-     * @param h Return view area height
-     */
-    virtual void getViewRect(int16_t& x, int16_t& y, int16_t& w, int16_t& h) {
-
-        if (m_flags & Flags::hasBorders) {
-            x = m_x + fontW; y = m_y + fontH; w = m_w - (2 * fontW); h = m_h - (2 * fontH);
-        }
-        else {
-            x = m_x; y = m_y; w = m_w; h = m_h;
-        }
-    }
-
-    /** Draws the whole window.
-     */
-    virtual void draw();
-
-    /** Draws the window borders.
-     * @param x Border rect x position
-     * @param y Border rect y position
-     * @param w Border rect width
-     * @param h Border rect height
-     */
-    virtual void drawBorders(int16_t x, int16_t y, int16_t w, int16_t h);
-
-protected:
-    int16_t m_x, m_y, m_w, m_h;
-    uint16_t m_flags;
-};
-
-/** Window class.
-*/
-class Window : public WidgetBase {
-public:
-    Window() : WidgetBase(hasBorders) {m_ptitle=NULL;}
-    ~Window(){free(m_ptitle);}
-    void setTitle(char* ptitle) {
-        m_ptitle = (char*)malloc(strlen(ptitle)+1);
-        strcpy(m_ptitle,ptitle);
-    }
-    virtual void drawTitle();
-
-public: // Inherited
-    void getViewRect(int16_t& x, int16_t& y, int16_t& w, int16_t& h) {
-
-        WidgetBase::getViewRect(x, y, w, h);
-
-        if( m_ptitle ) {
-            x = x; y = y + (2 * fontH); w = w; h = h - (2 * fontH);
-        }
-    }
-
+public:  // From base class
     void draw();
 
-protected:
-    char* m_ptitle;
+private:
+    void init(char* ptext, char* oktext);
+    void update();
+
+private:
+    char* m_ptext; // Owned
+    char* m_okText; // Owned
+    bool* m_pdone;
 };
+
+/** CancelDlg class.
+ *  Note ment to be inherited.
+ */
+class CancelDlg : public WidgetBase {
+
+public:
+    /** Constructor.
+     * @param ptext Dialog text
+     * @param pisOkSelected True, if the user has selected ok.
+     * @param pdone True, if the user has done the selection.
+     */
+    CancelDlg(char* ptext, bool* pisOkSelected, bool* pdone);
+
+    /** Constructor.
+     * @param ptext Dialog text
+     * @param okText Dialog "ok" text
+     * @param cancelText Dialog "cancel" text
+     * @param pisOkSelected True, if the user has selected ok.
+     * @param pdone True, if the user has done the selection.
+     */
+    CancelDlg(char* ptext, char* okText, char* cancelText, bool* pisOkSelected, bool* pdone);
+
+    /** Destructor.
+    */
+    ~CancelDlg();
+
+public:  // From base class
+    void draw();
+
+private:
+    void init(char* ptext, char* okText, char* cancelText);
+    void update();
+
+private:
+    bool m_isOkSelected;
+    char* m_ptext; // Owned
+    char* m_okText; // Owned
+    char* m_cancelText; // Owned
+    bool* m_pisOkSelected;
+    bool* m_pdone;
+};
+
+class ListBoxDlg : public Window {
+
+ public:
+   ListBoxDlg(char* titleText, int16_t x, int16_t y, int16_t w, int16_t h);
+    ~ListBoxDlg();
+    void update();
+    bool isdone() {return m_done;}
+    int16_t getIndex() {return m_listbox->selectedItem;}
+
+private:
+    void init(char* titleText, int16_t x, int16_t y, int16_t w, int16_t h);
+
+public: // Inherited
+    void draw();
+
+public:
+    char* m_titleText;
+    bool m_done;
+    ListBox* m_listbox;
+};
+
 
 }  // namespace
 

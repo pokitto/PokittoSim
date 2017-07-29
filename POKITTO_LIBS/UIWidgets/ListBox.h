@@ -24,14 +24,11 @@
 #ifndef LISTBOX_H
 #define LISTBOX_H
 
-#include "pokitto.h"
+//#include "pokitto.h"
+#include "UIWidgetBasic.h"
 
 namespace Pokitto {
 
-#define LB_BACKGROUND_COLOR 0
-#define LB_BORDER_COLOR 1
-#define LB_ITEM_COLOR 3
-#define LB_SELECTED_ITEM_COLOR 1
 #define LB_BORDER_MARGIN_UP 2
 #define LB_BORDER_MARGIN_DOWN 2
 #define LB_ITEM_MARGIN_LEFT 1

@@ -282,6 +282,8 @@
 		<Unit filename="../POKITTO_LIBS/UIWidgets/ListBox.h" />
 		<Unit filename="../POKITTO_LIBS/UIWidgets/UIWidget.cpp" />
 		<Unit filename="../POKITTO_LIBS/UIWidgets/UIWidget.h" />
+		<Unit filename="../POKITTO_LIBS/UIWidgets/UIWidgetBasic.cpp" />
+		<Unit filename="../POKITTO_LIBS/UIWidgets/UIWidgetBasic.h" />
 		<Unit filename="../Pokitto.h">
 			<Option target="HelloWorld_lin" />
 			<Option target="Chipengine_lin" />
@@ -385,6 +387,15 @@
 			<envvars />
 			<debugger />
 			<lib_finder disable_auto="1" />
+			<DoxyBlocks>
+				<comment_style block="0" line="0" />
+				<doxyfile_project />
+				<doxyfile_build />
+				<doxyfile_warnings />
+				<doxyfile_output />
+				<doxyfile_dot />
+				<general />
+			</DoxyBlocks>
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

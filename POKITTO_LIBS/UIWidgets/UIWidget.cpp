@@ -47,132 +47,314 @@
 #include "FileIO.h"
 #endif
 
-
 #include "Pokittodisplay.h"
 #include "UIWidget.h"
+#include <new>
 
 using namespace Pokitto;
 
-// WidgetBase class.
+// Texts
+#define STR_OK "OK"
+#define STR_CANCEL "CANCEL"
 
-void WidgetBase::draw() {
+// InfoDlg class.
 
-    // Clear
-    uint16_t currColor = Display::color;
-    Display::color = 0;
-    Display::fillRectangle(m_x, m_y, m_w, m_h);
-    Display::color = currColor;
+InfoDlg::InfoDlg(char* ptext, bool* pdone)
+: WidgetBase(WidgetBase::hasBorders) {
 
-    // Draw borders.
-    if (m_flags & Flags::hasBorders)
-        drawBorders(m_x, m_y, m_w, m_h);
+    m_ptext = NULL;
+    m_okText = NULL;
+
+    // Store pointers to caller data.
+    m_pdone = pdone;
+
+    init(ptext, nullptr);
 }
 
-void WidgetBase::drawBorders(int16_t x, int16_t y, int16_t w, int16_t h) {
+InfoDlg::InfoDlg(char* ptext, char* okText, bool* pdone)
+: WidgetBase(WidgetBase::hasBorders) {
 
-    int16_t numCharsInLine = (w/fontW) + 1;
-    numCharsInLine-=2;
-    if(numCharsInLine<0)
-        return;
-    int16_t numCharsInCol = (h/fontH) + 1;
-    numCharsInCol-=2;
-    if(numCharsInCol<0)
-        return;
+    m_ptext = NULL;
+    m_okText = NULL;
 
-    // Draw top border
-    Display::print(x,y,'a');
-    for (int16_t i = 0; i < numCharsInLine; i++)
-        Display::print('b');
-    Display::print(x+w-fontW,y,'c');
+    // Store pointers to caller data.
+    m_pdone = pdone;
 
-    // Draw left and right borders
-    int16_t x1=x, x2=x+w-fontW, y1=y+fontH;
-    for (int16_t i = 0; i < numCharsInCol; i++, y1+=fontH) {
-        Display::print(x1,y1,'|');
-        Display::print(x2,y1,'|');
+    init(ptext, okText);
+}
+
+
+InfoDlg::~InfoDlg() { free(m_ptext); }
+
+void InfoDlg::init(char* ptext, char* okText) {
+
+    // Store text
+    m_ptext = (char*)malloc(strlen(ptext)+1);
+    strcpy(m_ptext, ptext);
+
+    // Store "ok" text
+    if(okText) {
+        m_okText = (char*)malloc(strlen(okText)+1);
+        strcpy(m_okText, okText);
+    }
+    else {
+        m_okText = (char*)malloc(strlen(STR_OK)+1);
+        strcpy(m_okText, STR_OK);
     }
 
-    // Draw bottom border
-    Display::print(x,y+h-fontH,'d');
-    for (int16_t i = 0; i < numCharsInLine; i++)
-        Display::print('b');
-    Display::print(x+w-fontW,y+h-fontH,'e');
+    // Set rect.
+    const int32_t dlgW = Display::getWidth()*2/3;
+    const int32_t dlgH = 10 * fontH;
+    setRect((Display::getWidth()- dlgW) / 2, (Display::getHeight() - dlgH) / 2, dlgW, dlgH);
 
-    // Draw dots decoration on left and right sides
-    if (numCharsInCol > 7) {
-
-        // Right side
-        y1=y+((numCharsInCol/2)-3)*fontH;
-        Display::print(x1,y1,'f');
-        y1+=fontH;
-        Display::print(x1,y1,'i');
-        y1+=fontH;
-        Display::print(x1,y1,'i');
-        y1+=fontH;
-        Display::print(x1,y1,'i');
-        y1+=fontH;
-        Display::print(x1,y1,'f');
-
-        // Left side
-        y1=y+((numCharsInCol*5/6)-3)*fontH;
-        Display::print(x2,y1,'f');
-        y1+=fontH;
-        Display::print(x2,y1,'i');
-        y1+=fontH;
-        Display::print(x2,y1,'i');
-        y1+=fontH;
-        Display::print(x2,y1,'i');
-        y1+=fontH;
-        Display::print(x2,y1,'f');
-   }
 }
 
-// Window class.
+void InfoDlg::draw() {
 
-void Window::draw() {
+    update();
 
-    // Clear
+    WidgetBase::draw();
+
     uint16_t currColor = Display::color;
-    Display::color = 0;
-    Display::fillRectangle(m_x,m_y,m_w,m_h);
+    Display::color = LB_ITEM_COLOR;
+
+    // Draw little Pokitto!
+    int16_t vx, vy, vw, vh;
+    getViewRect(vx, vy, vw, vh);
+    int16_t x = ((vw - (4*fontW)) / 2); // centralize
+    int16_t y = 0;
+    Display::print(vx + x,vy + y,"ijkl");
+    y+=fontH;
+    Display::print(vx + x,vy + y,"mnop");
+    y+=fontH;
+    Display::print(vx + x,vy + y,"qrst");
+    y+=fontH;
+    Display::print(vx + x,vy + y,"uvwx");
+    y+=fontH;
+
+    // One empty line
+    y+=fontH;
+
+    // Draw text
+    int16_t len = strlen(m_ptext);
+    x = ((vw - (len*fontW)) / 2); // centralize
+    Display::print(vx + x, vy + y, m_ptext);
+
+    // One empty line
+    y+=fontH;
+
+    // Draw OK button
+    Display::color = LB_SELECTED_ITEM_COLOR;
+    len = strlen(m_okText);
+    x = ((vw - (len*fontW)) / 2); // centralize
+    y+=fontH;Display::
+    Display::print(vx + x, vy  + y, m_okText);
+
+    // Restore original color.
     Display::color = currColor;
-
-     if (m_ptitle)
-        drawBorders(m_x,m_y+(2*fontH),m_w,m_h-(2*fontH));
-    else
-        drawBorders(m_x,m_y,m_w,m_h);
-
-    drawTitle();
 }
 
-void Window::drawTitle() {
+// Note: the object can be destroyed during this call!
+void InfoDlg::update() {
 
-    if (m_ptitle) {
+    if( !(*m_pdone) ) {
 
-        int16_t titleLen = strlen(m_ptitle);
-        int16_t numCharsInLine = titleLen;
+        if( Core::buttons.pressed(BTN_A) ) {
 
-        // Draw top border.
-        int16_t x1=m_x, x2=m_x+((numCharsInLine-1) * fontW);
-        Display::print(x1,m_y,'a');
-        for (int16_t i = 0; i < numCharsInLine; i++)
-            Display::print('b');
-        Display::print('c');
-
-        // Draw 2nd line: text and left and right borders.
-        int16_t y=m_y+fontH;
-        Display::print(x1,y,'|');
-        for (int16_t i = 0; i < numCharsInLine; i++)
-            Display::print(m_ptitle[i]);
-
-        //Display::print(m_ptitle);
-        Display::print('|');
-
-        // Draw 3rd line.
-        Display::print(m_x,m_y+(2*fontH),'|');
-        for (int16_t i = 0; i < numCharsInLine; i++)
-            Display::print('i'); // space
-        Display::print('d');
+            // Done with the dialog
+            *m_pdone = true;
+        }
    }
+}
 
+// CancelDlg class.
+
+CancelDlg::CancelDlg(char* ptext, bool* pisOkSelected, bool* pdone)
+: WidgetBase(WidgetBase::hasBorders) {
+
+    m_ptext = NULL;
+
+    // Store pointers to caller data.
+    m_pisOkSelected = pisOkSelected;
+    m_pdone = pdone;
+
+    init(ptext, nullptr, nullptr);
+}
+
+CancelDlg::CancelDlg(char* ptext, char* okText, char* cancelText, bool* pisOkSelected, bool* pdone)
+: WidgetBase(WidgetBase::hasBorders) {
+
+    m_ptext = NULL;
+
+    // Store pointers to caller data.
+    m_pisOkSelected = pisOkSelected;
+    m_pdone = pdone;
+
+    init(ptext, okText, cancelText);
+}
+
+CancelDlg::~CancelDlg() { free(m_ptext); }
+
+void CancelDlg::init(char* ptext, char* okText, char* cancelText) {
+
+    // Store text
+    m_ptext = (char*)malloc(strlen(ptext)+1);
+    strcpy(m_ptext, ptext);
+
+    // Store "ok" text
+    if(okText) {
+        m_okText = (char*)malloc(strlen(okText)+1);
+        strcpy(m_okText, okText);
+    }
+    else {
+        m_okText = (char*)malloc(strlen(STR_OK)+1);
+        strcpy(m_okText, STR_OK);
+    }
+
+    // Store "cancel" text
+    if(cancelText) {
+        m_cancelText = (char*)malloc(strlen(cancelText)+1);
+        strcpy(m_cancelText, cancelText);
+    }
+    else {
+        m_cancelText = (char*)malloc(strlen(STR_OK)+1);
+        strcpy(m_cancelText, STR_OK);
+    }
+
+    // Set rect.
+    const int32_t dlgW = Display::getWidth()*2/3;
+    const int32_t dlgH = 11 * fontH;
+    setRect((Display::getWidth()- dlgW) / 2, (Display::getHeight() - dlgH) / 2, dlgW, dlgH);
+
+}
+
+void CancelDlg::draw() {
+
+    update();
+
+    WidgetBase::draw();
+
+    uint16_t currColor = Display::color;
+    Display::color = LB_ITEM_COLOR;
+
+    // Draw little Pokitto!
+    int16_t vx, vy, vw, vh;
+    getViewRect(vx, vy, vw, vh);
+    int16_t x = ((vw - (4*fontW)) / 2); // centralize
+    int16_t y = 0;
+    Display::print(vx + x,vy + y,"ijkl");
+    y+=fontH;
+    Display::print(vx + x,vy + y,"mnop");
+    y+=fontH;
+    Display::print(vx + x,vy + y,"qrst");
+    y+=fontH;
+    Display::print(vx + x,vy + y,"uvwx");
+    y+=fontH;
+
+    // One empty line
+    y+=fontH;
+
+    // Draw text
+    int16_t len = strlen(m_ptext);
+    x = ((vw - (len*fontW)) / 2); // centralize
+    Display::print(vx + x, vy +  y, m_ptext);
+
+    // One empty line
+    y+=fontH;
+
+    // Draw OK button
+    Display::color = m_isOkSelected ? LB_SELECTED_ITEM_COLOR : LB_ITEM_COLOR;
+    len = strlen(m_okText);
+    x = ((vw - (len*fontW)) / 2); // centralize
+    y+=fontH;
+    Display::print(vx + x, vy  + y, m_okText);
+
+    // Draw CANCEL button
+    Display::color = (!m_isOkSelected) ? LB_SELECTED_ITEM_COLOR : LB_ITEM_COLOR;
+    len = strlen(m_cancelText);
+    x = ((vw - (len*fontW)) / 2); // centralize
+    y+=fontH;
+    Display::print(vx + x, vy  + y, m_cancelText);
+
+    // Restore original color.
+    Display::color = currColor;
+}
+
+// Note: the object can be destroyed during this call!
+void CancelDlg::update() {
+
+    if( !(*m_pdone) ) {
+
+        if( Core::buttons.pressed(BTN_A) ) {
+
+            // Done with the dialog
+
+            // Set caller variables.
+            *m_pisOkSelected = m_isOkSelected;
+            *m_pdone = true;
+        }
+
+        if (Core::buttons.pressed(BTN_UP) ||
+            Core::buttons.pressed(BTN_DOWN) ||
+            Core::buttons.pressed(BTN_LEFT) ||
+            Core::buttons.pressed(BTN_RIGHT) ) {
+
+            m_isOkSelected = !m_isOkSelected;  // Switch state
+        }
+    }
+}
+
+// ListBoxDlg class
+
+ListBoxDlg::ListBoxDlg(char* titleText, int16_t x, int16_t y, int16_t w, int16_t h ) {
+
+    m_titleText = nullptr;
+    m_listbox = nullptr;
+    m_done = false;
+
+    init(titleText, x, y, w, h);
+}
+
+ListBoxDlg::~ListBoxDlg(){
+
+    free(m_titleText);
+    delete m_listbox;
+}
+
+void ListBoxDlg::init(char* titleText, int16_t x, int16_t y, int16_t w, int16_t h) {
+
+    // Store text
+    m_titleText = (char*)malloc(strlen(titleText)+1);
+    strcpy(m_titleText, titleText);
+
+    if(m_titleText)
+        setTitle(m_titleText);
+
+    setRect(x, y, w, h);
+
+    int16_t vx, vy, vw, vh;
+    getViewRect(vx, vy, vw, vh);
+    m_listbox = new(std::nothrow) ListBox(0);
+    const int16_t borderSizeInChars = 0;
+    m_listbox->init(vx, vy, vw/Pokitto::fontW/2, vh/Pokitto::fontH - borderSizeInChars, 100, 0);
+    char itemName[256];
+    for (int16_t i=0; i<50; i++) {
+        sprintf(itemName, "%d\. ITEM 1234567890", i);
+        m_listbox->addItem(itemName);
+    }
+}
+
+void ListBoxDlg::update() {
+
+    if( Core::buttons.pressed(BTN_A) )
+        m_done = true;
+
+    if(!m_done)
+        m_listbox->update(); // To react scrolling
+}
+
+void ListBoxDlg::draw() {
+
+    Window::draw();
+    m_listbox->draw();
 }

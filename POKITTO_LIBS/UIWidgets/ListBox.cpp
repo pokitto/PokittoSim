@@ -47,7 +47,6 @@ ListBox::ListBox(uint32_t flags)
   firstItemToShow = 0;
   itemsCount = 0;
   selectedItem = 0;
-
 }
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -175,18 +174,18 @@ uint16_t ListBox::removeItem(uint8_t itemId) {
 // ------------------------------------------------------------------------------------------------------------------------------------------------------
 void ListBox::update() {
 
-  if (Core::buttons.repeat(BTN_UP, 1)) {
+    if (Core::buttons.repeat(BTN_UP, 1)) {
 
-    if (selectedItem > 0) {
+        if (selectedItem > 0) {
 
-      selectedItem--;
-      if (selectedItem < firstItemToShow) {
+            selectedItem--;
+            if (selectedItem < firstItemToShow) {
 
-        scrollUp();
-      }
+                scrollUp();
+            }
+        }
     }
-  }
-  else if (Core::buttons.repeat(BTN_DOWN, 1)) {
+    else if (Core::buttons.repeat(BTN_DOWN, 1)) {
 
     if (selectedItem < itemsCount-1) {
 

@@ -1,11 +1,11 @@
 #include "Pokitto.h"
-#include <new>          // std::nothrow SIMULATOR!!!
-
+#include "UIWidget.h"
+#include <new>
 
 Pokitto::Core game;
 
 /** Select the test code */
-#define TEST_MAIN 1
+#define TEST_MAIN 4
 
 /** Test: Hello World */
 #if TEST_MAIN == 0
@@ -169,6 +169,157 @@ int main () {
     }
 
     delete(control);
+    return 1;
+}
+
+/** Test: Cancel dialog */
+#elif TEST_MAIN == 2
+
+/** MAIN */
+int main () {
+    game.begin();
+
+    game.display.setFont(fntC64gfx);
+    game.display.palette[0] = game.display.RGBto565(0x0, 0x0, 0x0); // black (backgound)
+    game.display.palette[1] = game.display.RGBto565(0x00, 0xff, 0x00); // green
+    game.display.palette[2] = game.display.RGBto565(0xff, 0x00, 0x00); // red
+    game.display.palette[3] = game.display.RGBto565(0xff, 0xff, 0xff); // white
+    game.display.charSpacingAdjust = 0; //needed for the non-proportional C64 font (normal value=1)
+
+    bool dialogDone = false;
+    bool isOkSelected = false;
+    Pokitto::CancelDlg* pdlg = new(std::nothrow) Pokitto::CancelDlg("ARE YOU SURE?", "MAYBE","HELL, NO!",&isOkSelected, &dialogDone );
+
+    while (game.isRunning()) {
+        if (game.update()) {
+
+            // Check if dialog is done.
+            if (dialogDone && pdlg!=NULL) {
+
+                // remove the dialog
+                delete(pdlg);
+                pdlg = nullptr;
+            }
+
+            // Print
+            game.display.print(0,0, "SELECTED: ");
+            if(!dialogDone)
+                game.display.print("NOT YET...");
+            else {
+                if(isOkSelected)
+                    game.display.print("OK");
+                else
+                    game.display.print("CANCEL");
+            }
+
+            // Draw dialog
+           if (pdlg)
+                pdlg->draw();
+        }
+    }
+
+    delete(pdlg);
+    return 1;
+}
+
+/** Test: Info dialog */
+#elif TEST_MAIN == 3
+
+/** MAIN */
+int main () {
+    game.begin();
+
+    game.display.setFont(fntC64gfx);
+    game.display.palette[0] = game.display.RGBto565(0x0, 0x0, 0x0); // black (backgound)
+    game.display.palette[1] = game.display.RGBto565(0x00, 0xff, 0x00); // green
+    game.display.palette[2] = game.display.RGBto565(0xff, 0x00, 0x00); // red
+    game.display.palette[3] = game.display.RGBto565(0xff, 0xff, 0xff); // white
+    game.display.charSpacingAdjust = 0; //needed for the non-proportional C64 font (normal value=1)
+
+    bool dialogDone = false;
+    Pokitto::InfoDlg* pdlg = new(std::nothrow) Pokitto::InfoDlg("HELLO THERE!", "ACK", &dialogDone );
+
+    while (game.isRunning()) {
+        if (game.update()) {
+
+            // Check if dialog is done.
+            if (dialogDone && pdlg!=NULL) {
+
+                // remove the dialog
+                delete(pdlg);
+                pdlg = nullptr;
+            }
+
+            // Print
+            if(!dialogDone)
+                game.display.print("NOT YET...");
+            else
+                game.display.print("DONE!");
+
+            // Draw dialog
+           if (pdlg)
+                pdlg->draw();
+        }
+    }
+
+    delete(pdlg);
+    return 1;
+}
+/** Test: ListBox dialog */
+#elif TEST_MAIN == 4
+
+/** MAIN */
+int main () {
+    game.begin();
+
+    game.display.setFont(fntC64gfx);
+    game.display.palette[0] = game.display.RGBto565(0x0, 0x0, 0x0); // black (backgound)
+    game.display.palette[1] = game.display.RGBto565(0x00, 0xff, 0x00); // green
+    game.display.palette[2] = game.display.RGBto565(0xff, 0x00, 0x00); // red
+    game.display.palette[3] = game.display.RGBto565(0xff, 0xff, 0xff); // white
+    game.display.charSpacingAdjust = 0; //needed for the non-proportional C64 font (normal value=1)
+
+    bool dialogDone = false;
+    int16_t selIndex = 0;
+    Pokitto::ListBoxDlg* pdlg = new(std::nothrow) Pokitto::ListBoxDlg(
+        "POKITTO", 0, 10, game.display.getWidth()-1, game.display.getHeight() );
+
+    while (game.isRunning()) {
+        if (game.update()) {
+
+            // Check if dialog is done.
+            if (pdlg!=nullptr && pdlg->isdone()) {
+
+                // Store the index
+                selIndex = pdlg->getIndex();
+
+                // remove the dialog
+                delete(pdlg);
+                pdlg = nullptr;
+            }
+
+            // Print
+            if(pdlg != nullptr) {
+
+                char text[256];
+                sprintf(text, "NOT YET... (INDEX = %d)", pdlg->getIndex());
+                game.display.print(text);
+            }
+            else {
+                char text[256];
+                sprintf(text, "DONE! SELECTED INDEX = %d", selIndex);
+                game.display.print(text);
+            }
+
+            // Draw dialog
+           if (pdlg) {
+                pdlg->update();
+                pdlg->draw();
+           }
+        }
+    }
+
+    delete(pdlg);
     return 1;
 }
 #endif
