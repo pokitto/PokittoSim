@@ -5,6 +5,8 @@
 //
 // Version : 0.1
 //
+// 31.7.2017 Hannu Viitala. Minor changes to integrate to the Pokitto SW.
+//
 // Licence :
 //
 //   This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by
@@ -60,16 +62,16 @@ ListBox::~ListBox() {
 // ------------------------------------------------------------------------------------------------------------------------------------------------------
 // Init the list box
 // ------------------------------------------------------------------------------------------------------------------------------------------------------
-uint8_t ListBox::init(uint8_t x, uint8_t y , uint8_t widthInChars, uint8_t heightInChars, uint16_t maxItems, uint8_t options) {
+uint8_t ListBox::init(uint8_t x, uint8_t y , uint8_t widthInChars, uint8_t heightInChars, uint16_t maxItems) {
 
   // Set widget rect.
   if (m_flags & Flags::hasBorders) {
-    setRect(x, y, (widthInChars + 2) * LB_ITEM_CHAR_WIDTH, (heightInChars + 2) *LB_ITEM_CHAR_HEIGHT);
-    this->x = x + LB_ITEM_CHAR_WIDTH;
-    this->y = y + LB_ITEM_CHAR_HEIGHT;
+    setRect(x, y, (widthInChars + 2) * UIW_ITEM_CHAR_WIDTH, (heightInChars + 2) * UIW_ITEM_CHAR_HEIGHT);
+    this->x = x + UIW_ITEM_CHAR_WIDTH;
+    this->y = y + UIW_ITEM_CHAR_HEIGHT;
   }
   else {
-    setRect(x, y, widthInChars*LB_ITEM_CHAR_WIDTH, heightInChars*LB_ITEM_CHAR_HEIGHT);
+    setRect(x, y, widthInChars*UIW_ITEM_CHAR_WIDTH, heightInChars*UIW_ITEM_CHAR_HEIGHT);
     this->x = x;
     this->y = y;
   }
@@ -84,27 +86,13 @@ uint8_t ListBox::init(uint8_t x, uint8_t y , uint8_t widthInChars, uint8_t heigh
 
   // Init colors
   backgroundColor = LB_BACKGROUND_COLOR;
-  borderColor = LB_BORDER_COLOR;
   itemColor = LB_ITEM_COLOR;
   selectedItemColor = LB_SELECTED_ITEM_COLOR;
 
-  // Init hideBorder option
-  if (true) { // !!HV options & LB_HIDE_BORDER)
-
-    hideBorder = true;
-    viewX = LB_ITEM_MARGIN_LEFT;
-    viewY = 0;
-    viewWidth = widthInChars;
-    viewHeight = heightInChars;
-  }
-  else {
-
-    hideBorder = false;
-    viewX = LB_ITEM_MARGIN_LEFT + LB_ITEM_CHAR_WIDTH;
-    viewY = LB_ITEM_CHAR_HEIGHT;
-    viewWidth = widthInChars - 2;
-    viewHeight = heightInChars - 2;
-  }
+  viewX = 0;
+  viewY = 0;
+  viewWidth = widthInChars;
+  viewHeight = heightInChars;
 
   // Allocate memory for all the items
   items = new(std::nothrow) ListBoxItem[maxItems];
@@ -279,28 +267,9 @@ void ListBox::show() {
 
   oldColor = Display::color;
 
-  if (hideBorder) {
-
-    // Draw backround
-    Display::color = backgroundColor;
-    Display::fillRect(this->x, this->y, width * LB_ITEM_CHAR_WIDTH + 1, height * LB_ITEM_CHAR_HEIGHT - 3);
-  }
-
-  // Draw border if it is enabled
-  else {
-
-    borderX = this->x;
-    borderY = LB_BORDER_MARGIN_UP + this->y;
-    borderWidth = width * LB_ITEM_CHAR_WIDTH + 1;
-    borderHeight = height * LB_ITEM_CHAR_HEIGHT - 3 - LB_BORDER_MARGIN_DOWN - LB_BORDER_MARGIN_UP;
-
-    // Draw backround
-    Display::color = backgroundColor;
-    Display::fillRect(borderX, borderY, borderWidth, borderHeight);
-
-    Display::color = borderColor;
-    Display::drawRect(borderX, borderY, borderWidth, borderHeight);
-  }
+  // Draw backround
+  Display::color = backgroundColor;
+  Display::fillRect(this->x, this->y, width * UIW_ITEM_CHAR_WIDTH + 1, height * UIW_ITEM_CHAR_HEIGHT - 3);
 
   // Set the last item of the list to show in the view
   lastItemToShow = firstItemToShow + viewHeight - 1;
@@ -324,7 +293,7 @@ void ListBox::show() {
     }
     Display::print(this->x+viewX, itemY, itemText);
 
-    itemY += LB_ITEM_CHAR_HEIGHT;
+    itemY += UIW_ITEM_CHAR_HEIGHT;
   }
 
   Display::color = oldColor;

@@ -53,36 +53,25 @@
 
 using namespace Pokitto;
 
-// Texts
-#define STR_OK "OK"
-#define STR_CANCEL "CANCEL"
-
 // InfoDlg class.
 
-InfoDlg::InfoDlg(char* ptext, bool* pdone)
-: WidgetBase(WidgetBase::hasBorders) {
+InfoDlg::InfoDlg(char* ptext)
+: DialogBase(WidgetBase::hasBorders) {
 
     m_ptext = NULL;
     m_okText = NULL;
-
-    // Store pointers to caller data.
-    m_pdone = pdone;
 
     init(ptext, nullptr);
 }
 
-InfoDlg::InfoDlg(char* ptext, char* okText, bool* pdone)
-: WidgetBase(WidgetBase::hasBorders) {
+InfoDlg::InfoDlg(char* ptext, char* okText)
+: DialogBase(WidgetBase::hasBorders) {
 
     m_ptext = NULL;
     m_okText = NULL;
 
-    // Store pointers to caller data.
-    m_pdone = pdone;
-
     init(ptext, okText);
 }
-
 
 InfoDlg::~InfoDlg() { free(m_ptext); }
 
@@ -116,7 +105,7 @@ void InfoDlg::draw() {
     WidgetBase::draw();
 
     uint16_t currColor = Display::color;
-    Display::color = LB_ITEM_COLOR;
+    Display::color = LB_SELECTED_ITEM_COLOR;
 
     // Draw little Pokitto!
     int16_t vx, vy, vw, vh;
@@ -136,6 +125,7 @@ void InfoDlg::draw() {
     y+=fontH;
 
     // Draw text
+    Display::color = LB_ITEM_COLOR;
     int16_t len = strlen(m_ptext);
     x = ((vw - (len*fontW)) / 2); // centralize
     Display::print(vx + x, vy + y, m_ptext);
@@ -157,38 +147,30 @@ void InfoDlg::draw() {
 // Note: the object can be destroyed during this call!
 void InfoDlg::update() {
 
-    if( !(*m_pdone) ) {
+    if(!m_done) {
 
         if( Core::buttons.pressed(BTN_A) ) {
 
             // Done with the dialog
-            *m_pdone = true;
+            m_done = true;
         }
    }
 }
 
 // CancelDlg class.
 
-CancelDlg::CancelDlg(char* ptext, bool* pisOkSelected, bool* pdone)
-: WidgetBase(WidgetBase::hasBorders) {
+CancelDlg::CancelDlg(char* ptext)
+: DialogBase(WidgetBase::hasBorders) {
 
     m_ptext = NULL;
-
-    // Store pointers to caller data.
-    m_pisOkSelected = pisOkSelected;
-    m_pdone = pdone;
 
     init(ptext, nullptr, nullptr);
 }
 
-CancelDlg::CancelDlg(char* ptext, char* okText, char* cancelText, bool* pisOkSelected, bool* pdone)
-: WidgetBase(WidgetBase::hasBorders) {
+CancelDlg::CancelDlg(char* ptext, char* okText, char* cancelText)
+: DialogBase(WidgetBase::hasBorders) {
 
     m_ptext = NULL;
-
-    // Store pointers to caller data.
-    m_pisOkSelected = pisOkSelected;
-    m_pdone = pdone;
 
     init(ptext, okText, cancelText);
 }
@@ -217,8 +199,8 @@ void CancelDlg::init(char* ptext, char* okText, char* cancelText) {
         strcpy(m_cancelText, cancelText);
     }
     else {
-        m_cancelText = (char*)malloc(strlen(STR_OK)+1);
-        strcpy(m_cancelText, STR_OK);
+        m_cancelText = (char*)malloc(strlen(STR_CANCEL)+1);
+        strcpy(m_cancelText, STR_CANCEL);
     }
 
     // Set rect.
@@ -283,16 +265,11 @@ void CancelDlg::draw() {
 // Note: the object can be destroyed during this call!
 void CancelDlg::update() {
 
-    if( !(*m_pdone) ) {
+    if(!m_done) {
 
-        if( Core::buttons.pressed(BTN_A) ) {
-
-            // Done with the dialog
-
-            // Set caller variables.
-            *m_pisOkSelected = m_isOkSelected;
-            *m_pdone = true;
-        }
+        // Done with the dialog?
+        if( Core::buttons.pressed(BTN_A) )
+            m_done = true;
 
         if (Core::buttons.pressed(BTN_UP) ||
             Core::buttons.pressed(BTN_DOWN) ||
@@ -306,42 +283,41 @@ void CancelDlg::update() {
 
 // ListBoxDlg class
 
-ListBoxDlg::ListBoxDlg(char* titleText, int16_t x, int16_t y, int16_t w, int16_t h ) {
+ListBoxDlg::ListBoxDlg(char* titleText, int16_t x, int16_t y, int16_t w, int16_t h, uint16_t maxItems )
+: DialogBase(WidgetBase::hasBorders){
 
-    m_titleText = nullptr;
     m_listbox = nullptr;
-    m_done = false;
 
-    init(titleText, x, y, w, h);
+    init(titleText, x, y, w, h, maxItems);
 }
 
 ListBoxDlg::~ListBoxDlg(){
 
-    free(m_titleText);
     delete m_listbox;
 }
 
-void ListBoxDlg::init(char* titleText, int16_t x, int16_t y, int16_t w, int16_t h) {
+void ListBoxDlg::init(char* titleText, int16_t x, int16_t y, int16_t w, int16_t h, uint16_t maxItems ) {
 
-    // Store text
-    m_titleText = (char*)malloc(strlen(titleText)+1);
-    strcpy(m_titleText, titleText);
+    // Set title
+    if(titleText)
+        setTitle(titleText);
 
-    if(m_titleText)
-        setTitle(m_titleText);
-
+    // Set the dialog rect
     setRect(x, y, w, h);
 
+    // Create listbox widget.
     int16_t vx, vy, vw, vh;
     getViewRect(vx, vy, vw, vh);
     m_listbox = new(std::nothrow) ListBox(0);
-    const int16_t borderSizeInChars = 0;
-    m_listbox->init(vx, vy, vw/Pokitto::fontW/2, vh/Pokitto::fontH - borderSizeInChars, 100, 0);
-    char itemName[256];
-    for (int16_t i=0; i<50; i++) {
-        sprintf(itemName, "%d\. ITEM 1234567890", i);
-        m_listbox->addItem(itemName);
-    }
+    m_listbox->init(vx, vy, vw/fontW, vh/fontH + 1, maxItems);
+}
+
+uint16_t ListBoxDlg::addItem(const char* text) {
+    m_listbox->addItem(text);
+}
+
+uint16_t ListBoxDlg::removeItem(uint8_t itemId) {
+    m_listbox->removeItem(itemId);
 }
 
 void ListBoxDlg::update() {
@@ -355,6 +331,6 @@ void ListBoxDlg::update() {
 
 void ListBoxDlg::draw() {
 
-    Window::draw();
+    DialogBase::draw();
     m_listbox->draw();
 }

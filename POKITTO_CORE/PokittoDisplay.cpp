@@ -100,6 +100,7 @@ uint16_t* Display::paletteptr;
 uint16_t Display::palette[PALETTE_SIZE];
 const unsigned char* Display::font;
 int8_t Display::charSpacingAdjust = 1;
+bool Display::fixedWidthFont = false;
 
 /** drawing canvas **/
 //uint8_t* Display::canvas; // points to the active buffer. if null, draw direct to screen
@@ -1704,7 +1705,8 @@ void Display::write(uint8_t c) {
 			}
 			else
 				charstep=print_char(cursorX,cursorY,c);
-			if (c==' ') charstep=(charstep>>1)+1;
+			if (!fixedWidthFont && c==' ') charstep=(charstep>>1)+1; // Make space narrower for proportional font.
+
 			cursorX += charstep;
 	}
 }

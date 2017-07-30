@@ -54,6 +54,29 @@ using namespace Pokitto;
 
 // WidgetBase class.
 
+WidgetBase::WidgetBase(uint32_t flags){
+    setRect(0, 0, 0, 0);
+    m_flags = flags;
+    m_titleText = nullptr;
+}
+
+WidgetBase::~WidgetBase(){
+    free(m_titleText);
+}
+
+void WidgetBase::getViewRect(int16_t& x, int16_t& y, int16_t& w, int16_t& h) {
+
+    if (m_flags & Flags::hasBorders) {
+        x = m_x + fontW; y = m_y + fontH; w = m_w - (2 * fontW); h = m_h - (2 * fontH);
+        if( m_titleText ) {
+            x = x; y = y + (2 * fontH); w = w; h = h - (2 * fontH);
+        }
+    }
+    else {
+        x = m_x; y = m_y; w = m_w; h = m_h;
+    }
+}
+
 void WidgetBase::draw() {
 
     // Clear
@@ -62,9 +85,18 @@ void WidgetBase::draw() {
     Display::fillRectangle(m_x, m_y, m_w, m_h);
     Display::color = currColor;
 
-    // Draw borders.
-    if (m_flags & Flags::hasBorders)
-        drawBorders(m_x, m_y, m_w, m_h);
+    // Draw borders
+    if (m_titleText) {
+        if (m_flags & Flags::hasBorders)
+            drawBorders(m_x, m_y + (2 * fontH), m_w, m_h - (2 * fontH));
+     }
+    else {
+        if (m_flags & Flags::hasBorders)
+            drawBorders(m_x, m_y, m_w, m_h);
+    }
+
+    // Draw title
+    drawTitle();
 }
 
 void WidgetBase::drawBorders(int16_t x, int16_t y, int16_t w, int16_t h) {
@@ -107,11 +139,11 @@ void WidgetBase::drawBorders(int16_t x, int16_t y, int16_t w, int16_t h) {
         y1=y+((numCharsInCol/2)-3)*fontH;
         Display::print(x1,y1,'f');
         y1+=fontH;
-        Display::print(x1,y1,'i');
+        Display::print(x1,y1,' ');
         y1+=fontH;
-        Display::print(x1,y1,'i');
+        Display::print(x1,y1,' ');
         y1+=fontH;
-        Display::print(x1,y1,'i');
+        Display::print(x1,y1,' ');
         y1+=fontH;
         Display::print(x1,y1,'f');
 
@@ -119,11 +151,11 @@ void WidgetBase::drawBorders(int16_t x, int16_t y, int16_t w, int16_t h) {
         y1=y+((numCharsInCol*5/6)-3)*fontH;
         Display::print(x2,y1,'f');
         y1+=fontH;
-        Display::print(x2,y1,'i');
+        Display::print(x2,y1,' ');
         y1+=fontH;
-        Display::print(x2,y1,'i');
+        Display::print(x2,y1,' ');
         y1+=fontH;
-        Display::print(x2,y1,'i');
+        Display::print(x2,y1,' ');
         y1+=fontH;
         Display::print(x2,y1,'f');
    }
@@ -132,29 +164,11 @@ void WidgetBase::drawBorders(int16_t x, int16_t y, int16_t w, int16_t h) {
     Display::color = currColor;
 }
 
-// Window class.
+void WidgetBase::drawTitle() {
 
-void Window::draw() {
+    if (m_titleText) {
 
-    // Clear
-    uint16_t currColor = Display::color;
-    Display::color = LB_BACKGROUND_COLOR;
-    Display::fillRectangle(m_x,m_y,m_w,m_h);
-    Display::color = currColor;
-
-     if (m_ptitle)
-        drawBorders(m_x,m_y+(2*fontH),m_w,m_h-(2*fontH));
-    else
-        drawBorders(m_x,m_y,m_w,m_h);
-
-    drawTitle();
-}
-
-void Window::drawTitle() {
-
-    if (m_ptitle) {
-
-        int16_t titleLen = strlen(m_ptitle);
+        int16_t titleLen = strlen(m_titleText);
         int16_t numCharsInLine = titleLen;
 
         // Draw top border.
@@ -168,7 +182,7 @@ void Window::drawTitle() {
         int16_t y=m_y+fontH;
         Display::print(x1,y,'|');
         for (int16_t i = 0; i < numCharsInLine; i++)
-            Display::print(m_ptitle[i]);
+            Display::print(m_titleText[i]);
 
         //Display::print(m_ptitle);
         Display::print('|');
@@ -176,7 +190,7 @@ void Window::drawTitle() {
         // Draw 3rd line.
         Display::print(m_x,m_y+(2*fontH),'|');
         for (int16_t i = 0; i < numCharsInLine; i++)
-            Display::print('i'); // space
+            Display::print(' '); // space
         Display::print('d');
    }
 }

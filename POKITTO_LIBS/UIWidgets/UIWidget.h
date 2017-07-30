@@ -1,20 +1,35 @@
 /**************************************************************************/
 /*!
-    @file     xxx.h
-    @author   Hannu Viitala
-
+    @file     UIWidget.h
+    @author   Hannu Viitala.
     @section LICENSE
 
-    Pokitto development stage library
-    Software License Agreement
+    Software License Agreement (BSD License)
 
-    Copyright (c) 2015, Jonne Valola ("Author")
+    Copyright (c) 2017, Jonne Valola
     All rights reserved.
 
-    This library is intended solely for the purpose of Pokitto development.
-
     Redistribution and use in source and binary forms, with or without
-    modification requires written permission from Author.
+    modification, are permitted provided that the following conditions are met:
+    1. Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+    2. Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution.
+    3. Neither the name of the copyright holders nor the
+    names of its contributors may be used to endorse or promote products
+    derived from this software without specific prior written permission.
+
+    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS ''AS IS'' AND ANY
+    EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+    WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+    DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE FOR ANY
+    DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+    (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+    LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+    ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+    (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+    SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 /**************************************************************************/
 
@@ -33,21 +48,21 @@ namespace Pokitto {
 /** InfoDlg class.
  *  Note ment to be inherited.
  */
-class InfoDlg : public WidgetBase {
+class InfoDlg : public DialogBase {
 
 public:
     /** Constructor.
      * @param ptext Dialog text
      * @param pdone True, if the user has done the selection.
      */
-    InfoDlg(char* ptext, bool* pdone);
+    InfoDlg(char* ptext);
 
     /** Constructor.
      * @param ptext Dialog text
      * @param okText Dialog text
      * @param pdone True, if the user has done the selection.
      */
-    InfoDlg(char* ptext, char* okText, bool* pdone);
+    InfoDlg(char* ptext, char* okText);
 
     /** Destructor.
     */// Owned
@@ -55,21 +70,20 @@ public:
 
 public:  // From base class
     void draw();
+    void update();
 
 private:
     void init(char* ptext, char* oktext);
-    void update();
 
 private:
     char* m_ptext; // Owned
     char* m_okText; // Owned
-    bool* m_pdone;
 };
 
 /** CancelDlg class.
  *  Note ment to be inherited.
  */
-class CancelDlg : public WidgetBase {
+class CancelDlg : public DialogBase {
 
 public:
     /** Constructor.
@@ -77,7 +91,7 @@ public:
      * @param pisOkSelected True, if the user has selected ok.
      * @param pdone True, if the user has done the selection.
      */
-    CancelDlg(char* ptext, bool* pisOkSelected, bool* pdone);
+    CancelDlg(char* ptext);
 
     /** Constructor.
      * @param ptext Dialog text
@@ -86,46 +100,76 @@ public:
      * @param pisOkSelected True, if the user has selected ok.
      * @param pdone True, if the user has done the selection.
      */
-    CancelDlg(char* ptext, char* okText, char* cancelText, bool* pisOkSelected, bool* pdone);
+    CancelDlg(char* ptext, char* okText, char* cancelText);
 
     /** Destructor.
     */
     ~CancelDlg();
 
+    /** Check the selection state.
+     * @return true if the user has done the selection.
+     */
+    bool isOk() {return m_isOkSelected;}
+
 public:  // From base class
     void draw();
+    void update();
 
 private:
     void init(char* ptext, char* okText, char* cancelText);
-    void update();
 
 private:
     bool m_isOkSelected;
     char* m_ptext; // Owned
     char* m_okText; // Owned
     char* m_cancelText; // Owned
-    bool* m_pisOkSelected;
-    bool* m_pdone;
 };
 
-class ListBoxDlg : public Window {
+class ListBoxDlg : public DialogBase {
 
  public:
-   ListBoxDlg(char* titleText, int16_t x, int16_t y, int16_t w, int16_t h);
+     /** Constructor.
+     * @param titleText Dialog text
+     * @param x Dialog x position
+     * @param y Dialog y position
+     * @param w Dialog width
+     * @param h Dialog height
+     * @param maxItems Max number if list box items
+     */
+    ListBoxDlg(char* titleText, int16_t x, int16_t y, int16_t w, int16_t h, uint16_t maxItems);
+
+    /** Destructor.
+     */
     ~ListBoxDlg();
-    void update();
-    bool isdone() {return m_done;}
-    int16_t getIndex() {return m_listbox->selectedItem;}
+
+    /** Adds an item to the list.
+     * @param text Item text.
+     */
+    uint16_t addItem(const char* text);
+
+    /** Remoes an item from the list.
+     * @param itemId The index of the item to be removed.
+     */
+    uint16_t removeItem(uint8_t itemId);
+
+    /** Gets the currently selected item index.
+     * @return ptext The currently selected item index.
+     */
+    int16_t getSelectedIndex() {return m_listbox->selectedItem;}
+
+    /** Gets the currently selected item text.
+     * @return ptext The currently selected item text.
+     */
+    char* getSelectedText() {return m_listbox->items[m_listbox->selectedItem].text;}
 
 private:
-    void init(char* titleText, int16_t x, int16_t y, int16_t w, int16_t h);
+    void init(char* titleText, int16_t x, int16_t y, int16_t w, int16_t h, uint16_t maxItems);
 
-public: // Inherited
+public:  // From base class
     void draw();
+    void update();
 
 public:
-    char* m_titleText;
-    bool m_done;
     ListBox* m_listbox;
 };
 

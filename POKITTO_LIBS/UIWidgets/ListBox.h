@@ -5,6 +5,8 @@
 //
 // Version : 0.1
 //
+// 31.7.2017 Hannu Viitala. Minor changes to integrate to the Pokitto SW.
+//
 // Licence :
 //
 //   This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by
@@ -29,14 +31,9 @@
 
 namespace Pokitto {
 
-#define LB_BORDER_MARGIN_UP 2
-#define LB_BORDER_MARGIN_DOWN 2
-#define LB_ITEM_MARGIN_LEFT 1
-#define LB_ITEM_CHAR_WIDTH 8
-#define LB_ITEM_CHAR_HEIGHT 8
+#define UIW_ITEM_CHAR_WIDTH 8
+#define UIW_ITEM_CHAR_HEIGHT 8
 #define LB_ITEM_LENGTH 32       // Max characters in a line (31 chars + '\0')
-
-#define LB_HIDE_BORDER 1
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------
 // ListBox Item class
@@ -68,7 +65,6 @@ class ListBox : public WidgetBase {
     uint16_t maxItems;
     uint16_t selectedItem;
     uint8_t backgroundColor;
-    uint8_t borderColor;
     uint8_t itemColor;
     uint8_t selectedItemColor;
 
@@ -77,8 +73,7 @@ class ListBox : public WidgetBase {
     uint16_t addItem(const char* text);
     uint16_t removeItem(uint8_t itemId);
     void update();
-    //uint8_t init(uint8_t x, uint8_t y , uint8_t width, uint8_t height, uint16_t maxItems, uint8_t options);
-    uint8_t init(uint8_t x, uint8_t y , uint8_t widthInChars, uint8_t heightInChars, uint16_t maxItems, uint8_t options);
+    uint8_t init(uint8_t x, uint8_t y , uint8_t widthInChars, uint8_t heightInChars, uint16_t maxItems);
     void subString(char *dstString, const char *srcString, uint8_t firstChar, uint8_t lastChar);
 
     // Inherited
@@ -95,7 +90,6 @@ class ListBox : public WidgetBase {
     uint8_t viewHeight;
     uint8_t firstCharToShow;
     uint16_t firstItemToShow;
-    bool hideBorder;
 
     void show();
     void scrollUp();

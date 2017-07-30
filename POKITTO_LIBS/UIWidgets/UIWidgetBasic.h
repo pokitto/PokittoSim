@@ -1,20 +1,35 @@
 /**************************************************************************/
 /*!
-    @file     xxx.h
-    @author   Hannu Viitala
-
+    @file     UIWidgetBasic.h
+    @author   Hannu Viitala.
     @section LICENSE
 
-    Pokitto development stage library
-    Software License Agreement
+    Software License Agreement (BSD License)
 
-    Copyright (c) 2015, Jonne Valola ("Author")
+    Copyright (c) 2017, Jonne Valola
     All rights reserved.
 
-    This library is intended solely for the purpose of Pokitto development.
-
     Redistribution and use in source and binary forms, with or without
-    modification requires written permission from Author.
+    modification, are permitted provided that the following conditions are met:
+    1. Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+    2. Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution.
+    3. Neither the name of the copyright holders nor the
+    names of its contributors may be used to endorse or promote products
+    derived from this software without specific prior written permission.
+
+    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS ''AS IS'' AND ANY
+    EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+    WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+    DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE FOR ANY
+    DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+    (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+    LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+    ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+    (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+    SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 /**************************************************************************/
 
@@ -52,11 +67,11 @@ public:
     /** Constructor.
      * @param flags Flags
      */
-    WidgetBase(uint32_t flags){setRect(0,0,0,0); m_flags = flags;}
+    WidgetBase(uint32_t flags);
 
     /** Destructor.
      */
-    ~WidgetBase(){}
+    virtual ~WidgetBase();
 
     /** Sets the window extent rect.
      * @param x Window x position
@@ -72,15 +87,7 @@ public:
      * @param w Return window extent width
      * @param h Return window extent height
      */
-    virtual void getRect(int16_t& x, int16_t& y, int16_t& w, int16_t& h) {
-
-        if (m_flags & Flags::hasBorders) {
-            x = m_x + fontW; y = m_y + fontH; w = m_w - (2 * fontW); h = m_h - (2 * fontH);
-        }
-        else {
-            x = m_x; y = m_y; w = m_w; h = m_h;
-        }
-    }
+    virtual void getRect(int16_t& x, int16_t& y, int16_t& w, int16_t& h) {x = m_x; y = m_y; w = m_w; h = m_h;}
 
     /** Gets the rect of the view area.
      * @param x Return view area x position
@@ -88,14 +95,14 @@ public:
      * @param w Return view area width
      * @param h Return view area height
      */
-    virtual void getViewRect(int16_t& x, int16_t& y, int16_t& w, int16_t& h) {
+    virtual void getViewRect(int16_t& x, int16_t& y, int16_t& w, int16_t& h);
 
-        if (m_flags & Flags::hasBorders) {
-            x = m_x + fontW; y = m_y + fontH; w = m_w - (2 * fontW); h = m_h - (2 * fontH);
-        }
-        else {
-            x = m_x; y = m_y; w = m_w; h = m_h;
-        }
+    /** Sets the title for the window.
+     * @param ptitle The title string
+     */
+    void setTitle(char* titleText) {
+        m_titleText = (char*)malloc(strlen(titleText) + 1);
+        strcpy(m_titleText, titleText);
     }
 
     /** Draws the whole window.
@@ -110,52 +117,35 @@ public:
      */
     virtual void drawBorders(int16_t x, int16_t y, int16_t w, int16_t h);
 
+    virtual void drawTitle();
+
 protected:
     int16_t m_x, m_y, m_w, m_h;
     uint16_t m_flags;
+    char* m_titleText; // Owned
 };
 
-/** Window class.
-*/
-class Window : public WidgetBase {
+/** DialogBase class.
+ */
+class DialogBase : public WidgetBase {
 
-public:  // New
-
+public:
     /** Constructor.
-    */
-    Window() : WidgetBase(hasBorders) {m_ptitle=NULL;}
+     */
+    DialogBase(uint32_t flags): WidgetBase(flags) {m_done = false;}
 
     /** Destructor.
     */
-    ~Window() {free(m_ptitle);}
+    virtual ~DialogBase() {}
 
-    /** Sets the title for the window.
-     * @param ptitle The title string
-     */
-    void setTitle(char* ptitle) {
-        m_ptitle = (char*)malloc(strlen(ptitle)+1);
-        strcpy(m_ptitle,ptitle);
-    }
+    bool isDone() {return m_done;}
+    void setDone(bool isDone) {m_done = isDone;}
 
 protected:
-
-    virtual void drawTitle();
-
-public: // From base class
-
-    void getViewRect(int16_t& x, int16_t& y, int16_t& w, int16_t& h) {
-
-        WidgetBase::getViewRect(x, y, w, h);
-
-        if( m_ptitle ) {
-            x = x; y = y + (2 * fontH); w = w; h = h - (2 * fontH);
-        }
-    }
-
-    void draw();
+    virtual void update() {}
 
 protected:
-    char* m_ptitle; // Owned
+    bool m_done;
 };
 
 }  // namespace

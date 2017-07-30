@@ -37,9 +37,9 @@
 #ifndef __POKITTO_H__
 #define __POKITTO_H__
 
+#include "Localization.h"
 #include "Pokitto_settings.h"
 #include "PokittoCore.h"
-//#include "UIWidget.h"
 
 //typedef void (*funcptr)(PokittoApp&);
 
