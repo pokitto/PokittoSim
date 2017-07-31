@@ -5,42 +5,42 @@
 Pokitto::Core game;
 
 /** MAIN */
-int main() {  //
+int main () {
     game.begin();
 
-    game.display.setFont(fntC64gfx);
+    game.display.setFont(fntC64UIGfx);  // A special font set that contains UI gfx in lower case letters.
     game.display.palette[0] = game.display.RGBto565(0x0, 0x0, 0x0); // black (backgound)
-    game.display.palette[1] = game.display.RGBto565(0x00, 0xff, 0x00); // green
+    game.display.palette[1] = game.display.RGBto565(0x00, 0xff, 0x00); // green (borders, selection)
     game.display.palette[2] = game.display.RGBto565(0xff, 0x00, 0x00); // red
-    game.display.palette[3] = game.display.RGBto565(0xff, 0xff, 0xff); // white
-    game.display.charSpacingAdjust = 0; //needed for the non-proportional C64 font (normal value=1)
-    game.display.fixedWidthFont = true;
+    game.display.palette[3] = game.display.RGBto565(0xff, 0xff, 0xff); // white (text)
+    game.display.charSpacingAdjust = 0; // Needed for the non-proportional C64 font (normal value=1)
+    game.display.fixedWidthFont = true; // Needed for the non-proportional C64 font (default value=false)
 
-    bool dialogDone = false;
-    int16_t selIndex = 0;
-    char selText[256];
-    Pokitto::ListBoxDlg* pdlg = new(std::nothrow) Pokitto::ListBoxDlg(
+    // Create the test framework listbox
+    Pokitto::ListBoxDlg* testFrameWorkDlg = new(std::nothrow) Pokitto::ListBoxDlg(
         "TESTS", 0, 10, game.display.getWidth()-1, game.display.getHeight()-10, 50 );
 
-    pdlg->addItem("INFO DLG");
-    pdlg->addItem("CANCEL DLG");
+    // Add test cases
+    testFrameWorkDlg->addItem("INFO DLG");
+    testFrameWorkDlg->addItem("CANCEL DLG");
 
+    // The dialog under testing.
     Pokitto::DialogBase* testDlg = nullptr;
 
     while (game.isRunning()) {
         if (game.update()) {
 
             // Check if the selection has been made.
-            if (pdlg->isDone() && testDlg ==  nullptr) {
+            if (testFrameWorkDlg->isDone() && testDlg ==  nullptr) {
 
-                switch(pdlg->getSelectedIndex()) {
+                switch(testFrameWorkDlg->getSelectedIndex()) {
 
                     case 0: // Info dialog
                         testDlg = new(std::nothrow) Pokitto::InfoDlg("HELLO!", "ACK" );
                         break;
 
                     case 1: // Cancel dialog
-                        testDlg = new(std::nothrow) Pokitto::CancelDlg("DO IT?");
+                        testDlg = new(std::nothrow) Pokitto::CancelDlg("SURE?");
                        break;
                 }
             }
@@ -53,23 +53,19 @@ int main() {  //
                 testDlg = nullptr;
 
                 // Start the main dialog again.
-                pdlg->setDone(false);
+                testFrameWorkDlg->setDone(false);
             }
 
-            // Draw dialog
-            if (pdlg) {
-                pdlg->update();
-                pdlg->draw();
-            }
+            // Draw the test framework dialog.
+            testFrameWorkDlg->update();
+            testFrameWorkDlg->draw();
 
-           // Draw test dialog
-           if (testDlg)
+            // Draw test dialog
+            if (testDlg)
                 testDlg->draw();
         }
-   }
-    delete(pdlg);
+    }
+    delete(testDlg);
+    delete(testFrameWorkDlg);
     return 1;
 }
-
-
-
