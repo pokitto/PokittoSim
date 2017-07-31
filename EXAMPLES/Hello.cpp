@@ -1,74 +1,36 @@
 #include "Pokitto.h"
-#include "UIWidget.h"
-#include <new>
 
 Pokitto::Core game;
 
-/** MAIN */
+#define BLINKYPERIOD 500
+
 int main () {
-    game.begin();
+game.begin();
+// Next 4 lines are just to show the C64 font, you can comment them out by adding // in the start of the line
+game.display.setFont(fontC64);
+game.display.palette[0] = game.display.RGBto565(0x42, 0x42, 0xe7); //default background is palette[0]
+game.display.palette[1] = game.display.RGBto565(0xa5, 0xa5, 0xff); //default foreground is palette[1]
+game.display.charSpacingAdjust = 0; //needed for the non-proportional C64 font (normal value=1)
+int blinkybox = 0;
+long blinkytime = game.getTime();
 
-    game.display.setFont(fntC64UIGfx);  // A special font set that contains UI gfx in lower case letters.
-    game.display.palette[0] = game.display.RGBto565(0x0, 0x0, 0x0); // black (backgound)
-    game.display.palette[1] = game.display.RGBto565(0x00, 0xff, 0x00); // green (borders, selection)
-    game.display.palette[2] = game.display.RGBto565(0xff, 0x00, 0x00); // red
-    game.display.palette[3] = game.display.RGBto565(0xff, 0xff, 0xff); // white (text)
-    game.display.charSpacingAdjust = 0; // Needed for the non-proportional C64 font (normal value=1)
-    game.display.fixedWidthFont = true; // Needed for the non-proportional C64 font (default value=false)
-
-    // Create the test framework listbox
-    Pokitto::ListBoxDlg* testFrameWorkDlg = new(std::nothrow) Pokitto::ListBoxDlg(
-        "TESTS", 0, 10, game.display.getWidth()-1, game.display.getHeight()-10, 50 );
-
-    // Add test cases
-    testFrameWorkDlg->addItem("INFO DLG");
-    testFrameWorkDlg->addItem("CANCEL DLG");
-
-    // The dialog under testing.
-    Pokitto::DialogBase* testDlg = nullptr;
-
-    while (game.isRunning()) {
-        if (game.update()) {
-
-            // Check if the selection has been made.
-            if (testFrameWorkDlg->isDone() && testDlg ==  nullptr) {
-
-                switch(testFrameWorkDlg->getSelectedIndex()) {
-
-                    case 0: // Info dialog
-                        testDlg = new(std::nothrow) Pokitto::InfoDlg("HELLO!", "ACK" );
-                        break;
-
-                    case 1: // Cancel dialog
-                        testDlg = new(std::nothrow) Pokitto::CancelDlg("SURE?");
-                       break;
-                }
-            }
-
-            // Check if dialog is done.
-            if (testDlg && testDlg->isDone()) {
-
-                // remove the test dialog
-                delete(testDlg);
-                testDlg = nullptr;
-
-                // Start the main dialog again.
-                testFrameWorkDlg->setDone(false);
-            }
-
-            // Draw the test framework dialog.
-            testFrameWorkDlg->update();
-            testFrameWorkDlg->draw();
-
-            // Draw test dialog
-            if (testDlg)
-                testDlg->draw();
+while (game.isRunning()) {
+    if (game.update()) {
+        // game.display.print("Hello World!");
+        game.display.print("**** COMMODORE 64 LIVES ****\n\n");
+        game.display.println(" 32K RAM POKITTO SYSTEM \n");
+        game.display.println("READY.");
+        if (game.getTime()>blinkytime+BLINKYPERIOD) {
+           blinkybox = 1 - blinkybox; //toggle blinky
+           blinkytime = game.getTime(); // store new time
+        }
+        if (blinkybox) {
+            game.display.bgcolor = 1; // reverse whitespace color
+            game.display.print(" ");  // print whitespace
+            game.display.bgcolor = 0; // put color the right way again
         }
     }
-    delete(testDlg);
-    delete(testFrameWorkDlg);
-    return 1;
 }
 
-
-
+return 1;
+}
