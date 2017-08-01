@@ -158,7 +158,7 @@ void Simulator::initSDLGfx() {
     DestR.w = (int)(400.0f*0.54f); DestR.h = (int)(533.0f*0.08f);
     DestR.w = SIMW; DestR.h = SIMH;
     #else
-    DestR.x = 0; DestR.y = 0; DestR.w = SIMW*2; DestR.h = SIMH*2;SrcR.w = SIMW*2; SrcR.h = SIMH*2;
+    DestR.x = 0; DestR.y = 0; DestR.w = SIMW*SIM_RES_MUL; DestR.h = SIMH*SIM_RES_MUL;SrcR.w = SIMW*SIM_RES_MUL; SrcR.h = SIMH*SIM_RES_MUL;
     #endif // SIM_SHOWDEVICE
     #endif // SIM_FULLSCREEN
 
@@ -190,8 +190,8 @@ void Simulator::initSDLGfx() {
     ww = 2.2f*SIMW;
     wh = 3.6f*SIMH;
     #else
-    ww = SIMW*2;
-    wh = SIMH*2;
+    ww = SIMW*SIM_RES_MUL;
+    wh = SIMH*SIM_RES_MUL;
     #endif // SIM_SHOWDEVICE
     sdlSimWin = SDL_CreateWindow("Pokitto simulator", 100, 100, ww, wh, SDL_WINDOW_SHOWN);
     #else
