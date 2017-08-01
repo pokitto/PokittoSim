@@ -16,7 +16,7 @@
 				<Option use_console_runner="0" />
 				<Compiler>
 					<Add option="-g" />
-					<Add option="-DPROJ_HIRES=1" />
+					<Add option="-DPROJ_HIRES=0" />
 					<Add option="-DPROJ_STARTUPLOGO=1" />
 					<Add option="-DPROJ_GAMEBUINO=0" />
 					<Add option="-DPROJ_GBSOUND=1" />
@@ -177,6 +177,7 @@
 			<Add directory="../POKITTO_LIBS/FileIO" />
 			<Add directory="../POKITTO_LIBS/Synth" />
 			<Add directory="../POKITTO_LIBS/ImageFormat" />
+			<Add directory="../POKITTO_LIBS/UIWidgets" />
 			<Add directory="../POKITTO_CORE/FONTS" />
 			<Add directory="../" />
 			<Add directory="tinydir" />
@@ -196,6 +197,7 @@
 		<Unit filename="../EXAMPLES/RLEbitmap.cpp">
 			<Option target="RLEbitmapDemo_win" />
 		</Unit>
+		<Unit filename="../EXAMPLES/UIWidgets.cpp" />
 		<Unit filename="../POKITTO_CORE/FONTS/adventurer12x16.cpp" />
 		<Unit filename="../POKITTO_CORE/FONTS/donut7x10.cpp" />
 		<Unit filename="../POKITTO_CORE/FONTS/dragon6x8.cpp" />
@@ -210,6 +212,7 @@
 		<Unit filename="../POKITTO_CORE/FONTS/tight4x7.cpp" />
 		<Unit filename="../POKITTO_CORE/FONTS/tiny5x7.cpp" />
 		<Unit filename="../POKITTO_CORE/GBcompatibility.h" />
+		<Unit filename="../POKITTO_CORE/Localization.h" />
 		<Unit filename="../POKITTO_CORE/Macros_LCD.h" />
 		<Unit filename="../POKITTO_CORE/PALETTES/palAction.cpp" />
 		<Unit filename="../POKITTO_CORE/PALETTES/palCGA.cpp" />
@@ -277,6 +280,12 @@
 		<Unit filename="../POKITTO_LIBS/Synth/Synth_song.h" />
 		<Unit filename="../POKITTO_LIBS/Synth/Synth_songfuncs.cpp" />
 		<Unit filename="../POKITTO_LIBS/Synth/Synth_wavefuncs.cpp" />
+		<Unit filename="../POKITTO_LIBS/UIWidgets/ListBox.cpp" />
+		<Unit filename="../POKITTO_LIBS/UIWidgets/ListBox.h" />
+		<Unit filename="../POKITTO_LIBS/UIWidgets/UIWidget.cpp" />
+		<Unit filename="../POKITTO_LIBS/UIWidgets/UIWidget.h" />
+		<Unit filename="../POKITTO_LIBS/UIWidgets/UIWidgetBasic.cpp" />
+		<Unit filename="../POKITTO_LIBS/UIWidgets/UIWidgetBasic.h" />
 		<Unit filename="../Pokitto.h">
 			<Option target="HelloWorld_lin" />
 			<Option target="Chipengine_lin" />
@@ -380,6 +389,15 @@
 			<envvars />
 			<debugger />
 			<lib_finder disable_auto="1" />
+			<DoxyBlocks>
+				<comment_style block="0" line="0" />
+				<doxyfile_project />
+				<doxyfile_build />
+				<doxyfile_warnings />
+				<doxyfile_output />
+				<doxyfile_dot />
+				<general />
+			</DoxyBlocks>
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>
