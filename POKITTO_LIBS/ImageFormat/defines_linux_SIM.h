@@ -1,3 +1,6 @@
+#ifndef DEFINES_LINUX_SIM_H
+#define DEFINES_LINUX_SIM_H
+
 #include <stdio.h>
 #include <ctype.h>
 #include <stdlib.h>
@@ -11,7 +14,7 @@
 
 #include <ctype.h>
 
-char* _strupr( char* s )
+inline char* _strupr( char* s )
   {
   char* p = s;
   while (*p = toupper( *p )) p++;
@@ -53,6 +56,4 @@ typedef struct tagBITMAPINFO {
   RGBQUAD          bmiColors[1];
 } __attribute__((packed)) BITMAPINFO, *PBITMAPINFO;
 
-RGBQUAD myColors[257];
-
-
+#endif // DEFINES_LINUX_SIM_H
