@@ -47,7 +47,7 @@
 #include "FileIO.h"
 #endif
 
-#include "Pokittodisplay.h"
+#include "PokittoDisplay.h"
 #include "UIWidget.h"
 
 using namespace Pokitto;
