@@ -258,10 +258,6 @@ void ListBox::show() {
   uint16_t i;
   char itemText[LB_ITEM_LENGTH];
   uint8_t itemY = this->y + viewY;
-  uint8_t borderX;
-  uint8_t borderY;
-  uint8_t borderWidth;
-  uint8_t borderHeight;
   int16_t lastItemToShow; // Must be signed in order to works with an empty list
   uint8_t oldColor;
 
