@@ -3797,7 +3797,7 @@
 
 1496563638 c:\poksim3\pokittosim\pokitto_sim\mbed_sim\gpio_object.h
 
-1500474001 c:\poksim3\pokittosim\pokitto_sim\pokittosimulator.h
+1501669262 c:\poksim3\pokittosim\pokitto_sim\pokittosimulator.h
 	<stdint.h>
 	<SDL2/SDL.h>
 	"Pokitto_settings.h"
@@ -4270,13 +4270,13 @@
 	"mbed.h"
 	<stdint.h>
 
-1500930792 c:\poksim3\pokittosim\pokitto_core\pokittofonts.h
+1501669262 c:\poksim3\pokittosim\pokitto_core\pokittofonts.h
 	"Pokitto_settings.h"
 
-1500474005 c:\poksim3\pokittosim\pokitto_core\pokittopalettes.h
+1501669262 c:\poksim3\pokittosim\pokitto_core\pokittopalettes.h
 	"Pokitto_settings.h"
 
-1500932690 c:\poksim3\pokittosim\pokitto_core\pokittodisplay.h
+1501669262 c:\poksim3\pokittosim\pokitto_core\pokittodisplay.h
 	<stdint.h>
 	"Pokitto_settings.h"
 	"PokittoGlobs.h"
@@ -4327,7 +4327,8 @@
 1484001701 c:\poksim3\pokittosim\pokitto_libs\synth\synth_osc.h
 	"Pokitto.h"
 
-1500474005 c:\poksim3\pokittosim\\pokitto.h
+1501669262 c:\poksim3\pokittosim\\pokitto.h
+	"Localization.h"
 	"Pokitto_settings.h"
 	"PokittoCore.h"
 	"mbed.h"
@@ -4372,7 +4373,7 @@
 	"PokittoSimulator.h"
 	<time.h>
 
-1500474001 source:c:\poksim3\pokittosim\pokitto_sim\pokittosimulator.cpp
+1501669262 source:c:\poksim3\pokittosim\pokitto_sim\pokittosimulator.cpp
 	"PokittoSimulator.h"
 	"Pokitto_settings.h"
 	"PokittoGlobs.h"
@@ -4766,7 +4767,7 @@
 1498592240 source:c:\poksim3\pokittosim\pokitto_core\pokittobuttons.cpp
 	"PokittoCore.h"
 
-1500932688 source:c:\poksim3\pokittosim\pokitto_core\pokittodisplay.cpp
+1501669262 source:c:\poksim3\pokittosim\pokitto_core\pokittodisplay.cpp
 	"PokittoDisplay.h"
 	"Pokitto_settings.h"
 	"GBcompatibility.h"
@@ -6353,13 +6354,13 @@
 
 1500474005 c:\poksim3\pokittosim\pokitto_libs\imageformat\imageformat.h
 
-1500474005 source:c:\poksim3\pokittosim\pokitto_libs\imageformat\bmpimage.cpp
+1501669262 source:c:\poksim3\pokittosim\pokitto_libs\imageformat\bmpimage.cpp
 	"defines_win_SIM.h"
 	"defines_linux_SIM.h"
 	"Pokitto.h"
 	"PokittoDisk.h"
 	"FileIO.h"
-	"Pokittodisplay.h"
+	"PokittoDisplay.h"
 	"ImageFormat.h"
 
 1500474005 c:\poksim3\pokittosim\pokitto_libs\imageformat\defines_win_sim.h
@@ -6370,13 +6371,12 @@
 	"windows.h"
 	<stdint.h>
 
-1500474005 c:\poksim3\pokittosim\pokitto_libs\imageformat\defines_linux_sim.h
+1501669262 c:\poksim3\pokittosim\pokitto_libs\imageformat\defines_linux_sim.h
 	<stdio.h>
 	<ctype.h>
 	<stdlib.h>
 	<string.h>
 	<stdint.h>
-	"helpers.h"
 	<ctype.h>
 
 1500475002 source:c:\poksim3\pokittosim\examples\rlebitmap.cpp
@@ -6387,4 +6387,44 @@
 
 1500933633 source:c:\poksim3\pokittosim\examples\hello.cpp
 	"Pokitto.h"
+
+1501669262 c:\poksim3\pokittosim\pokitto_core\localization.h
+
+1501669262 source:c:\poksim3\pokittosim\pokitto_libs\uiwidgets\listbox.cpp
+	"ListBox.h"
+	<new>
+
+1501669262 c:\poksim3\pokittosim\pokitto_libs\uiwidgets\listbox.h
+	"UIWidgetBasic.h"
+
+1501669262 c:\poksim3\pokittosim\pokitto_libs\uiwidgets\uiwidgetbasic.h
+	"Pokitto.h"
+
+1501669262 source:c:\poksim3\pokittosim\pokitto_libs\uiwidgets\uiwidget.cpp
+	"defines_win_SIM.h"
+	"defines_linux_SIM.h"
+	"Pokitto.h"
+	"PokittoDisk.h"
+	"FileIO.h"
+	"Pokittodisplay.h"
+	"UIWidget.h"
+	<new>
+
+1501669262 c:\poksim3\pokittosim\pokitto_libs\uiwidgets\uiwidget.h
+	"UIWidgetBasic.h"
+	"ListBox.h"
+
+1501669262 source:c:\poksim3\pokittosim\pokitto_libs\uiwidgets\uiwidgetbasic.cpp
+	"defines_win_SIM.h"
+	"defines_linux_SIM.h"
+	"Pokitto.h"
+	"PokittoDisk.h"
+	"FileIO.h"
+	"Pokittodisplay.h"
+	"UIWidget.h"
+
+1501669262 source:c:\poksim3\pokittosim\examples\uiwidgets.cpp
+	"Pokitto.h"
+	"UIWidget.h"
+	<new>
 
