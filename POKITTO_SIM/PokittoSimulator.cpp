@@ -167,6 +167,8 @@ void Simulator::initSDLGfx() {
 		return;
 	}
 
+	SDL_SetHint(SDL_HINT_RENDER_DRIVER, "opengl");
+
     #if USE_JOYSTICK > 0
         std::cout<<SDL_NumHaptics()<<std::endl<<SDL_NumJoysticks()<<std::endl;
         //Check for joysticks
