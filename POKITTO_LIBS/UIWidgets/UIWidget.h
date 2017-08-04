@@ -144,12 +144,14 @@ class ListBoxDlg : public DialogBase {
 
     /** Adds an item to the list.
      * @param text Item text.
+     * @return Count of items
      */
     uint16_t addItem(const char* text);
 
     /** Remoes an item from the list.
      * @param itemId The index of the item to be removed.
-     */
+     * @return Count of items
+    */
     uint16_t removeItem(uint8_t itemId);
 
     /** Gets the currently selected item index.

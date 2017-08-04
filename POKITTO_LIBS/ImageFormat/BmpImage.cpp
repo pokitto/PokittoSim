@@ -232,7 +232,7 @@ int openImageFileFromSD(char* filepath, uint16_t **palette_out, uint8_t **bitmap
                 }
 
                 /* Copy data */
-                for (int i=0; i<outindex;i++)
+                for (uint32_t i=0; i<outindex;i++)
                    (*bitmap_out)[i] = old_bitmap[i];
 
                 /* Free original bitmap */

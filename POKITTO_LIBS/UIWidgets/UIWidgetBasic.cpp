@@ -172,7 +172,7 @@ void WidgetBase::drawTitle() {
         int16_t numCharsInLine = titleLen;
 
         // Draw top border.
-        int16_t x1=m_x, x2=m_x+((numCharsInLine-1) * fontW);
+        int16_t x1 = m_x;
         Display::print(x1,m_y,'a');
         for (int16_t i = 0; i < numCharsInLine; i++)
             Display::print('b');
