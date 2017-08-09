@@ -1,13 +1,13 @@
 /**************************************************************************/
 /*!
-    @file     PokittoGlobs.h
-    @author   Jonne Valola
+    @file     MicroPythonMain.cpp
+    @author   Hannu Viitala
 
     @section LICENSE
 
     Software License Agreement (BSD License)
 
-    Copyright (c) 2016, Jonne Valola
+    Copyright (c) 2017, Jonne Valola
     All rights reserved.
 
     Redistribution and use in source and binary forms, with or without
@@ -34,58 +34,60 @@
 */
 /**************************************************************************/
 
-#ifndef POKITTO_GLOBS_H
-#define POKITTO_GLOBS_H
+#include "Pokitto.h"
+#include "UIWidget.h"
+#include <new>
 
-#include <stdint.h>
+#include <time.h>
+#include <sys/time.h>
 
-#ifdef POK_SIM
-    #include "SimLCD.h"
-    #include "SimSound.h"
-    #include "PokittoSimulator.h"
-#else
-    #include "mbed.h"
-    #include "HWLCD.h"
-    #include "HWSound.h"
-#endif // POK_SIM
+#include "PythonBindings_SIM.h"
 
-#define POK_TRACE(str) printf("%s (%d): %s", __FILE__, __LINE__,str)
+Pokitto::Core game;
 
-extern int random(int);
-extern int random(int,int);
 
-#define HIGH    1
-#define LOW     0
+/** MAIN */
+int main () {
 
-#define swapWT(type, a, b)    \
-{               \
-    type _t_;   \
-    _t_ = a;    \
-    a = b;      \
-    b = _t_;    \
+    game.begin();
+
+    // Set the color map
+    game.display.palette[0] = 0; // black (backgound)
+    game.display.palette[1] = 6438;
+    game.display.palette[2] = 18917;
+    game.display.palette[3] = 10825;
+    game.display.palette[4] = 47398;
+    game.display.palette[5] = 688;
+    game.display.palette[6] = 41764;
+    game.display.palette[7] = 17475;
+    game.display.palette[8] = 58225;
+    game.display.palette[9] = 13598;
+    game.display.palette[10] = 60486;
+    game.display.palette[11] = 40179;
+    game.display.palette[12] = 42596;
+    game.display.palette[13] = 46845;
+    game.display.palette[14] = 63245;
+    game.display.palette[15] = 65535;
+    game.display.persistence = 0;
+
+    #if PROJ_PYTHON_REPL==1
+
+    PythonMain(0, nullptr);
+
+    #else // Run python script
+
+    // Load the python script and start running it.
+    #pragma GCC diagnostic push
+    #pragma GCC diagnostic ignored "-Wwrite-strings" // The strings below will not be changed in the function called
+    char* argv[] = {
+        "pokitto_sim.exe",
+        "..\\..\\..\\EXAMPLES\\gamemain.py"
+    };
+    #pragma GCC diagnostic pop
+
+    PythonMain(2, argv);
+
+    #endif
+
+    return 1;
 }
-
-#define SAMPLE_RATE POK_AUD_FREQ //was 16000, was 57000
-#define NUMFRAMES 570 //1 ms before refresh was 357
-
-
-// TODO: move these into some suitable place
-extern void fakeISR();
-extern void audio_IRQ();
-extern void update_SDAudioStream();
-extern uint16_t soundbyte;
-
-#if POK_STREAMING_MUSIC
-    #define SPEAKER 3
-   // #define BUFFER_SIZE 512 //5120 // was 256
-    extern unsigned char buffers[][BUFFER_SIZE];
-    extern volatile int currentBuffer, oldBuffer;
-    extern volatile int bufindex, vol;
-    extern volatile unsigned char * currentPtr;
-    extern volatile unsigned char * endPtr;
-    extern int8_t streamvol;
-    extern uint32_t streamcounter;
-    extern uint8_t streamstep;
-#endif
-
-#endif // POKITTO_GLOBS_H

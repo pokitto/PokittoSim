@@ -1,13 +1,13 @@
 /**************************************************************************/
 /*!
-    @file     PokittoGlobs.h
-    @author   Jonne Valola
+    @file     PythonBindings_SIM.cpp
+    @author   Hannu Viitala
 
     @section LICENSE
 
     Software License Agreement (BSD License)
 
-    Copyright (c) 2016, Jonne Valola
+    Copyright (c) 2017, Jonne Valola
     All rights reserved.
 
     Redistribution and use in source and binary forms, with or without
@@ -34,58 +34,45 @@
 */
 /**************************************************************************/
 
-#ifndef POKITTO_GLOBS_H
-#define POKITTO_GLOBS_H
+#include "PokittoCore.h"
+#include "PokittoDisplay.h"
+#include "PythonBindings_SIM.h"
 
-#include <stdint.h>
+using namespace Pokitto;
 
-#ifdef POK_SIM
-    #include "SimLCD.h"
-    #include "SimSound.h"
-    #include "PokittoSimulator.h"
-#else
-    #include "mbed.h"
-    #include "HWLCD.h"
-    #include "HWSound.h"
-#endif // POK_SIM
+void Pok_Display_write(const uint8_t *buffer, uint8_t size) {
 
-#define POK_TRACE(str) printf("%s (%d): %s", __FILE__, __LINE__,str)
-
-extern int random(int);
-extern int random(int,int);
-
-#define HIGH    1
-#define LOW     0
-
-#define swapWT(type, a, b)    \
-{               \
-    type _t_;   \
-    _t_ = a;    \
-    a = b;      \
-    b = _t_;    \
+    Display::write(buffer, size);
 }
 
-#define SAMPLE_RATE POK_AUD_FREQ //was 16000, was 57000
-#define NUMFRAMES 570 //1 ms before refresh was 357
+void Pok_Display_blitFrameBuffer(int16_t x, int16_t y, int16_t w, int16_t h, int16_t invisiblecol_, const uint8_t *buffer) {
+    if( invisiblecol_ != -1)
+        Display::invisiblecolor = (uint8_t)invisiblecol_;
+    Display::drawBitmapData(x, y, w, h, buffer );
+}
 
+bool Pok_Core_update(bool useDirectMode) {
 
-// TODO: move these into some suitable place
-extern void fakeISR();
-extern void audio_IRQ();
-extern void update_SDAudioStream();
-extern uint16_t soundbyte;
+    bool ret = Core::update(useDirectMode);
+    return ret;
+}
 
-#if POK_STREAMING_MUSIC
-    #define SPEAKER 3
-   // #define BUFFER_SIZE 512 //5120 // was 256
-    extern unsigned char buffers[][BUFFER_SIZE];
-    extern volatile int currentBuffer, oldBuffer;
-    extern volatile int bufindex, vol;
-    extern volatile unsigned char * currentPtr;
-    extern volatile unsigned char * endPtr;
-    extern int8_t streamvol;
-    extern uint32_t streamcounter;
-    extern uint8_t streamstep;
-#endif
+bool Pok_Core_isRunning() {
 
-#endif // POKITTO_GLOBS_H
+    return Core::isRunning();
+}
+
+bool Pok_Core_buttons_repeat(uint8_t button, uint8_t period) {
+
+    return Core::buttons.repeat(button, period);
+}
+
+bool Pok_Core_buttons_held(uint8_t button, uint8_t period) {
+
+    return Core::buttons.held(button, period);
+}
+
+bool Pok_Core_buttons_released(uint8_t button) {
+
+    return Core::buttons.released(button);
+}

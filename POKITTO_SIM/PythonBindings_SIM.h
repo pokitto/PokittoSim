@@ -1,13 +1,13 @@
 /**************************************************************************/
 /*!
-    @file     PokittoGlobs.h
-    @author   Jonne Valola
+    @file     PythonBindings_SIM.h
+    @author   Hannu Viitala
 
     @section LICENSE
 
     Software License Agreement (BSD License)
 
-    Copyright (c) 2016, Jonne Valola
+    Copyright (c) 2017, Jonne Valola
     All rights reserved.
 
     Redistribution and use in source and binary forms, with or without
@@ -34,58 +34,34 @@
 */
 /**************************************************************************/
 
-#ifndef POKITTO_GLOBS_H
-#define POKITTO_GLOBS_H
+#ifndef PYTHON_BINDINGS_H
+#define PYTHON_BINDINGS_H
 
-#include <stdint.h>
-
-#ifdef POK_SIM
-    #include "SimLCD.h"
-    #include "SimSound.h"
-    #include "PokittoSimulator.h"
+#ifdef __cplusplus
+#define EXTERNC extern "C"
 #else
-    #include "mbed.h"
-    #include "HWLCD.h"
-    #include "HWSound.h"
-#endif // POK_SIM
-
-#define POK_TRACE(str) printf("%s (%d): %s", __FILE__, __LINE__,str)
-
-extern int random(int);
-extern int random(int,int);
-
-#define HIGH    1
-#define LOW     0
-
-#define swapWT(type, a, b)    \
-{               \
-    type _t_;   \
-    _t_ = a;    \
-    a = b;      \
-    b = _t_;    \
-}
-
-#define SAMPLE_RATE POK_AUD_FREQ //was 16000, was 57000
-#define NUMFRAMES 570 //1 ms before refresh was 357
-
-
-// TODO: move these into some suitable place
-extern void fakeISR();
-extern void audio_IRQ();
-extern void update_SDAudioStream();
-extern uint16_t soundbyte;
-
-#if POK_STREAMING_MUSIC
-    #define SPEAKER 3
-   // #define BUFFER_SIZE 512 //5120 // was 256
-    extern unsigned char buffers[][BUFFER_SIZE];
-    extern volatile int currentBuffer, oldBuffer;
-    extern volatile int bufindex, vol;
-    extern volatile unsigned char * currentPtr;
-    extern volatile unsigned char * endPtr;
-    extern int8_t streamvol;
-    extern uint32_t streamcounter;
-    extern uint8_t streamstep;
+#define EXTERNC
 #endif
 
-#endif // POKITTO_GLOBS_H
+#define BTN_UP      1
+#define BTN_RIGHT   2
+#define BTN_DOWN    3
+#define BTN_LEFT    0
+
+// Main function in uPy library
+
+EXTERNC int PythonMain(int argc, char **argv);
+
+// Pokitto simulator API for uPython.
+
+EXTERNC void Pok_Display_blitFrameBuffer(int16_t x, int16_t y, int16_t w, int16_t h, int16_t invisiblecol_, const uint8_t *buffer);
+EXTERNC void Pok_Display_write(const uint8_t *buffer, uint8_t size);
+EXTERNC bool Pok_Core_update(bool useDirectMode);
+EXTERNC bool Pok_Core_isRunning();
+EXTERNC bool Pok_Core_buttons_repeat(uint8_t button, uint8_t period);
+EXTERNC bool Pok_Core_buttons_held(uint8_t button, uint8_t period);
+EXTERNC bool Pok_Core_buttons_released(uint8_t button);
+
+
+#endif // PYTHON_BINDINGS_H
+
