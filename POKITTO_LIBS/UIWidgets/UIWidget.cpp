@@ -313,11 +313,11 @@ void ListBoxDlg::init(char* titleText, int16_t x, int16_t y, int16_t w, int16_t 
 }
 
 uint16_t ListBoxDlg::addItem(const char* text) {
-    m_listbox->addItem(text);
+    return(m_listbox->addItem(text));
 }
 
 uint16_t ListBoxDlg::removeItem(uint8_t itemId) {
-    m_listbox->removeItem(itemId);
+    return(m_listbox->removeItem(itemId));
 }
 
 void ListBoxDlg::update() {
