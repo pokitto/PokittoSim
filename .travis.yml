@@ -7,6 +7,11 @@ before_install:
   - sudo apt-get update -qq
   - sudo apt-get install -y codeblocks
 
+before_script:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3 # give xvfb some time to start
+
 script:
   - codeblocks --target=HelloWorld_lin --rebuild ./POKITTO_SIM/Pokitto_sim.cbp
 
