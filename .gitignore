@@ -6,6 +6,8 @@
 *.d
 *.mpg
 *.map
+*.layout
+*.save
 
 
 
