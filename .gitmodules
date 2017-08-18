@@ -1,0 +1,3 @@
+[submodule "TOOLS/bmp2pok"]
+	path = TOOLS/bmp2pok
+	url = https://github.com/pokitto/bmp2pok.git
