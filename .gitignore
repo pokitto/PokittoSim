@@ -8,6 +8,8 @@
 *.map
 *.layout
 *.save
+*.depend
+
 
 
 
