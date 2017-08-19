@@ -167,7 +167,8 @@ void Simulator::initSDLGfx() {
 		return;
 	}
 
-	SDL_SetHint(SDL_HINT_RENDER_DRIVER, "opengl");
+	// Removed because, for some reason, direct bitmap did not work with this (target:RLEBitmapDemo_win).
+	//SDL_SetHint(SDL_HINT_RENDER_DRIVER, "opengl");
 
     #if USE_JOYSTICK > 0
         std::cout<<SDL_NumHaptics()<<std::endl<<SDL_NumJoysticks()<<std::endl;
