@@ -23,10 +23,13 @@ int main () {
     // Add test cases
     testFrameWorkDlg->addItem("INFO DLG");
     testFrameWorkDlg->addItem("CANCEL DLG");
+    testFrameWorkDlg->addItem("TXTEDIT DLG");
 
     // The dialog under testing.
     Pokitto::DialogBase* testDlg = nullptr;
 
+    char* keyboardtext = new char[6];
+    strcpy(keyboardtext, "ABCDEF");
     while (game.isRunning()) {
         if (game.update()) {
 
@@ -41,6 +44,11 @@ int main () {
 
                     case 1: // Cancel dialog
                         testDlg = new(std::nothrow) Pokitto::CancelDlg("SURE?");
+                       break;
+
+                    case 2: // Text edit dialog
+                        testDlg = new(std::nothrow) Pokitto::TextInputDlg("POKITTO");
+                        // Note: the text entered will be available in TextInputDlg::GetVkbText();
                        break;
                 }
             }
@@ -63,6 +71,20 @@ int main () {
             // Draw test dialog
             if (testDlg)
                 testDlg->draw();
+
+//            keyboardtext[5] = '\0';
+//            Pokitto::WidgetBase::keyboard(keyboardtext,6);
+//            //game.keyboard(keyboardtext,6);
+
+            //draw the keyboard
+//			int8_t startChar = 32, numChars = 64;
+//			int8_t i = 0;
+//			for (; i <= numChars; i++) {
+//                if(i%10 == 0)
+//                    game.display.println( (char)(startChar + i));
+//                else
+//                    game.display.print( (char)(startChar + i));
+//			}
         }
     }
     delete(testDlg);
