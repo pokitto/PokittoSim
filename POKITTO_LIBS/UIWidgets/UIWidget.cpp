@@ -281,6 +281,71 @@ void CancelDlg::update() {
     }
 }
 
+// TextInputDlg class.
+
+TextInputDlg::TextInputDlg(char* ptext)
+: DialogBase(WidgetBase::hasBorders) {
+
+    init(ptext);
+}
+
+TextInputDlg::~TextInputDlg() {}
+
+void TextInputDlg::init(char* ptext) {
+
+    // Set rect.
+    const int32_t dlgW = Display::getWidth()-1;
+    const int32_t dlgH = Display::getHeight();
+    setRect((Display::getWidth()- dlgW) / 2, (Display::getHeight() - dlgH) / 2, dlgW, dlgH);
+
+    // Initialize virtual keyboard.
+    keyboardInit(ptext);
+}
+
+void TextInputDlg::draw() {
+
+    // Clear
+    uint16_t currColor = Display::color;
+    Display::color = LB_BACKGROUND_COLOR;
+    Display::fillRectangle(m_x, m_y, m_w, m_h);
+    Display::color = currColor;
+
+    // Update and draw the virtual keyboard.
+    keyboardUpdate();
+    keyboardDraw();
+    m_done = m_vkbEnd;
+
+    // Clear the right edge (because e.g. display width 110 is not dividable by 8)
+    currColor = Display::color;
+    Display::color = LB_BACKGROUND_COLOR;
+    Display::fillRectangle(Display::getWidth()-7, m_y, 7, m_h);
+    Display::color = currColor;
+
+    // Draw borders
+    if (m_titleText) {
+        drawBorders(m_x, m_y + (2 * fontH), m_w, m_h - (2 * fontH));
+     }
+    else {
+
+        // Draw window borders
+    uint16_t currColor = Display::color;
+    Display::color = LB_BORDER_COLOR;
+        drawBorders(m_x, m_y, m_w, Display::getHeight()-16);
+    // Restore original color.
+    Display::color = currColor;
+
+    currColor = Display::color;
+    Display::color = 2;
+        // Draw text box borders
+        drawBorders(m_x, m_y + Display::getHeight()-24, m_w, 24);
+    Display::color = currColor;
+
+    }
+
+    // Draw title
+    drawTitle();
+}
+
 // ListBoxDlg class
 
 ListBoxDlg::ListBoxDlg(char* titleText, int16_t x, int16_t y, int16_t w, int16_t h, uint16_t maxItems )

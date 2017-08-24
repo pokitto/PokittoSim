@@ -125,6 +125,31 @@ private:
     char* m_cancelText; // Owned
 };
 
+/** TextInputDlg class.
+ *
+ */
+class TextInputDlg : public DialogBase {
+
+public:
+    /** Constructor.
+     * @param ptext Virtual keyboard text.
+     */
+    TextInputDlg(char* ptext);
+
+    /** Destructor.
+    */
+    ~TextInputDlg();
+
+public:  // From base class
+    void draw();
+
+private:
+    void init(char* ptext);
+
+private:
+    bool m_isOkSelected;
+};
+
 class ListBoxDlg : public DialogBase {
 
  public:

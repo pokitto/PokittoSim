@@ -62,7 +62,6 @@ int random(int minVal, int maxVal)
 
 using namespace Pokitto;
 
-
 bool Core::run_state; // this definition needed
 
 /** Components */

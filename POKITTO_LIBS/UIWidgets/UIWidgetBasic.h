@@ -100,10 +100,31 @@ public:
     /** Sets the title for the window.
      * @param ptitle The title string
      */
-    void setTitle(char* titleText) {
-        m_titleText = (char*)malloc(strlen(titleText) + 1);
-        strcpy(m_titleText, titleText);
-    }
+    void setTitle(char* titleText);
+
+    /** Initiakize virtual keyboard.
+     * @ptext The initial text string. It defines the width of the output text string.
+     */
+    void keyboardInit(char* ptext);
+
+    /** Updates the virtual keyboard.
+     */
+    void keyboardUpdate();
+
+    /** Draws the virtual keyboard.
+     */
+    void keyboardDraw();
+
+    /** True, if the vkb has got end-command.
+     * @return True, if the dialo     * @param ptitle The title string
+g has been closed.
+     */
+    bool isVkbEnd() {return m_vkbEnd;}
+
+    /** Gets the current vkb text.
+     * @return The current vkb text.
+     */
+    char* GetVkbText() {return m_vkbText;}
 
     /** Draws the whole window.
      */
@@ -123,6 +144,21 @@ protected:
     int16_t m_x, m_y, m_w, m_h;
     uint16_t m_flags;
     char* m_titleText; // Owned
+
+    /** Keyboard */
+
+    char* m_vkbText;
+    uint8_t m_vkbTextLenWithNull;
+	//active character in the typing area
+	int8_t m_vkbActiveChar;
+	//selected char on the keyboard
+	int8_t m_vkbActiveX;
+	int8_t m_vkbActiveY;
+	//position of the keyboard on the screen
+	int8_t m_vkbCurrentX;
+	int8_t m_vkbCurrentY;
+	bool m_vkbEnd;
+
 };
 
 /** DialogBase class.
@@ -138,7 +174,14 @@ public:
     */
     virtual ~DialogBase() {}
 
+    /** True, if the dialog has been closed.
+     * @return True, if the dialog has been closed.
+     */
     bool isDone() {return m_done;}
+
+    /** Sets the dialog state as don or not done.
+     * @param isDone Dialog state to set
+     */
     void setDone(bool isDone) {m_done = isDone;}
 
 protected:
