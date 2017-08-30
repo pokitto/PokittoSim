@@ -197,6 +197,8 @@ void Display::fillLCD(uint16_t c) {
 }
 
 void Display::directPixel(int16_t x, int16_t y, uint16_t color) {
+    if (invisiblecolor>=0 && invisiblecolor<PALETTE_SIZE &&
+        color==palette[invisiblecolor]) return; // do not draw transparent pixels
     lcdPixel(x,y,color);
 }
 
