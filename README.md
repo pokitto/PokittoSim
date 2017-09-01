@@ -5,11 +5,12 @@ lisense:  BSD License
 
 ## Instructions
 
-1. Install Code::Blocks (www.codeblocks.org) - Windows users please install the
-   mingw version
-2. Open Code::Blocks
-3. Open project file Pok_sim.cbp from folder POKITTO_SIM
-4. Compile and run, play around and enjoy
+    Install Code::Blocks (www.codeblocks.org) - Windows users please install the
+    mingw version
+    Open Code::Blocks
+    Open project file Pok_sim.cbp from folder POKITTO_SIM
+    Select target in Menu: Build --> Select Target. You need to select *_win if you are running on windows and *_lin for linux
+    Compile and run, play around and enjoy
 
 
 If you prefer the commandline, you can also build like this:
