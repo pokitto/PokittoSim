@@ -88,6 +88,7 @@ int16_t Display::cursorX,Display::cursorY;
 uint16_t Display::m_w,Display::m_h;
 uint8_t Display::fontWidth, Display::fontHeight;
 bool Display::textWrap;
+bool Display::fixedWidthFont;
 
 uint8_t Display::persistence = 0;
 uint16_t Display::color = 1;
@@ -100,7 +101,6 @@ uint16_t* Display::paletteptr;
 uint16_t Display::palette[PALETTE_SIZE];
 const unsigned char* Display::font;
 int8_t Display::charSpacingAdjust = 1;
-bool Display::fixedWidthFont = false;
 
 /** drawing canvas **/
 //uint8_t* Display::canvas; // points to the active buffer. if null, draw direct to screen
@@ -373,6 +373,29 @@ void Display::clear() {
 
     setCursor(0,0);
 
+}
+
+void Display::scroll(int16_t pixelrows) {
+    uint16_t index = 0, index2,oc;
+    if (pixelrows==0) return;
+    if (pixelrows >= height) pixelrows=height-1;
+    if (bpp == 4) index2 = pixelrows*width/2;
+    else if (bpp == 2) index2 = pixelrows*width/4;
+    else return;
+    oc = color;
+    color = bgcolor;
+    if (pixelrows>0) {
+    for (uint16_t y=0;y<height-pixelrows;y++) {
+            for (uint16_t x=0;x<(width/8)*bpp;x++) screenbuffer[index++]=screenbuffer[index2++];
+    }
+    fillRect(0,cursorY,width,height);
+    } else {
+    for (uint16_t y=pixelrows;y<height;y++) {
+            for (uint16_t x=0;x<(width*bpp)/8;x++) screenbuffer[index2++]=screenbuffer[index2];
+    }
+    fillRect(0,0,width,pixelrows);
+    }
+    color=oc;
 }
 
 void Display::fillScreen(uint16_t c) {
@@ -1705,15 +1728,18 @@ void Display::write(uint8_t c) {
 			}
 			else
 				charstep=print_char(cursorX,cursorY,c);
-			if (!fixedWidthFont && c==' ') charstep=(charstep>>1)+1; // Make space narrower for proportional font.
-
+			if (c==' ') charstep=(charstep>>1)+1;
 			cursorX += charstep;
 	}
 }
 
 void Display::inc_txtline() {
-	if (cursorY >= (m_h - font[1]))
+	if (cursorY > height - 2*font[1]) //= (height - (font[1]+1)))
+		#if SCROLL_TEXT > 0
+		scroll(font[1]+1);
+		#else
 		cursorY = 0;
+		#endif
 	else
 		cursorY += font[1]+1;
 }

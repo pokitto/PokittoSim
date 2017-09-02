@@ -188,6 +188,8 @@ public:
     static void begin();
     /** Clear display buffer */
     static void clear();
+    /** Scroll by x lines */
+    static void scroll(int16_t);
     /** Fill display buffer */
     static void fillScreen(uint16_t);
     /** Send display buffer to display hardware */
@@ -361,7 +363,7 @@ public:
     static int16_t cursorX,cursorY;
     static uint8_t fontSize;
     static int8_t charSpacingAdjust;
-    static bool fixedWidthFont;
+	static bool fixedWidthFont;
 
     static void inc_txtline();
     static void printNumber(unsigned long, uint8_t);

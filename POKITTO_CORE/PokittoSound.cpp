@@ -226,14 +226,14 @@ void Sound::begin() {
 soundInit();
 #if (NUM_CHANNELS > 0)
 #if POK_ENABLE_SOUND > 0
-#if POK_GBSOUND
+#if POK_GBSOUND > 0
 	prescaler = 1;
 	for(byte i=0; i<NUM_CHANNELS; i++){
 		chanVolumes[i] = VOLUME_CHANNEL_MAX;
 		changeInstrumentSet(defaultInstruments, i); //load default instruments. #0:square wave, #1: noise
 		command(CMD_INSTRUMENT, 0, 0, i); //set the default instrument to square wave
 	}
-#endif
+#endif // POK_GBSOUND
 #endif //POK_ENABLE_SOUND
 #endif
 }
@@ -722,21 +722,27 @@ void Sound::setPatternLooping(bool loop, uint8_t channel) {
 }
 
 void Sound::playOK(){
+    #if POK_GBSOUND
 #if(NUM_CHANNELS > 0)
 	playPattern(playOKPattern,0);
 #endif
+#endif // POK_GBSOUND
 }
 
 void Sound::playCancel(){
+#if POK_GBSOUND
 #if(NUM_CHANNELS > 0)
 	playPattern(playCancelPattern,0);
+#endif
 #endif
 }
 
 void Sound::playTick(){
+#if POK_GBSOUND
 #if(NUM_CHANNELS > 0)
 	playPattern(playTickP,0);
 #endif
+#endif // POK_GBSOUND
 }
 
 void Sound::setVolume(int8_t volume) {
