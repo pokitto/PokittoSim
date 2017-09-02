@@ -96,7 +96,6 @@ uint16_t Display::bgcolor = 0;
 uint16_t Display::invisiblecolor = 17;
 uint16_t Display::directcolor=0xFFFF;
 uint16_t Display::directbgcolor=0x0;
-uint16_t Display::directinvisiblecolor=0xF0FF;
 
 uint16_t* Display::paletteptr;
 uint16_t Display::palette[PALETTE_SIZE];
@@ -159,7 +158,6 @@ Display::Display() {
     m_h = POK_LCD_H;
     setFont(DEFAULT_FONT);
     invisiblecolor=17;
-    directinvisiblecolor=0xF0FF;
     bgcolor=0;
     if (POK_COLORDEPTH) m_colordepth = POK_COLORDEPTH;
     else m_colordepth = 4;
@@ -199,7 +197,6 @@ void Display::fillLCD(uint16_t c) {
 }
 
 void Display::directPixel(int16_t x, int16_t y, uint16_t color) {
-    if (color==directinvisiblecolor) return; // do not draw transparent pixels
     lcdPixel(x,y,color);
 }
 
