@@ -170,6 +170,8 @@ public:
     static uint16_t directcolor;
     /** Direct unbuffered background color */
     static uint16_t directbgcolor;
+    /** Direct invisible color */
+    static uint16_t directinvisiblecolor;
     /** set color with a command */
     static void setColor(uint8_t);
     /** set color and bgcolor with a command */
