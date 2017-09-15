@@ -163,6 +163,9 @@
 /** SCREENMODE - USE THIS SELECTION FOR YOUR PROJECT **/
 
 #ifndef PROJ_SCREENMODE
+	#ifdef POK_COLORDEPTH
+		#undef POK_COLORDEPTH
+	#endif
     #ifdef PROJ_HIRES
         #if PROJ_HIRES > 0
             #define POK_SCREENMODE MODE_HI_4COLOR
