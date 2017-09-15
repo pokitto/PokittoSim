@@ -456,7 +456,6 @@ char* Core::filemenu(char *ext) {
 			display.cursorX = 0;
 			display.cursorY = currentY;
 			display.textWrap = false;
-			uint16_t fc,bc;
 			fc = display.color;
             bc = display.bgcolor;
             //getFirstFile(ext);
