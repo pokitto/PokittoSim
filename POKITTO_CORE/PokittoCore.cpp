@@ -389,6 +389,7 @@ display.cursorY = oy;
 }
 
 char* Core::filemenu(char *ext) {
+    #if POK_ENABLE_SD > 0
     display.persistence = false;
     uint16_t oldpal0=display.palette[0];
     uint16_t oldpal1=display.palette[1];
@@ -456,8 +457,6 @@ char* Core::filemenu(char *ext) {
 			display.cursorX = 0;
 			display.cursorY = currentY;
 			display.textWrap = false;
-			fc = display.color;
-            bc = display.bgcolor;
             //getFirstFile(ext);
 			for (int i = 0; i<20; i++) {
 				display.invisiblecolor=255;
@@ -484,6 +483,10 @@ char* Core::filemenu(char *ext) {
 			} // draw menu loop
 		} // update
 	}
+	#else
+	return 0; //SD is not enabled
+	#endif // POK_ENABLE_SD
+
 }
 
 char* Core::filemenu() {

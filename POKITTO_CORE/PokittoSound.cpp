@@ -165,7 +165,7 @@ const uint8_t _halfPeriods[NUM_PITCH] = {246,232,219,207,195,184,174,164,155,146
 #endif
 
 void Pokitto::audio_IRQ() {
-    #if POK_STREAMING_MUSIC > 0
+    #if POK_STREAMING_MUSIC
         #if POK_STREAMFREQ_HALVE > 0
         streamstep = 1-streamstep;
         #else
@@ -834,7 +834,7 @@ void Sound::pauseMusicStream() {
 
 int Sound::playMusicStream(char* filename, uint8_t options)
 {
-    #if POK_STREAMING_MUSIC
+    #if POK_STREAMING_MUSIC > 0
         uint8_t result;
         result = pokInitSD();
         if (!isThisFileOpen(filename)) {

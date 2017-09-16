@@ -7,6 +7,7 @@ Pokitto::Core game;
 int main () {
 game.begin();
 game.sound.playTone(1,440,1,0);
+game.sound.playMusicStream("feelgood.snd");
 // Next 4 lines are just to show the C64 font, you can comment them out by adding // in the start of the line
 game.display.setFont(fontC64);
 game.display.palette[0] = game.display.RGBto565(0x42, 0x42, 0xe7); //default background is palette[0]

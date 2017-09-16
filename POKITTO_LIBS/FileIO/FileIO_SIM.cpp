@@ -119,7 +119,7 @@ char* getCurrentFileName (){
 }
 
 
-char* getNextFile (const char* ext){
+char* getNextFile (char* ext){
 
     if (!diropened) pokInitSD();
 	int a=1;
@@ -138,7 +138,7 @@ char* getNextFile() {
     return getNextFile("");
 }
 
-char* getFirstFile(const char* ext) {
+char* getFirstFile(char* ext) {
     if (diropened) {
         tinydir_close(&tinydir);
         diropened=false;
