@@ -184,7 +184,7 @@ void Core::initDisplay() {
 void Core::showLogo() {
     uint32_t now;
     uint8_t state=0; //jump directly to logo, bypass teeth
-    uint16_t counter=0, i=0;
+    uint16_t i=0;
     uint16_t sc;
     while (state < 255/6) {
     now=getTime();
@@ -456,7 +456,6 @@ char* Core::filemenu(char *ext) {
 			display.cursorX = 0;
 			display.cursorY = currentY;
 			display.textWrap = false;
-			uint16_t fc,bc;
 			fc = display.color;
             bc = display.bgcolor;
             //getFirstFile(ext);
