@@ -344,7 +344,7 @@ int directDrawImageFileFromSD(uint16_t ix, uint16_t iy, uint16_t iw, uint16_t ih
         return(-1);
     }
     if (bmi.bmiHeader.biBitCount != 24 ) {
-        POK_TRACE("ERROR!\nThe image color depth should be the same as screen color depth (%d)!\n");
+        POK_TRACE("ERROR!\nThe image color depth should be the 24 bit!\n");
 		fileClose();
         return(-1);
     }

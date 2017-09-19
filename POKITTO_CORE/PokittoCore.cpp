@@ -82,7 +82,8 @@ const char* Core::popupText;
 uint8_t Core::popupTimeLeft;
 uint16_t Core::frameDurationMicros;
 uint32_t Core::frameStartMicros, Core::frameEndMicros;
-
+uint32_t Core::fps_refreshtime;
+uint32_t Core::fps_frameCount;
 
 Core::Core() {
 
@@ -324,6 +325,19 @@ bool Core::update(bool useDirectMode) {
 		backlight.update();
 		buttons.update();
 		battery.update();
+
+        // FPS counter
+		#if PROJ_USE_FPS_COUNTER
+        const uint32_t FPS_FRAMEDURATION_MS = 1000*3;
+        uint32_t now = getTime();
+        fps_frameCount++;
+        if (now > fps_refreshtime) {
+            uint32_t fps = (1000*fps_frameCount) / (now - fps_refreshtime + FPS_FRAMEDURATION_MS);
+            fps_refreshtime = now + FPS_FRAMEDURATION_MS;
+            fps_frameCount = 0;
+            printf("FPS:%d ", fps);
+        }
+        #endif
 
 		return true;
 

@@ -252,9 +252,16 @@ if (!persistence) clear();
 }
 
 void Display::directBitmap(int16_t x, int16_t y, const uint8_t *bitmap, uint8_t depth, uint8_t scale) {
+
     uint8_t w = *bitmap;
 	uint8_t h = *(bitmap + 1);
 	bitmap = bitmap + 2; //add an offset to the pointer to start after the width and height
+
+	directDrawBuffer(x, y, w, h, bitmap, depth, scale);
+}
+
+void Display::directDrawBuffer(int16_t x, int16_t y, uint8_t w, uint8_t h, const uint8_t *buffer, uint8_t depth, uint8_t scale) {
+
     int16_t i, j;
     int8_t byteNum, bitNum, byteWidth = (w + 7) >> 3;
 
@@ -263,7 +270,7 @@ void Display::directBitmap(int16_t x, int16_t y, const uint8_t *bitmap, uint8_t 
             byteNum = i / 8;
             bitNum = i % 8;
             for (j = 0; j < h; j++) {
-                if (*(bitmap + j * byteWidth + byteNum) & (0x80 >> bitNum)) { //0x80 = B10000000
+                if (*(buffer + j * byteWidth + byteNum) & (0x80 >> bitNum)) { //0x80 = B10000000
                     directPixel(x + i, y + j,directcolor);
                 }
             }
@@ -271,25 +278,24 @@ void Display::directBitmap(int16_t x, int16_t y, const uint8_t *bitmap, uint8_t 
     } else if (depth == 4) {
         for (j = 0; j < h; j+=1) {
             for (i = 0; i < w; i+=2) {
-                uint16_t col = paletteptr[*bitmap>>4]; //higher nibble
+                uint16_t col = paletteptr[*buffer>>4]; //higher nibble
                 if (scale==2) {
                         directPixel(x + (i<<1), y + (j<<1),col);
                         directPixel(x + (i<<1) + 1, y + (j<<1),col);
                         directPixel(x + (i<<1) + 1, y + (j<<1) + 1,col);
                         directPixel(x + (i<<1), y + (j<<1) + 1,col);
                 } else directPixel(x + i, y + j,col);
-                col = paletteptr[*bitmap&0xF]; // lower nibble
+                col = paletteptr[*buffer&0xF]; // lower nibble
                 if (scale==2) {
                         directPixel(x + (i<<1) + 2, y + (j<<1),col);
                         directPixel(x + (i<<1) + 1 + 2, y + (j<<1),col);
                         directPixel(x + (i<<1) + 1 + 2, y + (j<<1) + 1,col);
                         directPixel(x + (i<<1) + 2 , y + (j<<1) + 1,col);
                 } else directPixel(x + i + 1, y + j,col);
-                bitmap++;
+                buffer++;
             }
         }
     }
-
 }
 
 int Display::directChar(int16_t x, int16_t y, uint16_t index){
@@ -1210,12 +1216,15 @@ void Display::drawBitmap(int16_t x, int16_t y, const uint8_t* bitmap, uint8_t fr
     }
 }
 
-
 void Display::drawBitmap(int16_t x, int16_t y, const uint8_t* bitmap)
 {
     int16_t w = *bitmap;
 	int16_t h = *(bitmap + 1);
     bitmap = bitmap + 2; //add an offset to the pointer to start after the width and height
+    drawBitmapData(x, y, w, h, bitmap);
+}
+
+void Display::drawBitmapData(int16_t x, int16_t y, int16_t w, int16_t h, const uint8_t* bitmap) {
     /** visibility check */
     if (y<-h || y>height) return; //invisible
     if (x<-w || x>width) return;  //invisible
