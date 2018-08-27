@@ -1,4 +1,4 @@
-# Pokitto Simulator early community version
+# [DEPRECATED!] Pokitto Simulator early community version
 
 author:   Jonne Valola <jonne@pokitto.com>
 lisense:  BSD License
